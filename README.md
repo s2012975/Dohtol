@@ -26,7 +26,7 @@
 
 
 ### 機能一覧
-<https://docs.google.com/spreadsheets/d/1CTQ42YqyVaZW8bxWI6GKTVa2HokzTVddC6AfLv3Y3fA/edit#gid=0>
+<https://docs.google.com/spreadsheets/d/1CTQ42YqyVaZW8bxWI6GKTVa2HokzTVddC6AfLv3Y3fA/edit?usp=sharing>
 
 ## 開発環境
 - OS：Linux(CentOS)
