@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
-  
+
+  root 'customers/homes#top'
+
+  namespace :customers do
+    get 'homes/about'
+  end
+
   devise_for :admins, controllers: {
     sessions:      'admins/sessions',
     passwords:     'admins/passwords',
@@ -11,5 +17,5 @@ Rails.application.routes.draw do
     passwords:     'customers/passwords',
     registrations: 'customers/registrations'
   }
-  
+
 end
