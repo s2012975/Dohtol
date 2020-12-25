@@ -62,3 +62,8 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'devise'
+
+gem "refile", require: "refile/rails", github: 'manfe/refile'
+# ファイルをアップロードできるようにするgem
+gem "refile-mini_magick"
+# アップロードした画像のリサイズを行えるgem
