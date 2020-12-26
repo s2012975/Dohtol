@@ -1,0 +1,2 @@
+class CustomerStudyQualification < ApplicationRecord
+end

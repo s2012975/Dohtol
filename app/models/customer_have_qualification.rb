@@ -1,0 +1,2 @@
+class CustomerHaveQualification < ApplicationRecord
+end

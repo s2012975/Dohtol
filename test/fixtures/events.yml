@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  customer_id: 1
+  title: MyString
+  body: MyText
+  disp_flg: false
+  start: 2020-12-26 01:16:49
+  end: 2020-12-26 01:16:49
+  allday: MyString
+
+two:
+  customer_id: 1
+  title: MyString
+  body: MyText
+  disp_flg: false
+  start: 2020-12-26 01:16:49
+  end: 2020-12-26 01:16:49
+  allday: MyString
