@@ -1,0 +1,2 @@
+module Admins::QualificationsHelper
+end
