@@ -14,5 +14,43 @@
  *= require_self
  */
 
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
 
 /*header*/
+
+header {
+  height: 70px;
+  background-color: gray;
+}
+
+.header-title {
+  line-height: 70px;
+  display: inline-block;
+}
+
+.header-nav {
+  display: inline-block;
+}
+
+.header-nav-list-item {
+  width: 30px;
+  list-style: none;
+  display: inline-block;
+  margin: 0 20px;
+}
+
+/*footer*/
+
+footer {
+  width: 100%;
+  height: 25px;
+  background-color: gray;
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+}

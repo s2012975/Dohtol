@@ -10,6 +10,21 @@
 
 
 Admin.create!(
-    email: 'test@test',
+    email:    'test@test',
     password: 'testtest',
-  )
+    )
+
+Customer.create!(
+    email:            'test2@test2',
+    password:         'test2test2',
+    last_name:        '田中',
+    first_name:       '太郎',
+    last_name_kana:   'タナカ',
+    first_name_kana:  'タロウ',
+    nick_name:        'ターナー',
+    sex:              '男',
+    age:              '20',
+    profile_image_id: File.open("./app/assets/images/animal_arupaka.png"),
+    introduction:     'はじめまして',
+
+    )
