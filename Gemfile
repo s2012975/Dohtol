@@ -69,9 +69,12 @@ gem "refile", require: "refile/rails", github: 'manfe/refile'
 # アップロードした画像のリサイズを行えるgem
 gem "refile-mini_magick"
 
+gem 'pry-byebug'
+
 
 # MySQLを利用するために必要なgemを追加
 gem 'dotenv-rails'
 group :production do
   gem 'mysql2'
 end
+

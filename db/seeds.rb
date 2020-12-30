@@ -11,7 +11,7 @@
 
 Admin.create!(
     email:    'test@test',
-    password: 'testtest',
+    password: 'testtest'
     )
 
 Customer.create!(
@@ -22,9 +22,28 @@ Customer.create!(
     last_name_kana:   'タナカ',
     first_name_kana:  'タロウ',
     nick_name:        'ターナー',
-    sex:              '男',
+    sex:              '0',
     age:              '20',
     profile_image_id: File.open("./app/assets/images/animal_arupaka.png"),
-    introduction:     'はじめまして',
+    introduction:     'はじめまして'
+    )
 
+Customer.create!(
+    email:            'test3@test3',
+    password:         'test3test3',
+    last_name:        '佐藤',
+    first_name:       '次郎',
+    last_name_kana:   'サトウ',
+    first_name_kana:  'ジロウ',
+    nick_name:        'じっちゃん',
+    sex:              '男',
+    age:              '0',
+    profile_image_id: File.open("./app/assets/images/animal_arupaka.png"),
+    introduction:     'がんばる'
+    )
+
+PostComment.create!(
+    send_customer_id:  '2',
+    given_customer_id: '1',
+    body: 'おはよう'
     )

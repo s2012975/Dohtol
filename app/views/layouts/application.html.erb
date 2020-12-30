@@ -10,8 +10,10 @@
   </head>
 
   <body>
-    <%= render 'layouts/header' %>
-    <%= yield %>
-    <%= render 'layouts/footer' %>
+    <div class="wrapper">
+      <header><%= render 'layouts/header' %></header>
+      <main><%= yield %></main>
+      <footer><%= render 'layouts/footer' %></footer>
+    </div>
   </body>
 </html>

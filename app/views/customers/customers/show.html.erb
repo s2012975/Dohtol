@@ -1,0 +1,97 @@
+<div class="customer-name">
+  <%= @customer.name %>
+</div>
+
+<!--後で修正-->
+<div class="customer-image">
+  <%= attachment_image_tag @item, :profile_image, format: 'jpeg', fallback: "no_image_square.jpg", size: "200x200" %>
+</div>
+
+<div class="customer-introduction">
+  <p class="customer-introduction-title">
+    自己紹介
+  </p>
+  <div class="customer-introduction-text">
+    <%= @customer.introduction %>
+  </div>
+</div>
+
+<div class="customer-edit_btn">
+  <%= link_to "編集する", edit_customers_customer_path, class: "btn" %>
+</div>
+
+<div class="customer-followers">
+  followers
+  <%#= link_to user.reverse_of_relationships.count, followers_path(user) %>
+</div>
+
+<div class="customer-study-qualifications">
+  <p>勉強中の資格</p>
+</div>
+
+<div class="customer-study-qualifications">
+  <p>保有している資格</p>
+</div>
+
+<div class="customer-calendar">
+  <p>カレンダー</p>
+</div>
+
+<div class="customer-destroy">
+  <p>カスタマーの削除</p>
+</div>
+
+<div class="customer-stories">
+  <p>投稿したコメント</p>
+</div>
+
+<div class="customer-stories">
+  <p>投稿した体験談</p>
+</div>
+
+
+
+
+
+
+
+<div>
+  <% @customer.given_messages.each do |given_message| %>
+    <div class="comment">
+      <tr>
+        <td>
+
+  		  </td>
+  		  <td>
+          </div class="comment-text">
+              <%= given_message.body %>
+          </div>
+        </td>
+  			<td>
+
+        </td>
+      </tr>
+    </div>
+  <% end %>
+
+
+
+  <%= form_with model: @customer, url: customers_post_comments_path(customer.id), local: true do |f| %>
+
+    <% if @post_comment.errors.any? %>
+      <div id="error_explanation">
+        <ul>
+          <% @post_comment.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+      <div>
+        <%= f.label :コメント %>
+        <%= f.text_area :body, id: "comment_body", class: "", placeholder: "コメント" %>
+      </div>
+    <%= f.submit "送信" %>
+  <% end %>
+</div>
