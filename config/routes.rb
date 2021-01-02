@@ -25,11 +25,13 @@ Rails.application.routes.draw do
   namespace :customers do
     get 'homes/top'
     get 'homes/about'
-    get 'customers/comfirm'
     resources :stories, only:[:index, :show, :edit, :new]
     resources :qualifications, only:[:index, :show]
-    resources :customers, only:[:index, :show, :edit]
+    resources :customers, only:[:index, :show, :edit, :update] do
+    resource :relationships, only: [:create, :destroy]
+      get 'followings' => 'relationships#followings', as: 'followings'
+      get 'followedes' => 'relationships#followedes', as: 'followedes'
+    end
     resources :post_comments, only: [:create, :destroy]
   end
-
 end

@@ -7,8 +7,8 @@
         <div class="field">
           <th><%= f.label :名前 %></th>
           <td>
-            <%= f.email_field :last_name, autofocus: true, autocomplete: "last_name", placeholder: "ex) 田中" %>
-            <%= f.email_field :first_name, autofocus: true, autocomplete: "first_name", placeholder: "ex) 太郎" %>
+            <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name", placeholder: "ex) 田中" %>
+            <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name", placeholder: "ex) 太郎" %>
           </td>
         </div>
       </tr>
@@ -17,8 +17,8 @@
   <div class="field">
     <th><%= f.label :フリガナ %></th>
     <td>
-      <%= f.email_field :last_name_kana, autofocus: true, autocomplete: "last_name_kana", placeholder: "ex) タナカ" %>
-      <%= f.email_field :first_name_kana, autofocus: true, autocomplete: "first_name_kana", placeholder: "ex) タロウ" %>
+      <%= f.text_field :last_name_kana, autofocus: true, autocomplete: "last_name_kana", placeholder: "ex) タナカ" %>
+      <%= f.text_field :first_name_kana, autofocus: true, autocomplete: "first_name_kana", placeholder: "ex) タロウ" %>
     </td>
   </div>
 </tr>
@@ -26,21 +26,21 @@
 <tr>
   <div class="field">
     <th><%= f.label :ニックネーム %></th>
-    <td><%= f.email_field :nick_name, autofocus: true, autocomplete: "nick_name", placeholder: "ex) ターナー" %></td>
+    <td><%= f.text_field :nick_name, autofocus: true, autocomplete: "nick_name", placeholder: "ex) ターナー" %></td>
   </div>
 </tr>
 
 <tr>
   <div class="field">
     <th><%= f.label :性別 %></th>
-    <td><%= f.email_field :sex, autofocus: true, autocomplete: "sex" %></td>
+    <td><%= f.text_field :sex, autofocus: true, autocomplete: "sex" %></td>
   </div>
 </tr>
 
 <tr>
   <div class="field">
     <th><%= f.label :年齢 %></th>
-    <td><%= f.email_field :age, autofocus: true, autocomplete: "age" %></td>
+    <td><%= f.text_field :age, autofocus: true, autocomplete: "age" %></td>
   </div>
 </tr>
 

@@ -1,10 +1,10 @@
 <div class="customer-name">
-  <%= @customer.name %>
+  <%= @customer.nick_name %>
 </div>
 
 <!--後で修正-->
 <div class="customer-image">
-  <%= attachment_image_tag @item, :profile_image, format: 'jpeg', fallback: "no_image_square.jpg", size: "200x200" %>
+  <%= attachment_image_tag @customer, :profile_image, fallback: "no_image_square.jpg", size: "200x200" %>
 </div>
 
 <div class="customer-introduction">
@@ -21,8 +21,12 @@
 </div>
 
 <div class="customer-followers">
-  followers
-  <%#= link_to user.reverse_of_relationships.count, followers_path(user) %>
+  <% if current_customer.following?(@customer) %>
+    <%= link_to "フォロー外す", customers_customer_relationships_path(@customer.id), method: :delete, class: "btn" %>
+  <% else %>
+    <%= link_to "フォローする", customers_customer_relationships_path(@customer.id), method: :post, class: "btn" %>
+  <% end %>
+  <%= @customer.followings.count %>
 </div>
 
 <div class="customer-study-qualifications">
@@ -38,7 +42,7 @@
 </div>
 
 <div class="customer-destroy">
-  <p>カスタマーの削除</p>
+  <%= link_to "Destroy", customer_registration_path(@customer), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, class: "btn destroy_customer_#{@customer.id}" %>
 </div>
 
 <div class="customer-stories">
@@ -54,44 +58,3 @@
 
 
 
-
-<div>
-  <% @customer.given_messages.each do |given_message| %>
-    <div class="comment">
-      <tr>
-        <td>
-
-  		  </td>
-  		  <td>
-          </div class="comment-text">
-              <%= given_message.body %>
-          </div>
-        </td>
-  			<td>
-
-        </td>
-      </tr>
-    </div>
-  <% end %>
-
-
-
-  <%= form_with model: @customer, url: customers_post_comments_path(customer.id), local: true do |f| %>
-
-    <% if @post_comment.errors.any? %>
-      <div id="error_explanation">
-        <ul>
-          <% @post_comment.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-          <% end %>
-        </ul>
-      </div>
-    <% end %>
-
-      <div>
-        <%= f.label :コメント %>
-        <%= f.text_area :body, id: "comment_body", class: "", placeholder: "コメント" %>
-      </div>
-    <%= f.submit "送信" %>
-  <% end %>
-</div>

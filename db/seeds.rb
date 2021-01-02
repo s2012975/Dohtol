@@ -24,7 +24,7 @@ Customer.create!(
     nick_name:        'ターナー',
     sex:              '0',
     age:              '20',
-    profile_image_id: File.open("./app/assets/images/animal_arupaka.png"),
+    profile_image:    File.open("./app/assets/images/animal_arupaka.png"),
     introduction:     'はじめまして'
     )
 
@@ -38,7 +38,7 @@ Customer.create!(
     nick_name:        'じっちゃん',
     sex:              '男',
     age:              '0',
-    profile_image_id: File.open("./app/assets/images/animal_arupaka.png"),
+    profile_image:     File.open("./app/assets/images/animal_arupaka.png"),
     introduction:     'がんばる'
     )
 
@@ -47,3 +47,37 @@ PostComment.create!(
     given_customer_id: '1',
     body: 'おはよう'
     )
+
+
+Genre.create!(
+    name:  '語学',
+    )
+
+Genre.create!(
+    name:  '生活',
+    )
+
+
+Qualification.create!(
+    genre_id:  '1',
+    name: '漢字検定2級',
+    body: '漢字の技能検定。'
+    )
+
+Qualification.create!(
+    genre_id:  '2',
+    name: 'アロマ検定',
+    body: 'アロマの検定。'
+    )
+
+CustomerHaveQualification.create!(
+    customer_id:  '1',
+    qualification_id: '1',
+    )
+
+
+CustomerStudyQualification.create!(
+    customer_id:  '1',
+    qualification_id: '2',
+    )
+
