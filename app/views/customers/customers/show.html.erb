@@ -26,7 +26,16 @@
   <% else %>
     <%= link_to "フォローする", customers_customer_relationships_path(@customer.id), method: :post, class: "btn" %>
   <% end %>
-  <%= @customer.followings.count %>
+
+  <div>
+    <p>フォロー数</p>
+    <%=link_to @customer.followings.count, customers_customer_followings_path(@customer) %>
+  </div>
+
+  <div>
+    <p>フォロワー数</p>
+    <%=link_to @customer.followedes.count, customers_customer_followedes_path(@customer) %>
+  </div>
 </div>
 
 <div class="customer-study-qualifications">
@@ -54,7 +63,57 @@
 </div>
 
 
+  <table>
+  	<% @customer.given_messages.each do |given_message| %>
+      <tr>
+        <div class="comment">
+          <div class="comment-body bb">
+  	        <td>
+  			      <%= link_to customers_customer_path(given_message.send_customer) do %>
+  				      <%= attachment_image_tag(given_message.send_customer, :profile_image, :fill, 100, 100, fallback: "no_image_square.jpg") %><br>
+  			        <%= given_message.send_customer.name %>
+  			      <% end %>
+  	        </td>
+            <td>
+              </div class="comment-text">
+                <%= given_message.body %>
+              </div>
+            </td>
+		        <td>
+		          <% if given_message.send_customer == current_customer %>
+                </div class="">
+                  <%= link_to "削除", customers_customer_post_comment_path(@customer, given_message), method: :delete, class: "" %>
+                </div>
+              <% end %>
+            </td>
+          </div>
+        </div>
+      </tr>
+  	<% end %>
+  </table>
 
+
+<div id="">
+  <%= form_with url: customers_customer_post_comments_path(@customer), model: [@customer, @post_comment], local: true do |f| %>
+
+    <% if @post_comment.errors.any? %>
+      <div id="error_explanation">
+        <ul>
+          <% @post_comment.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div>
+      <%= f.text_area :body, id: "comment_body", class: "form-control", placeholder: "コメント" %>
+    </div>
+    <div>
+      <%= f.submit "送信" %>
+    </div>
+  <% end %>
+</div>
 
 
 

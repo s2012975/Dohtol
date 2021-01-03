@@ -30,7 +30,7 @@ class Customers::CustomersController < ApplicationController
   end
 
   def destroy
-    
+
     @customer.destroy
     redirect_to root_path
   end

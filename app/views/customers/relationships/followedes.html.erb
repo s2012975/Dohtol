@@ -1,0 +1,24 @@
+<h2>ユーザ一覧</h2>
+
+<div class="customer-index">
+  <table class="customer-index-table">
+    <thead class="">
+      <tr>
+        <th></th>
+        <th>ニックネーム</th>
+        <th>勉強中の資格</th>
+        <th>保有資格</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @customers.each do |customer| %>
+        <tr>
+          <td width=100><%= attachment_image_tag customer, :profile_image, format: 'png', fallback: "no_image_square.jpg", size: "50x50" %></td>
+          <td width=100><%= link_to  customer.nick_name,  customers_customer_path(customer.id) %></td>
+          <td><%=  %></td>
+          <td><%=  %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
