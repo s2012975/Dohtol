@@ -1,0 +1,61 @@
+<h2>ユーザ編集</h2>
+
+<%= form_with url: customers_customer_path, model:@customer, local: true do |f| %>
+
+	<%= render 'customers/customers/errors', customer: @customer %>
+	<!-- エラーメッセージ表示-->
+
+	<div class="">
+    <div>
+      <%= attachment_image_tag @customer, :profile_image, fallback: "no_image_square.jpg", id: "img_prev", style: "height: 200px; width:200px;" %><br>
+      <%= f.attachment_field :profile_image %>
+    </div>
+
+    <script>
+      $(document).on("turbolinks:load", function(){
+        function readURL(input) {
+          if(input.files && input.files[0]){
+            var reader = new FileReader();
+            reader.onload = function (e) {
+              $('#img_prev').attr('src', e.target.result);
+            }
+            reader.readAsDataURL(input.files[0]);
+          }
+        }
+        $("#customer_profile_image").change(function(){
+          readURL(this);
+        });
+      });
+    </script>
+	</div>
+
+	<div class="field">
+		<%= f.label :ニックネーム %>
+		<%= f.text_field :nick_name, class: "nick_name" %>
+	</div>
+
+	<div class="field">
+		<%= f.label :自己紹介 %>
+		<%= f.text_area :introduction, class: "introduction" %>
+	</div>
+
+	<div class="actions">
+		<%= f.submit '変更を保存する'%>
+	</div>
+
+<% end %>
+
+<div>
+  勉強中の資格プルダウンで表示
+</div>
+
+<div>
+  保有資格プルダウンで表示
+</div>
+
+<div class="add-btn customer-edit-qualification-btn">
+  保有の資格を追加する
+</div>
+
+
+
