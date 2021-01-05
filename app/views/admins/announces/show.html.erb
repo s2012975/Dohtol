@@ -1,0 +1,17 @@
+<div>
+  <%= @announce.title %>
+</div>
+
+<div>
+  <%= @announce.category %>
+</div>
+
+<div>
+  <%= @announce.body %>
+</div>
+
+  <%= link_to '編集', edit_admins_announce_path(params[:id]) %>
+
+<div class="customer-destroy">
+  <%= link_to "削除", admins_announce_path(@announce), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, class: "btn destroy" %>
+</div>

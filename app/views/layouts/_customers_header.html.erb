@@ -12,7 +12,7 @@
     <% else %>
       <li class="header-nav-list-item"><%= link_to 'About', customers_homes_about_path, class: '' %></li>
       <li class="header-nav-list-item"><%= link_to 'index', customers_customers_path, class: '' %></li>
-      <li class="header-nav-list-item"><%= link_to 'signup', customers_customers_path, class: '' %></li>
+      <li class="header-nav-list-item"><%= link_to 'signup', new_customer_registration_path, class: '' %></li>
       <li class="header-nav-list-item"><%= link_to 'login',  new_customer_session_path, class: '' %></li>
     <% end %>
   </ul>

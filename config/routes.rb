@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  namespace :admins do
+    get 'customers/index'
+    get 'customers/show'
+  end
   root 'customers/homes#top'
 
   devise_for :admins, controllers: {
@@ -10,9 +14,13 @@ Rails.application.routes.draw do
 
   namespace :admins do
     get 'homes/top'
-    resources :genres, only:[:index, :edit, :new]
-    resources :qualifications, only:[:edit, :new]
+    resources :customers, only:[:index, :show]
+    resources :genres, only:[:index, :edit, :create, :update]
+    resources :qualifications
+    resources :announces
   end
+
+
 
 
   # controllers以下を記入しないとviewに変更が加えられない。→ルートがきちんと通らない

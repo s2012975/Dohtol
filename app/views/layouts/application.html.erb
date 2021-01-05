@@ -11,8 +11,16 @@
 
   <body>
     <div class="wrapper">
-      <header><%= render 'layouts/header' %></header>
+      <header>
+        <% if request.fullpath.include?("admin") %>
+          <%= render 'layouts/admins_header' %>
+        <% else%>
+          <%= render 'layouts/customers_header' %>
+        <% end %>
+      </header>
+      
       <main><%= yield %></main>
+      
       <footer><%= render 'layouts/footer' %></footer>
     </div>
   </body>

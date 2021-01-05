@@ -1,0 +1,12 @@
+
+<div class="header-title">
+  <span><%= link_to 'ドートル', admins_homes_top_path %></span>
+</div>
+<nav class="header-nav">
+  <ul>
+    <li class="header-nav-list-item"><%= link_to 'admin', admins_homes_top_path, class: '' %></li>
+    <li class="header-nav-list-item"><%= link_to 'qindex', admins_qualifications_path, class: '' %></li>
+    <li class="header-nav-list-item"><%= link_to 'cindex', admins_customers_path, class: '' %></li>
+    <li class="header-nav-list-item"><%= link_to 'logout',  destroy_admin_session_path, method: :delete, class: '' %></li>
+  </ul>
+</nav>

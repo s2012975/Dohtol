@@ -1,0 +1,28 @@
+<div>
+  <p>お知らせ作成</p>
+</div>
+
+<%= form_with url: admins_announces_path, model:@announce, local: true do |f| %>
+
+	<%= render 'admins/announces/errors', announce: @announce %>
+
+	<div class="field">
+		<%= f.label :区分 %>
+		<%= f.select :category, [["最新情報", "最新情報"], ["イベント", "イベント"]], include_blank: "--選択して下さい--" %>
+	</div>
+
+	<div class="field">
+		<%= f.label :タイトル %>
+		<%= f.text_field :title, class: "title" %>
+	</div>
+
+	<div class="field">
+		<%= f.label :概要 %>
+		<%= f.text_field :body, class: "body" %>
+	</div>
+
+	<div class="actions">
+		<%= f.submit '作成'%>
+	</div>
+
+<% end %>

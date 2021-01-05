@@ -16,16 +16,7 @@
   </div>
 </div>
 
-<div class="customer-edit_btn">
-  <%= link_to "編集する", edit_customers_customer_path, class: "btn" %>
-</div>
 
-<div class="customer-followers">
-  <% if current_customer.following?(@customer) %>
-    <%= link_to "フォロー外す", customers_customer_relationships_path(@customer.id), method: :delete, class: "btn" %>
-  <% else %>
-    <%= link_to "フォローする", customers_customer_relationships_path(@customer.id), method: :post, class: "btn" %>
-  <% end %>
 
   <div>
     <p>フォロー数</p>
@@ -106,28 +97,6 @@
   	<% end %>
   </table>
 
-
-<div id="">
-  <%= form_with url: customers_customer_post_comments_path(@customer), model: [@customer, @post_comment], local: true do |f| %>
-
-    <% if @post_comment.errors.any? %>
-      <div id="error_explanation">
-        <ul>
-          <% @post_comment.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-          <% end %>
-        </ul>
-      </div>
-    <% end %>
-
-    <div>
-      <%= f.text_area :body, id: "comment_body", class: "form-control", placeholder: "コメント" %>
-    </div>
-    <div>
-      <%= f.submit "送信" %>
-    </div>
-  <% end %>
-</div>
 
 
 

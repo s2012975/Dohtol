@@ -1,2 +1,36 @@
-<h1>Admins::Qualifications#new</h1>
-<p>Find me in app/views/admins/qualifications/new.html.erb</p>
+<div>
+  <p>資格作成</p>
+</div>
+
+<%= form_with url: admins_qualifications_path, model:@qualification, local: true do |f| %>
+
+	<%= render 'admins/qualifications/errors', qualification: @qualification %>
+	<!-- エラーメッセージ表示-->
+
+	<div class="">
+
+	<div class="field">
+		<%= f.label :資格名 %>
+		<%= f.text_field :name, class: "name" %>
+	</div>
+
+	<div class="field">
+		<%= f.label :資格区分 %>
+		<%= f.select :classification, [["国家", "国家"], ["民間", "民間"]], include_blank: "--選択して下さい--" %>
+	</div>
+
+	<div class="field">
+		<%= f.label :ジャンル %>
+		<%= f.collection_select :genre_id, Genre.all, :id, :name, include_blank: "--選択して下さい--"  %>
+	</div>
+
+	<div class="field">
+		<%= f.label :資格概要 %>
+		<%= f.text_field :body, class: "body" %>
+	</div>
+
+	<div class="actions">
+		<%= f.submit '作成'%>
+	</div>
+
+<% end %>
