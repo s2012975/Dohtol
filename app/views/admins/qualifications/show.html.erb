@@ -1,0 +1,21 @@
+<div>
+  <%= @qualification.name %>
+</div>
+
+<div>
+  <%= @qualification.classification %>
+</div>
+
+<div>
+  <%= @qualification.genre.name %>
+</div>
+
+<div>
+  <%= @qualification.body %>
+</div>
+
+  <%= link_to '編集', edit_admins_qualification_path(params[:id]) %>
+
+<div class="customer-destroy">
+  <%= link_to "削除", admins_qualification_path(@qualification), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, class: "btn destroy" %>
+</div>

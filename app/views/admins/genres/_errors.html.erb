@@ -1,0 +1,10 @@
+<% if announce.errors.any? %>
+	<div id="error_explanation">
+		<h3><%= announce.errors.count %>error prohibited this obj from being saved:</h3>
+		<ul>
+			<% announce.errors.full_messages.each do |message| %>
+			<li><%= message %></li>
+			<% end %>
+		</ul>
+	</div>
+<% end %>

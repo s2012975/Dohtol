@@ -1,2 +1,106 @@
-<h1>Admins::Customers#show</h1>
-<p>Find me in app/views/admins/customers/show.html.erb</p>
+<div class="customer-name">
+  <%= @customer.nick_name %>
+</div>
+
+<!--後で修正-->
+<div class="customer-image">
+  <%= attachment_image_tag @customer, :profile_image, fallback: "no_image_square.jpg", size: "200x200" %>
+</div>
+
+<div class="customer-introduction">
+  <p class="customer-introduction-title">
+    自己紹介
+  </p>
+  <div class="customer-introduction-text">
+    <%= @customer.introduction %>
+  </div>
+</div>
+
+
+
+  <div>
+    <p>フォロー数</p>
+    <%=link_to @customer.followings.count, customers_customer_followings_path(@customer) %>
+  </div>
+
+  <div>
+    <p>フォロワー数</p>
+    <%=link_to @customer.followedes.count, customers_customer_followedes_path(@customer) %>
+  </div>
+</div>
+
+<div class="customer-study-qualifications">
+  <p>勉強中の資格</p>
+  <% @customer.customer_study_qualifications.each do |customer_study_qualification| %>
+    <div class="customer_study_qualification">
+      </div class="tag-name">
+        <%= customer_study_qualification.qualification.name %>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<div class="customer-have-qualifications">
+  <p>保有資格</p>
+  <% @customer.customer_have_qualifications.each do |customer_have_qualification| %>
+      <div class="customer_have_qualification">
+        </div class="tag-name">
+          <%= customer_have_qualification.qualification.name %>
+        </div>
+      </div>
+  <% end %>
+</div>
+
+<div class="customer-calendar">
+  <p>カレンダー</p>
+</div>
+
+<div class="customer-destroy">
+  <%= link_to "Destroy", customer_registration_path(@customer), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, class: "btn destroy_customer_#{@customer.id}" %>
+</div>
+
+<div class="customer-stories">
+  <p>投稿したコメント</p>
+</div>
+
+<div class="customer-stories">
+  <p>投稿した体験談</p>
+</div>
+
+
+  <table>
+  	<% @customer.given_messages.each do |given_message| %>
+      <tr>
+        <div class="comment">
+          <div class="comment-body bb">
+  	        <td>
+  			      <%= link_to customers_customer_path(given_message.send_customer) do %>
+  				      <%= attachment_image_tag(given_message.send_customer, :profile_image, :fill, 100, 100, fallback: "no_image_square.jpg") %><br>
+  			        <%= given_message.send_customer.name %>
+  			      <% end %>
+  	        </td>
+            <td>
+              </div class="comment-text">
+                <%= given_message.body %>
+              </div>
+            </td>
+		        <td>
+		          <% if given_message.send_customer == current_customer %>
+                </div class="">
+                  <%= link_to "削除", customers_customer_post_comment_path(@customer, given_message), method: :delete, class: "" %>
+                </div>
+              <% end %>
+            </td>
+          </div>
+        </div>
+      </tr>
+  	<% end %>
+  </table>
+
+
+
+
+
+
+
+
