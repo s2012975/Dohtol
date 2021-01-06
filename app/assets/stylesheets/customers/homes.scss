@@ -1,3 +1,172 @@
 // Place all the styles related to the customers/Homes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.main-visual {
+  width: 100%;
+  height: 300px;
+  display: flex;
+  margin-bottom: 30px;
+  border-radius: 5px;
+}
+
+.main-visual-right {
+  width: 50%;
+  height: 300px;
+  background-color: gray;
+}
+
+.main-visual-left {
+  width: 50%;
+  height: 300px;
+  background-image: image-url("walking.jpg");
+  background-size: cover;
+}
+
+.main-visual-content {
+  height: 300px;
+  background-color: rgba(0, 0, 0, 0.3);
+  text-align: left;
+  padding-top: 220px;
+  padding-left: 20px;
+}
+
+.main-visual-text {
+  color: #fff;
+  margin-bottom: 5px;
+}
+
+.main-visual-name {
+  color: #fff;
+  font-size: 30px;
+}
+
+
+
+.main-contents {
+  width: 800px;
+  margin: 0 auto;
+}
+
+.qualification {
+  width: 100%;
+  padding: 20px 10px;
+  border-radius: 5px;
+  margin-bottom: 30px;
+}
+
+.top-icon {
+  margin: 0 auto;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.top-icon-anime {
+  width: 70px;
+  height: 70px;
+}
+
+.qualification-genre {
+  width: 100%;
+  padding: 20px 20px;
+  background-color: #DEB887;
+}
+
+.qualification-contents {
+  width: 740px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.qualification-box {
+  width: 160px;
+  padding-top: 110px;
+  background-size: cover;
+  background-position: center;
+  margin-bottom: 10px;
+  margin-right: 20px;
+  background-color: gray;
+}
+
+.qualification-box:nth-child(1) {
+  margin-left: 20px;
+}
+
+.qualification-box:nth-child(5) {
+  margin-left: 20px;
+}
+
+/*タブ切り替え全体のスタイル*/
+.tabs {
+  margin-top: 50px;
+  padding-bottom: 40px;
+  background-color: #FAEBD7;
+  // box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  width: 500px;
+  margin: 0 auto;
+  margin-bottom: 30px;
+  border-radius: 5px;
+}
+
+/*タブのスタイル*/
+.tab_item {
+  width: calc(100%/3);
+  height: 30px;
+  background-color: #d9d9d9;
+  line-height: 30px;
+  font-size: 13px;
+  text-align: center;
+  display: block;
+  float: left;
+  text-align: center;
+  font-weight: bold;
+  transition: all 0.2s ease;
+}
+
+.tab_item:hover {
+  opacity: 0.75;
+}
+
+/*ラジオボタンを全て消す*/
+input[name="tab_item"] {
+  display: none;
+}
+
+/*タブ切り替えの中身のスタイル*/
+.tab_content {
+  display: none;
+  padding: 40px 40px 0;
+  clear: both;
+  overflow: hidden;
+}
+
+
+/*選択されているタブのコンテンツのみを表示*/
+#all:checked ~ #all_content,
+#programming:checked ~ #programming_content,
+#design:checked ~ #design_content {
+  display: block;
+}
+
+/*選択されているタブのスタイルを変える*/
+.tabs input:checked + .tab_item {
+  background-color: #FAEBD7;
+}
+
+
+// topへ戻るボタン
+#back {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  text-align: center;
+}
+
+#back img {
+  width: 50px;
+  height: 50px;
+}
+
+.back-text {
+  font-size: 11px;
+}

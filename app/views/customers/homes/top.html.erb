@@ -1,57 +1,105 @@
-<div class="main-visual"></div>
-<div class="main-visual"></div>
-
-<section class="qualification">
-  <div class="title">
-    <div>img</div>
-    <h3>資格を探す<h3>
-  </div>
-
-  <div class="qualification-box">
-    <p>ジャンルから探す</p>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <p>全資格を一覧する</p>
-  </div>
-</section>
-
-<div>
-  <section class="anounce">
-    <div class="title">
-      <div>img</div>
-      <h3>お知らせ<h3>
+<div class="main-visual">
+  <div class="main-visual-left">
+    <div class="main-visual-content">
+      <p class="main-visual-text">
+        資格取得コミュニティサイト
+      </p>
+      <p class="main-visual-name">
+        <strong>ドートル</strong>
+      </p>
     </div>
-    <div class="anounce-box">
+  </div>
+  <div class="main-visual-right"></div>
+</div>
 
+<div class="main-contents">
+  <section class="qualification">
+    <div class="title">
+      <div class="top-icon">
+        <%= image_tag 'study_gariben_boy.png', class: "top-icon-anime" %>
+        <h3>資格を探す<h3>
+      </div>
+    </div>
+
+    <div class="qualification-genre">
+      <div class="top-icon">
+        <p><i class="fas fa-search"></i> ジャンルから探す</p>
+      </div>
+      <div class="qualification-contents">
+      <div class="qualification-box"></div>
+      <div class="qualification-box"></div>
+      <div class="qualification-box"></div>
+      <div class="qualification-box"></div>
+      <div class="qualification-box"></div>
+      <div class="qualification-box"></div>
+      <div class="qualification-box"></div>
+      <div class="qualification-box"></div>
+      </div>
+      <div class="top-icon">
+        <p><i class="fas fa-list-alt"></i> <%= link_to '全資格を見る', customers_qualifications_path %></p>
+      </div>
     </div>
   </section>
 
-  <div class="sidebar">
-    <div></div>
-    <div></div>
-  </div>
+
+  <section class="new-stories">
+    <div class="title">
+      <div class="top-icon">
+        <%= image_tag 'study_night_girl.png', class: "top-icon-anime" %>
+        <h3>新着の体験談<h3>
+      </div>
+    </div>
+    <div class="new-stories-box">
+    </div>
+  </section>
+
+  <section class="ranking">
+    <div class="title">
+      <div class="top-icon">
+        <%= image_tag 'gyouretsu.png', class: "top-icon-anime" %>
+        <h3>人気の資格<h3>
+      </div>
+    </div>
+    <div class="ranking-box">
+    </div>
+  </section>
+
+  <section class="anounce">
+    <div class="title">
+      <div class="top-icon">
+        <%= image_tag 'kakuseiki_man_smile.png', class: "top-icon-anime" %>
+        <h3>お知らせ<h3>
+      </div>
+    </div>
+    <div class="tabs">
+      <input id="all" type="radio" name="tab_item" checked>
+      <label class="tab_item" for="all"><i class="fas fa-list"></i> すべて表示</label>
+      <input id="programming" type="radio" name="tab_item">
+      <label class="tab_item" for="programming"><i class="fas fa-newspaper"></i> 最新情報</label>
+      <input id="design" type="radio" name="tab_item">
+      <label class="tab_item" for="design"><i class="fas fa-microphone"></i> イベント</label>
+      <div class="tab_content" id="all_content">
+        <div class="tab_content_description">
+          <p class="c-txtsp">総合の内容がここに入ります</p>
+        </div>
+      </div>
+      <div class="tab_content" id="programming_content">
+        <div class="tab_content_description">
+          <p class="c-txtsp">プログラミングの内容がここに入ります</p>
+        </div>
+      </div>
+      <div class="tab_content" id="design_content">
+        <div class="tab_content_description">
+          <p class="c-txtsp">デザインの内容がここに入ります</p>
+        </div>
+      </div>
+    </div>
+  </section>
 </div>
 
-<section class="new-stories">
-  <div class="title">
-    <div>img</div>
-    <h3>新着の体験談<h3>
-  </div>
-  <div class="new-stories-box">
-  </div>
-</section>
-
-<section class="ranking">
-  <div class="title">
-    <div>img</div>
-    <h3>資格ランキング<h3>
-  </div>
-  <div class="ranking-box">
-  </div>
-</section>
+<span id="back">
+  <a href="#">
+    <%= image_tag 'pose_miageru_man', class: "top-icon-anime" %>
+    <p class="back-text">TOP</p>
+  </a>
+</span>
