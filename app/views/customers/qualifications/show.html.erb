@@ -1,2 +1,50 @@
-<h1>Customers::Qualifications#show</h1>
-<p>Find me in app/views/customers/qualifications/show.html.erb</p>
+<div>
+  <%= @qualification.name %>
+</div>
+
+<div>
+  <%= @qualification.classification %>
+</div>
+
+<div>
+  <%= @qualification.genre.name %>
+</div>
+
+<div>
+  <%= @qualification.body %>
+</div>
+
+<%= link_to '体験談を作成する', new_customers_qualification_story_path(@qualification) %>
+
+
+<div class="customer-index">
+  <table class="customer-index-table">
+    <thead class="">
+      <tr>
+        <th></th>
+        <th>ニックネーム</th>
+        <th>タイトル</th>
+        <th>学習時間</th>
+        <th>内容</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @qualification.stories.each do |story| %>
+        <tr>
+          <td width=100><%= attachment_image_tag story.customer, :profile_image, format: 'png', fallback: "no_image_square.jpg", size: "50x50" %></td>
+          <td width=100><%= link_to  story.customer.nick_name,  customers_customer_path(story.customer.id) %></td>
+          <td><%= story.title %></td>
+          <td><%= story.study_time %></td>
+          <td><%= story.body %></td>
+	        <td>
+	          <% if story.customer == current_customer %>
+              </div class="">
+                <%= link_to "削除", customers_qualification_story_path(@qualification.id, story.id), method: :delete, class: "" %>
+              </div>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

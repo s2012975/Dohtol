@@ -7,11 +7,12 @@
     <% if customer_signed_in? %>
       <li class="header-nav-list-item"><%= link_to 'mypage', customers_customer_path(current_customer), class: '' %></li>
       <li class="header-nav-list-item"><%= link_to 'index', customers_customers_path, class: '' %></li>
-      <li class="header-nav-list-item"><%#= link_to ' Books', books_path, class: ''%></li>
+      <li class="header-nav-list-item"><%= link_to 'quali', customers_qualifications_path, class: '' %></li>
       <li class="header-nav-list-item"><%= link_to ' logout', destroy_customer_session_path, method: :delete, class: 'logout' %></li>
     <% else %>
       <li class="header-nav-list-item"><%= link_to 'About', customers_homes_about_path, class: '' %></li>
       <li class="header-nav-list-item"><%= link_to 'index', customers_customers_path, class: '' %></li>
+      <li class="header-nav-list-item"><%= link_to 'quali', customers_qualifications_path, class: '' %></li>
       <li class="header-nav-list-item"><%= link_to 'signup', new_customer_registration_path, class: '' %></li>
       <li class="header-nav-list-item"><%= link_to 'login',  new_customer_session_path, class: '' %></li>
     <% end %>

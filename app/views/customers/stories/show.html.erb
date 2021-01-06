@@ -1,2 +1,29 @@
-<h1>Customers::Stories#show</h1>
-<p>Find me in app/views/customers/stories/show.html.erb</p>
+<div class="customer-image">
+  <%= attachment_image_tag @customer, :profile_image, fallback: "no_image_square.jpg", size: "200x200" %>
+</div>
+
+<div class="customer-name">
+  <%= @customer.nick_name %>
+</div>
+
+<div>
+  <%= @story.title %>
+</div>
+
+<div>
+  約<%= @story.study_time %>時間
+</div>
+
+<div>
+  <%= @story.reason %>
+</div>
+
+<div>
+  <%= @story.body %>
+</div>
+
+<div>
+  <%= @story.books %>
+</div>
+
+<%= link_to '体験談を編集する', edit_customers_qualification_story_path(@story) %>

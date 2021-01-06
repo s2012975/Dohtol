@@ -1,2 +1,38 @@
-<h1>Customers::Stories#edit</h1>
-<p>Find me in app/views/customers/stories/edit.html.erb</p>
+<div>
+  <p>お知らせ作成</p>
+</div>
+
+<%= form_with url: customers_qualification_story_path, model:@story, local: true do |f| %>
+
+	<%= render 'layouts/errors', model: f.object %>
+
+	<div class="field">
+		<%= f.label :タイトル %>
+		<%= f.text_field :title, class: "title" %>
+	</div>
+
+	<div class="field">
+		<%= f.label :学習時間%>
+		約<%= f.number_field :study_time, min:1,class: "study_time" %>時間
+	</div>
+
+	<div class="field">
+		<%= f.label :取得目的 %>
+		<%= f.text_field :reason, class: "reason" %>
+	</div>
+
+	<div class="field">
+		<%= f.label :概要 %>
+		<%= f.text_field :body, class: "body" %>
+	</div>
+
+	<div class="field">
+		<%= f.label :使用した参考書 %>
+		<%= f.text_field :books, class: "books" %>
+	</div>
+
+	<div class="actions">
+		<%= f.submit '作成'%>
+	</div>
+
+<% end %>
