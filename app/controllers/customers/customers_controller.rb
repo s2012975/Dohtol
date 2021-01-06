@@ -11,7 +11,8 @@ class Customers::CustomersController < ApplicationController
   end
 
   def index
-    @customers = Customer.all
+    @q = Customer.ransack(params[:q])
+    @customers = @q.result(distinct: true)
   end
 
   def edit
@@ -26,14 +27,10 @@ class Customers::CustomersController < ApplicationController
     end
   end
 
-  def comfirm
-  end
-
   def destroy
     @customer.destroy
     redirect_to root_path
   end
-
 
   private
 
@@ -41,13 +38,16 @@ class Customers::CustomersController < ApplicationController
     params.require(:customer).permit(:profile_image, :nick_name, :introduction)
   end
 
-
   # destroyも含めたい
   def ensure_correct_customer
     @customer = Customer.find(params[:id])
     unless @customer == current_customer
       redirect_to customers_customer_path(current_customer)
     end
+  end
+
+  def search_params
+    params.require(:q).permit!
   end
 
 end

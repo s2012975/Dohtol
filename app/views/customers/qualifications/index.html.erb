@@ -1,3 +1,10 @@
+<%= search_form_for(@q, url: customers_qualifications_path, method: :get) do |f| %>
+  <%= f.label :name, "Keyword" %>
+  <%= f.search_field :name_cont %>
+
+  <%= f.submit "検索" %>
+<% end %>
+
 <table class=''>
   <thead>
     <tr>

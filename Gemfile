@@ -70,6 +70,8 @@ gem 'pry-byebug'
 
 gem 'jquery-rails'
 
+# 検索機能で使用
+gem 'ransack'
 
 
 # MySQLを利用するために必要なgemを追加
