@@ -1,2 +1,21 @@
-<h1>Customers::Qualifications#index</h1>
-<p>Find me in app/views/customers/qualifications/index.html.erb</p>
+<table class=''>
+  <thead>
+    <tr>
+      <th>資格名</th>
+      <th>ジャンル</th>
+      <th>概要</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @qualifications.each do |qualification| %>
+      <tr>
+        <td>
+          <%= link_to qualification.name, customers_qualification_path(qualification) %>
+        </td>
+        <td><%= qualification.genre.name %></td>
+        <td><%= qualification.body %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

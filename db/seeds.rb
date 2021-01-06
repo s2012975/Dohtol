@@ -24,7 +24,7 @@ Customer.create!(
     nick_name:        'ターナー',
     sex:              '0',
     age:              '20',
-    profile_image:    File.open("./app/assets/images/animal_arupaka.png"),
+    profile_image:    File.open("./app/assets/images/animal_panda.png"),
     introduction:     'はじめまして'
     )
 
@@ -61,13 +61,22 @@ Genre.create!(
 Qualification.create!(
     genre_id:  '1',
     name: '漢字検定2級',
-    body: '漢字の技能検定。'
+    body: '漢字の技能検定です。',
+    classification: '国家'
     )
 
 Qualification.create!(
     genre_id:  '2',
     name: 'アロマ検定',
-    body: 'アロマの検定。'
+    body: 'アロマの検定です。',
+    classification: '民間'
+    )
+
+Qualification.create!(
+    genre_id:  '1',
+    name: '英語検定',
+    body: '英語の検定です。',
+    classification: '民間'
     )
 
 CustomerHaveQualification.create!(
@@ -75,9 +84,24 @@ CustomerHaveQualification.create!(
     qualification_id: '1',
     )
 
+CustomerHaveQualification.create!(
+    customer_id:  '1',
+    qualification_id: '2',
+    )
+
+CustomerHaveQualification.create!(
+    customer_id:  '2',
+    qualification_id: '1',
+    )
+
 
 CustomerStudyQualification.create!(
     customer_id:  '1',
+    qualification_id: '3',
+    )
+
+CustomerStudyQualification.create!(
+    customer_id:  '2',
     qualification_id: '2',
     )
 

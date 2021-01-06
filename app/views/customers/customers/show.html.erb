@@ -1,10 +1,9 @@
-<div class="customer-name">
-  <%= @customer.nick_name %>
-</div>
-
-<!--後で修正-->
 <div class="customer-image">
   <%= attachment_image_tag @customer, :profile_image, fallback: "no_image_square.jpg", size: "200x200" %>
+</div>
+
+<div class="customer-name">
+  <%= @customer.nick_name %>
 </div>
 
 <div class="customer-introduction">
@@ -17,14 +16,18 @@
 </div>
 
 <div class="customer-edit_btn">
-  <%= link_to "編集する", edit_customers_customer_path, class: "btn" %>
+  <% if current_customer == @customer %>
+    <%= link_to "編集する", edit_customers_customer_path, class: "btn" %>
+  <% end %>
 </div>
 
 <div class="customer-followers">
-  <% if current_customer.following?(@customer) %>
-    <%= link_to "フォロー外す", customers_customer_relationships_path(@customer.id), method: :delete, class: "btn" %>
-  <% else %>
-    <%= link_to "フォローする", customers_customer_relationships_path(@customer.id), method: :post, class: "btn" %>
+  <% if current_customer %>
+    <% if current_customer.following?(@customer) %>
+      <%= link_to "フォロー外す", customers_customer_relationships_path(@customer.id), method: :delete, class: "btn" %>
+    <% else %>
+      <%= link_to "フォローする", customers_customer_relationships_path(@customer.id), method: :post, class: "btn" %>
+    <% end %>
   <% end %>
 
   <div>
@@ -64,9 +67,11 @@
   <p>カレンダー</p>
 </div>
 
-<div class="customer-destroy">
-  <%= link_to "Destroy", customer_registration_path(@customer), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, class: "btn destroy_customer_#{@customer.id}" %>
-</div>
+<% if current_customer == @customer %>
+  <div class="customer-destroy">
+    <%= link_to "ユーザの削除", customer_registration_path(@customer), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, class: "btn destroy_customer_#{@customer.id}" %>
+  </div>
+<% end %>
 
 <div class="customer-stories">
   <p>投稿したコメント</p>
@@ -85,7 +90,7 @@
   	        <td>
   			      <%= link_to customers_customer_path(given_message.send_customer) do %>
   				      <%= attachment_image_tag(given_message.send_customer, :profile_image, :fill, 100, 100, fallback: "no_image_square.jpg") %><br>
-  			        <%= given_message.send_customer.name %>
+  			        <%= given_message.send_customer.nick_name %>
   			      <% end %>
   	        </td>
             <td>
@@ -107,27 +112,29 @@
   </table>
 
 
-<div id="">
-  <%= form_with url: customers_customer_post_comments_path(@customer), model: [@customer, @post_comment], local: true do |f| %>
+<% if current_customer %>
+  <div id="">
+    <%= form_with url: customers_customer_post_comments_path(@customer), model: [@customer, @post_comment], local: true do |f| %>
 
-    <% if @post_comment.errors.any? %>
-      <div id="error_explanation">
-        <ul>
-          <% @post_comment.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-          <% end %>
-        </ul>
+      <% if @post_comment.errors.any? %>
+        <div id="error_explanation">
+          <ul>
+            <% @post_comment.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div>
+        <%= f.text_area :body, id: "comment_body", class: "form-control", placeholder: "コメント" %>
+      </div>
+      <div>
+        <%= f.submit "送信" %>
       </div>
     <% end %>
-
-    <div>
-      <%= f.text_area :body, id: "comment_body", class: "form-control", placeholder: "コメント" %>
-    </div>
-    <div>
-      <%= f.submit "送信" %>
-    </div>
-  <% end %>
-</div>
+  </div>
+<% end %>
 
 
 

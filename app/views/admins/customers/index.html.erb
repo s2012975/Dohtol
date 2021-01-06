@@ -15,8 +15,24 @@
         <tr>
           <td width=100><%= attachment_image_tag customer, :profile_image, format: 'png', fallback: "no_image_square.jpg", size: "50x50" %></td>
           <td width=100><%= link_to  customer.nick_name,  admins_customer_path(customer.id) %></td>
-          <td><%=  %></td>
-          <td><%=  %></td>
+          <td>
+            <% customer.customer_study_qualifications.each do |customer_study_qualification| %>
+              <div class="customer_study_qualification">
+                </div class="tag-name">
+                  <%= customer_study_qualification.qualification.name %>
+                </div>
+              </div>
+            <% end %>
+          </td>
+          <td>
+            <% customer.customer_have_qualifications.each do |customer_have_qualification| %>
+              <div class="customer_have_qualification">
+                </div class="tag-name">
+                  <%= customer_have_qualification.qualification.name %>
+                </div>
+              </div>
+            <% end %>
+          </td>
         </tr>
       <% end %>
     </tbody>

@@ -9,7 +9,6 @@ class Customers::PostCommentsController < ApplicationController
   end
 
   def destroy
-
     PostComment.find_by(id: params[:id], given_customer_id: params[:customer_id]).destroy
     redirect_to customers_customer_path(params[:customer_id])
   end

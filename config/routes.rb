@@ -33,8 +33,9 @@ Rails.application.routes.draw do
   namespace :customers do
     get 'homes/top'
     get 'homes/about'
-    resources :stories, only:[:index, :show, :edit, :new]
-    resources :qualifications, only:[:index, :show]
+    resources :qualifications, only:[:index, :show] do
+      resources :stories
+    end
     resources :customers, only:[:index, :show, :edit, :update] do
       resources :post_comments, only: [:create, :destroy]
       resource :relationships, only: [:create, :destroy]
