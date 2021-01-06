@@ -1,3 +1,10 @@
+<%= search_form_for(@q, url: customers_customers_path, method: :get) do |f| %>
+  <%= f.label :name, "Keyword" %>
+  <%= f.search_field :nick_name_cont %>
+
+  <%= f.submit "検索" %>
+<% end %>
+
 <h2>ユーザ一覧</h2>
 
 <div class="customer-index">
