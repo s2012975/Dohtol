@@ -7,18 +7,18 @@
   </span>
 </div>
 <nav class="header-nav">
-  <ul>
+  <ul class="header-nav-list">
     <% if customer_signed_in? %>
-      <li class="header-nav-list-item"><%= link_to 'mypage', customers_customer_path(current_customer), class: '' %></li>
-      <li class="header-nav-list-item"><%= link_to 'index', customers_customers_path, class: '' %></li>
-      <li class="header-nav-list-item"><%= link_to 'quali', customers_qualifications_path, class: '' %></li>
-      <li class="header-nav-list-item"><%= link_to ' logout', destroy_customer_session_path, method: :delete, class: 'logout' %></li>
+      <li class="header-nav-list-item"><%= link_to 'マイページ', customers_customer_path(current_customer), class: 'header-nav-list-item-text' %></li>
+      <li class="header-nav-list-item"><%= link_to 'ユーザ一覧', customers_customers_path, class: 'header-nav-list-item-text' %></li>
+      <li class="header-nav-list-item"><%= link_to '資格一覧', customers_qualifications_path, class: 'header-nav-list-item-text' %></li>
+      <li class="header-nav-list-item"><%= link_to 'ログアウト', destroy_customer_session_path, method: :delete, class: 'header-nav-list-item-text' %></li>
     <% else %>
-      <li class="header-nav-list-item"><%= link_to 'About', customers_homes_about_path, class: '' %></li>
-      <li class="header-nav-list-item"><%= link_to 'index', customers_customers_path, class: '' %></li>
-      <li class="header-nav-list-item"><%= link_to 'quali', customers_qualifications_path, class: '' %></li>
-      <li class="header-nav-list-item"><%= link_to 'signup', new_customer_registration_path, class: '' %></li>
-      <li class="header-nav-list-item"><%= link_to 'login',  new_customer_session_path, class: '' %></li>
+      <li class="header-nav-list-item"><%= link_to 'about', customers_homes_about_path, class: 'header-nav-list-item-text' %></li>
+      <li class="header-nav-list-item"><%= link_to 'ユーザ一覧', customers_customers_path, class: 'header-nav-list-item-text' %></li>
+      <li class="header-nav-list-item"><%= link_to '資格一覧', customers_qualifications_path, class: 'header-nav-list-item-text' %></li>
+      <li class="header-nav-list-item"><%= link_to '新規登録', new_customer_registration_path, class: 'header-nav-list-item-text' %></li>
+      <li class="header-nav-list-item"><%= link_to 'ログイン',  new_customer_session_path, class: 'header-nav-list-item-text' %></li>
     <% end %>
   </ul>
 </nav>
