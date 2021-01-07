@@ -32,13 +32,18 @@
 /*header*/
 
 header {
-  height: 70px;
+  height: 50px;
   background-color: gray;
 }
 
 .header-title {
-  line-height: 70px;
+  line-height: 50px;
   display: inline-block;
+}
+
+.header-logo {
+  width: 40px;
+  height: 40px;
 }
 
 .header-nav {
@@ -70,3 +75,23 @@ main {
 /*  position: absolute;*/
 /*  bottom: 0;*/
 /*}*/
+
+
+/*スライドの設定*/
+
+#box{
+  height: 600px;
+}
+.image1 {
+  background-image: url("meigen1.png");
+  background-size: cover;
+}
+.image2 {
+  background-image: url("meigen2.png");
+}
+.image3 {
+  background-image: url("meigen3.png");
+}
+.image4 {
+  background-image: url("meigen4.png");
+}
