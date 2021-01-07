@@ -1,0 +1,2 @@
+module Customers::RatesHelper
+end

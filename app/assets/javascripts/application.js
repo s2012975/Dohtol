@@ -15,6 +15,7 @@
 //= require turbolinks
 //= require jquery
 //= require_tree .
+//= require jquery.raty.js
 
 $(function() {
   $('#back a').on('click',function(event){
@@ -39,4 +40,38 @@ $(document).ready(function () {
     keyboardOnAlways : true,
     hidePrevious : false
   });
+});
+
+
+
+$('.review-rating').raty({
+  readOnly: true,
+  score: function() {
+    return $(this).attr('data-score');
+  },
+  path: '/assets/'
+});
+
+
+  // aboutページ
+
+$('.about-list-item').click(function() {
+  var $answer = $(this).find('.answer');
+  if($answer.hasClass('open')) {
+    $answer.removeClass('open');
+    // slideUpメソッドを用いて、$answerを隠してください
+    $answer.slideUp();
+
+    // 子要素のspanタグの中身をtextメソッドを用いて書き換えてください
+    $(this).find('span').text('open');
+
+  } else {
+    $answer.addClass('open');
+    // slideDownメソッドを用いて、$answerを表示してください
+    $answer.slideDown();
+
+    // 子要素のspanタグの中身をtextメソッドを用いて書き換えてください
+    $(this).find('span').text('close');
+
+  }
 });

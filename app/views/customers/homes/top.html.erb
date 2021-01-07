@@ -25,14 +25,46 @@
         <p><i class="fas fa-search"></i> ジャンルから探す</p>
       </div>
       <div class="qualification-contents">
-      <div class="qualification-box"></div>
-      <div class="qualification-box"></div>
-      <div class="qualification-box"></div>
-      <div class="qualification-box"></div>
-      <div class="qualification-box"></div>
-      <div class="qualification-box"></div>
-      <div class="qualification-box"></div>
-      <div class="qualification-box"></div>
+        <div class="qualification-box">
+          <%= link_to "/", target: "_blank" do %>
+            <%= image_tag 'gogaku.png', class: "qualification-box-item", size: "160x160" %>
+          <% end %>
+        </div>
+        <div class="qualification-box">
+          <%= link_to "/", target: "_blank" do %>
+            <%= image_tag 'iryou.png', class: "qualification-box-item", size: "160x160" %>
+          <% end %>
+        </div>
+        <div class="qualification-box">
+          <%= link_to "/", target: "_blank" do %>
+            <%= image_tag 'kaikei.png', class: "qualification-box-item", size: "160x160" %>
+          <% end %>
+        </div>
+        <div class="qualification-box">
+          <%= link_to "/", target: "_blank" do %>
+            <%= image_tag 'sihou.png', class: "qualification-box-item", size: "160x160" %>
+          <% end %>
+        </div>
+        <div class="qualification-box">
+          <%= link_to "/", target: "_blank" do %>
+            <%= image_tag 'it.png', class: "qualification-box-item", size: "160x160" %>
+          <% end %>
+        </div>
+        <div class="qualification-box">
+          <%= link_to "/", target: "_blank" do %>
+            <%= image_tag 'business.png', class: "qualification-box-item", size: "160x160" %>
+          <% end %>
+        </div>
+        <div class="qualification-box">
+          <%= link_to "/", target: "_blank" do %>
+            <%= image_tag 'koumuin.png', class: "qualification-box-item", size: "160x160" %>
+          <% end %>
+        </div>
+        <div class="qualification-box">
+          <%= link_to "/", target: "_blank" do %>
+            <%= image_tag 'sport.png', class: "qualification-box-item", size: "160x160" %>
+          <% end %>
+        </div>
       </div>
       <div class="top-icon">
         <p><i class="fas fa-list-alt"></i> <%= link_to '全資格を見る', customers_qualifications_path %></p>
@@ -49,6 +81,7 @@
       </div>
     </div>
     <div class="new-stories-box">
+      
     </div>
   </section>
 

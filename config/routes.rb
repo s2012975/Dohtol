@@ -34,7 +34,9 @@ Rails.application.routes.draw do
     get 'homes/top'
     get 'homes/about'
     resources :qualifications, only:[:index, :show] do
-      resources :stories
+      resources :stories do
+        resources :rates, only:[:create, :destroy]
+      end
     end
     resources :customers, only:[:index, :show, :edit, :update] do
       resources :post_comments, only: [:create, :destroy]

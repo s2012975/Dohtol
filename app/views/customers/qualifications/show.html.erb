@@ -33,7 +33,7 @@
         <tr>
           <td width=100><%= attachment_image_tag story.customer, :profile_image, format: 'png', fallback: "no_image_square.jpg", size: "50x50" %></td>
           <td width=100><%= link_to  story.customer.nick_name,  customers_customer_path(story.customer.id) %></td>
-          <td><%= story.title %></td>
+          <td><%= link_to story.title, customers_qualification_story_path(@qualification, story.id)  %></td>
           <td><%= story.study_time %></td>
           <td><%= story.body %></td>
 	        <td>
