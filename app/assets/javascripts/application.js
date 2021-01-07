@@ -24,3 +24,19 @@ $(function() {
     event.preventDefault();
   });
 });
+
+
+$(document).ready(function () {
+  $("#images").skippr({
+    transition : 'fade',　// ("fade" or "slide")
+    speed : 1000,
+    easing : 'easeOutQuart',
+    navType : 'bubble',
+    childrenElementType : 'div',
+    arrows : false,
+    autoPlay : true,
+    autoPlayDuration : 6000,
+    keyboardOnAlways : true,
+    hidePrevious : false
+  });
+});
