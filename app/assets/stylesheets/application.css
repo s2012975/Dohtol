@@ -23,6 +23,7 @@
 }
 
 
+
 /*.wrapper{*/
 /*    min-height: 100vh;*/
 /*    position: relative;*/
@@ -33,18 +34,13 @@
 
 header {
   width: 100%;
-  height: 50px;
+  height: 60px;
   background-color: #003333;
   display: flex;
 }
 
 .header-title {
-  height: 50px;
-}
-
-.header-logo {
-  width: 40px;
-  height: 40px;
+  height: 60px;
 }
 
 .header-nav {
@@ -92,7 +88,6 @@ main {
 }
 .image1 {
   background-image: url("meigen1.png");
-  background-size: cover;
 }
 .image2 {
   background-image: url("meigen2.png");
@@ -102,4 +97,45 @@ main {
 }
 .image4 {
   background-image: url("meigen4.png");
+}
+
+/*共通*/
+
+.page-title {
+  margin: 20px auto;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/*ユーザ登録画面*/
+
+.registration-form {
+  margin-left: 20%;
+  margin-bottom: 20px;
+}
+
+.registration-form-actions {
+  margin-top: 20px;
+  margin-left: 35%;
+}
+
+.registration-to-login {
+  margin-top: 20px;
+  margin-left: 15%;
+}
+
+/*ログイン画面*/
+
+.login-form {
+  margin-left: 30%;
+  margin-bottom: 20px;
+}
+
+.login-form-actions {
+  margin-top: 20px;
+  margin-left: 25%;
+}
+
+.login-to-reset {
+  margin-top: 20px;
 }

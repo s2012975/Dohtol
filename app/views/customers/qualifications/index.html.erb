@@ -1,28 +1,24 @@
-<%= search_form_for(@q, url: customers_qualifications_path, method: :get) do |f| %>
-  <%= f.label :name, "Keyword" %>
-  <%= f.search_field :name_cont %>
+<h1 class="page-title"><%= @genre_name %>一覧</h1>
 
-  <%= f.submit "検索" %>
-<% end %>
-
-<table class=''>
-  <thead>
-    <tr>
-      <th>資格名</th>
-      <th>ジャンル</th>
-      <th>概要</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @qualifications.each do |qualification| %>
-      <tr>
-        <td>
-          <%= link_to qualification.name, customers_qualification_path(qualification) %>
-        </td>
-        <td><%= qualification.genre.name %></td>
-        <td><%= qualification.body %></td>
+<div class="qualification-index">
+  <table class='qualification-index-table'>
+    <thead>
+      <tr class="qualification-index-table-title">
+        <th>資格名</th>
+        <th>ジャンル</th>
+        <th>概要</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <% @qualifications.each do |qualification| %>
+        <tr class="items">
+          <td>
+            <%= link_to qualification.name, customers_qualification_path(qualification) %>
+          </td>
+          <td width=120><%= qualification.genre.name %></td>
+          <td><%= qualification.body %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

@@ -22,7 +22,7 @@ Customer.create!(
     last_name_kana:   'タナカ',
     first_name_kana:  'タロウ',
     nick_name:        'ターナー',
-    sex:              '0',
+    sex:              '男',
     age:              '20',
     profile_image:    File.open("./app/assets/images/animal_panda.png"),
     introduction:     'はじめまして'
@@ -54,7 +54,31 @@ Genre.create!(
     )
 
 Genre.create!(
-    name:  '生活',
+    name:  '医療・福祉',
+    )
+
+Genre.create!(
+    name:  '会計・経理',
+    )
+
+Genre.create!(
+    name:  '司法・労務',
+    )
+
+Genre.create!(
+    name:  'IT',
+    )
+
+Genre.create!(
+    name:  'ビジネス',
+    )
+
+Genre.create!(
+    name:  '公務員',
+    )
+
+Genre.create!(
+    name:  'スポーツ',
     )
 
 

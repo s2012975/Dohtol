@@ -1,30 +1,33 @@
-<div>
-  <%= @qualification.name %>
+<h1 class="page-title"><%= @qualification.name %></h1>
+
+<div class="qualification-infomation">
+  <div class="qualification-classification">
+    <p>資格区分：<strong><%= @qualification.classification %></strong></p>
+  </div>
+
+  <div>
+    <p class="qualification-name">ジャンル：<strong><%= @qualification.genre.name %></strong></p>
+  </div>
+
+  <div class="qualification-content">
+    <p>資格内容</p>
+    <p><%= @qualification.body %></p>
+  </div>
+
+  <div class="story-create-btn">
+    <%= link_to '体験談を作成する', new_customers_qualification_story_path(@qualification), class: "btn" %>
+  </div>
 </div>
-
-<div>
-  <%= @qualification.classification %>
-</div>
-
-<div>
-  <%= @qualification.genre.name %>
-</div>
-
-<div>
-  <%= @qualification.body %>
-</div>
-
-<%= link_to '体験談を作成する', new_customers_qualification_story_path(@qualification) %>
-
 
 <div class="customer-index">
+  <p class="customer-index-coution">（単位：時間）</p>
   <table class="customer-index-table">
     <thead class="">
-      <tr>
+      <tr class="customer-index-table-title">
         <th></th>
-        <th>ニックネーム</th>
-        <th>タイトル</th>
-        <th>学習時間</th>
+        <th width=100>ニックネーム</th>
+        <th width=120>タイトル</th>
+        <th width=80>学習時間</th>
         <th>内容</th>
       </tr>
     </thead>
@@ -33,7 +36,7 @@
         <tr>
           <td width=100><%= attachment_image_tag story.customer, :profile_image, format: 'png', fallback: "no_image_square.jpg", size: "50x50" %></td>
           <td width=100><%= link_to  story.customer.nick_name,  customers_customer_path(story.customer.id) %></td>
-          <td><%= story.title %></td>
+          <td><%= link_to story.title, customers_qualification_story_path(@qualification, story.id)  %></td>
           <td><%= story.study_time %></td>
           <td><%= story.body %></td>
 	        <td>
