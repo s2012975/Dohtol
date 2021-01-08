@@ -75,3 +75,10 @@ $('.about-list-item').click(function() {
 
   }
 });
+
+
+// tableのtr要素にリンク
+
+$('tr[data-link]').click(function() {
+  window.location = $(this).data('link')
+})

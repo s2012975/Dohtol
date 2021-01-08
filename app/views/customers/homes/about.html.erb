@@ -5,7 +5,7 @@
     <h3 class="question">DOHTOL（ドートル）とは？？</h3>
     <span>open</span>
     <p class="answer">資格情報のコミュニティサイトです。<br>
-      ユーザ様の「<strong><%= link_to '資格取得の体験談', new_customer_registration_path, class: '' %></strong>」が投稿されていますので、学習の参考にしてみてください。<br>
+      ユーザ様の「<strong>資格取得の体験談</strong>」が投稿されていますので、学習の参考にしてみてください。<br>
       またユーザ様のページにはコメント投稿欄があるので、直接質問してみるのも良いでしょう。
     </p>
   </li>
@@ -22,3 +22,6 @@
     <p class="answer">新規登録には「<strong><%= link_to 'ここ', new_customer_registration_path, class: '' %></strong>」から、またはページ上部の「新規登録」のリンクから登録を行えます。</p>
   </li>
 </ul>
+
+
+<%= link_to 'TOPページに戻る', root_path, class: "link-to-top" %>

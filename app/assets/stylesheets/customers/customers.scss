@@ -1,3 +1,52 @@
 // Place all the styles related to the customers/Customers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.searh-window {
+  margin-left: 80%;
+  margin-bottom: 20px;
+}
+
+.customer-index {
+  width: 100%;
+  background-color: #DEB887;
+  padding: 20px 20px;
+  border-radius: 5px;
+}
+
+.customer-index-table {
+  width: 100%;
+  background-color: #FAEBD7;
+  text-align: left;
+  border-radius: 5px;
+}
+
+.customer-index-table-title > th:not(:first-child) {
+  background-color: #A9A9A9;
+  border-radius: 5px;
+}
+
+// 資格一覧ページ
+
+.qualification-index {
+  width: 100%;
+  background-color: #DEB887;
+  padding: 20px 20px;
+  border-radius: 5px;
+}
+
+.qualification-index-table {
+  width: 100%;
+  background-color: #FAEBD7;
+  text-align: left;
+  border-radius: 5px;
+}
+
+.qualification-index-table-title > th {
+  background-color: #A9A9A9;
+  border-radius: 5px;
+}
+
+.items {
+  border-bottom: 1px solid #f7f7f7;
+}
