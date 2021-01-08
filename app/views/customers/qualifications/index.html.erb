@@ -1,12 +1,4 @@
-<h1 class="page-title">資格一覧</h1>
-
-<div class="searh-window">
-  <%= search_form_for(@q, url: customers_qualifications_path, method: :get) do |f| %>
-    <%= f.label :name, "Keyword" %>
-    <span><%= f.search_field :name_cont %></span>
-    <span><%= f.submit "検索" %></span>
-  <% end %>
-</div>
+<h1 class="page-title"><%= @genre_name %>一覧</h1>
 
 <div class="qualification-index">
   <table class='qualification-index-table'>
@@ -23,7 +15,7 @@
           <td>
             <%= link_to qualification.name, customers_qualification_path(qualification) %>
           </td>
-          <td><%= link_to qualification.genre.name %></td>
+          <td width=120><%= qualification.genre.name %></td>
           <td><%= qualification.body %></td>
         </tr>
       <% end %>

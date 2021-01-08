@@ -28,6 +28,7 @@ class Customers::StoriesController < ApplicationController
 
   def edit
     @story = Story.find(params[:id])
+    @customer = @story.customer
   end
 
   def update

@@ -1,38 +1,62 @@
-<div>
-  <p>お知らせ作成</p>
-</div>
+<h1 class="page-title">体験談編集</h1>
 
 <%= form_with url: customers_qualification_story_path, model:@story, local: true do |f| %>
 
 	<%= render 'layouts/errors', model: f.object %>
 
-	<div class="field">
-		<%= f.label :タイトル %>
-		<%= f.text_field :title, class: "title" %>
+	<div>
+		<%= f.submit '保存', class: "story-create-btn" %>
 	</div>
 
-	<div class="field">
-		<%= f.label :学習時間%>
-		約<%= f.number_field :study_time, min:1,class: "study_time" %>時間
-	</div>
+	<div class="story-all">
+	  <div class="story-top">
+	    <div class="customer-introduction">
+	      <div class="customer-introduction-detail">
+	        <div class="customer-image">
+	          <%= attachment_image_tag @customer, :profile_image, fallback: "no_image_square.jpg", size: "200x200", class: "customer-image" %>
+	        </div>
+	        <div class="customer-name">
+	          <p><strong><%= @customer.nick_name %></strong><p>
+	        </div>
+	      </div>
+	    </div>
+	    <div class="story-part-one">
+	      <div class="story-items">
+					<div class="field">
+						<%= f.label :タイトル %><br>
+						<%= f.text_field :title, class: "title", width: "200" %>
+					</div>
+	      </div>
 
-	<div class="field">
-		<%= f.label :取得目的 %>
-		<%= f.text_field :reason, class: "reason" %>
-	</div>
+	      <div class="story-items">
+	      	<div class="field">
+		        <%= f.label :資格学習時間%><br>
+		        <p>約<%= f.number_field :study_time, min:1,class: "study_time" %>時間</p>
+	        </div>
+	      </div>
 
-	<div class="field">
-		<%= f.label :概要 %>
-		<%= f.text_field :body, class: "body" %>
-	</div>
+	      <div class="story-items">
+	      	<div class="field">
+		        <%= f.label :取得目的 %><br>
+		        <p><%= f.text_field :reason, class: "reason" %></p>
+	        </div>
+	      </div>
+	    </div>
+	  </div>
+	  <div class="story-bottom">
+	    <div class="story-content">
+	    	<div class="field">
+		      <p class="story-content-title"><%= f.label :内容 %></p>
+		      <%= f.text_field :body, class: "body" %>
+	      </div>
+	    </div>
 
-	<div class="field">
-		<%= f.label :使用した参考書 %>
-		<%= f.text_field :books, class: "books" %>
+	    <div class="story-content">
+	    	<div class="field">
+		      <p class="story-content-title"><%= f.label :使用した参考書 %></p>
+		      <%= f.text_field :books, class: "books" %>
+	      </div>
+	    </div>
+	  </div>
 	</div>
-
-	<div class="actions">
-		<%= f.submit '作成'%>
-	</div>
-
 <% end %>

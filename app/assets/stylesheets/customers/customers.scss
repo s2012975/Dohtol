@@ -2,6 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
+
 .searh-window {
   margin-left: 80%;
   margin-bottom: 20px;
@@ -49,4 +51,37 @@
 
 .items {
   border-bottom: 1px solid #f7f7f7;
+}
+
+// 資格詳細ページ
+
+.qualification-infomation {
+  text-align: center;
+}
+
+.qualification-classification {
+  margin-bottom: 10px;
+}
+
+.qualification-name {
+  margin-bottom: 10px;
+}
+
+.qualification-content {
+  margin-bottom: 50px;
+}
+
+.customer-index-coution {
+  text-align: right;
+}
+
+.story-create-btn {
+  width: 150px;
+  margin-bottom: 30px;
+  background-color: #003333;
+  border-radius: 5px;
+}
+
+.btn:visited {
+  color: white;
 }
