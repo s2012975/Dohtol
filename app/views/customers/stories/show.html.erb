@@ -1,8 +1,27 @@
 <h1 class="page-title">資格体験談</h1>
+
 <div class="story-edit-btn">
   <%= link_to '体験談を編集する', edit_customers_qualification_story_path(@story), class: "btn" %>
 </div>
+
+<% if @story.liked_by?(current_customer) %>
+  <li>
+    <%= link_to customers_qualification_story_likes_path(@qualification, @story), method: :delete do %>
+      <i class="fa fa-heart" aria-hidden="true" style="color: red;"></i>
+      <%= @story.likes.count %> いいね
+    <% end %>
+  </li>
+<% else %>
+  <li>
+    <%= link_to customers_qualification_story_likes_path(@qualification, @story), method: :post do %>
+      <i class="fa fa-heart-o" aria-hidden="true"></i>
+      <%= @story.likes.count %> いいね
+    <% end %>
+  </li>
+<% end %>
+
 <!--raty入れたい-->
+
 <div class="story-all">
   <div class="story-top">
     <div class="customer-introduction">

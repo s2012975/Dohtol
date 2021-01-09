@@ -13,6 +13,7 @@ class Customers::StoriesController < ApplicationController
   def show
     @story = Story.find(params[:id])
     @customer = @story.customer
+    @qualification = Qualification.find(params[:qualification_id])
   end
 
   def create

@@ -11,6 +11,7 @@ class Customer < ApplicationRecord
   has_many :events, dependent: :destroy
   has_many :stories, dependent: :destroy
   has_many :likes, dependent: :destroy
+  has_many :liked_stories, through: :likes, source: :story, dependent: :destroy
 
 
   # 以下post_commentsの設定

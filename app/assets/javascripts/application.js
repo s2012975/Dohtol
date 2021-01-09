@@ -12,7 +12,6 @@
 //
 //= require rails-ujs
 //= require activestorage
-//= require turbolinks
 //= require jquery
 //= require_tree .
 //= require jquery.raty.js
@@ -54,27 +53,28 @@ $('.review-rating').raty({
 
 
   // aboutページ
+console.log('top')
+$('#hoge').click(function() {
+    console.log('hoge')
+})
 
-$('.about-list-item').click(function() {
-  var $answer = $(this).find('.answer');
-  if($answer.hasClass('open')) {
-    $answer.removeClass('open');
-    // slideUpメソッドを用いて、$answerを隠してください
-    $answer.slideUp();
+$(document).ready(function() {
+  $('.about-list-item').click(function() {
+    var $answer = $(this).find('.answer');
+    if($answer.hasClass('open')) {
+      $answer.removeClass('open');
+      // slideUpで$answerを隠す
+      $answer.slideUp();
+      $(this).find('span').text('open');
+    } else {
+      $answer.addClass('open');
+      $answer.slideDown();
+      $(this).find('span').text('close');
+    }
+  });
+})
 
-    // 子要素のspanタグの中身をtextメソッドを用いて書き換えてください
-    $(this).find('span').text('open');
 
-  } else {
-    $answer.addClass('open');
-    // slideDownメソッドを用いて、$answerを表示してください
-    $answer.slideDown();
-
-    // 子要素のspanタグの中身をtextメソッドを用いて書き換えてください
-    $(this).find('span').text('close');
-
-  }
-});
 
 
 // tableのtr要素にリンク

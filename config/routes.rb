@@ -35,7 +35,7 @@ Rails.application.routes.draw do
     get 'homes/about'
     resources :qualifications, only:[:index, :show] do
       resources :stories do
-        resources :rates, only:[:create, :destroy]
+        resource :likes, only:[:create, :destroy]
       end
     end
     resources :customers, only:[:index, :show, :edit, :update] do
