@@ -1,2 +1,2 @@
-$("#given_messages").html("<% @customer.given_messages.each do |given_message| %>");
+$("#given_messages").html("<%= j(render 'customers/post_comments/index', customer: @customer) %>");
 $("#post_comment_body").val("");
