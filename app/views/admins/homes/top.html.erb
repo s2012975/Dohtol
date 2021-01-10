@@ -1,44 +1,165 @@
-<h3>管理者</h3>
+<h1 class="page-title">管理者</h1>
 
-  <div>
+<div class="a-top-all">
+  <div class="a-top-title">
     <p>最新の体験談</p>
   </div>
+  <div class="customer-index">
+    <table class="customer-index-table">
+      <thead class="">
+        <tr class="customer-index-table-title">
+          <th></th>
+          <th width=100>ニックネーム</th>
+          <th>資格名</th>
+          <th width=120>タイトル</th>
+          <th>内容</th>
+          <th width=70>日付</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @stories.each do |story| %>
+          <tr>
+            <td width=50><%= attachment_image_tag story.customer, :profile_image, format: 'png', fallback: "no_image_square.jpg", size: "50x50" %></td>
+            <td width=100><%= link_to  story.customer.nick_name,  admins_customer_path(story.customer.id) %></td>
+            <td><%= story.qualification.name %></td>
+            <td><%= link_to story.title, admins_qualification_story_path(story.qualification.id, story.id)  %></td>
+            <td><%= story.body %></td>
+            <td><%= story.created_at.strftime("%m月%d日") %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 
-  <div>
-    <p>最新のコメント</p>
+  <div class="a-top-title">
+    <p>最近登録したユーザ</p>
+  </div>
+  <div class="customer-index">
+    <table class="customer-index-table">
+      <thead>
+        <tr class="customer-index-table-title">
+          <th></th>
+          <th width=100>ニックネーム</th>
+          <th>性別</th>
+          <th>年齢</th>
+          <th>自己紹介</th>
+          <th width=70>日付</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @customers.each do |customer| %>
+          <tr>
+            <td width=50><%= attachment_image_tag customer, :profile_image, format: 'png', fallback: "no_image_square.jpg", size: "50x50" %></td>
+            <td width=100><%= link_to  customer.nick_name,  admins_customer_path(customer.id) %></td>
+            <td><%= customer.sex %></td>
+            <td><%= customer.age  %></td>
+            <td><%= customer.introduction %></td>
+            <td><%= customer.created_at.strftime("%m月%d日") %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="a-top-title">
+    <p>最新のお知らせ</p>
+  </div>
+　<div class="customer-index">
+    <table class="customer-index-table">
+      <thead>
+        <tr class="customer-index-table-title">
+          <th></th>
+          <th>お知らせ</th>
+          <th>区分</th>
+          <th>概要</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @announces.each do |announce| %>
+          <tr>
+            <td></td>
+            <td><%= link_to announce.title, admins_announce_path(announce) %></td>
+            <td><%= announce.category %></td>
+            <td><%= announce.body %></td>
+          </tr>
+        <% end %>
+      </tbody>
+  　</table>
+  </div>
+    <div class="a-top-title">
+      <%= link_to '新たにお知らせを作る', new_admins_announce_path %>
+    </div>
+
+
+
+
+  <div class="a-top-announce-genre">
+
+  <div class="a-top-announce">
+    <div class="a-top-announce-top">
+      <p>登録資格の一覧</p>
+    </div>
+    <div class="customer-index">
+      <table class="customer-index-table">
+        <thead>
+          <tr class="customer-index-table-title">
+            <th></th>
+            <th>資格名</th>
+            <th>ジャンル</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @qualifications.each do |qualification| %>
+            <tr>
+              <td></td>
+              <td><%= qualification.name %></td>
+              <td><%= qualification.genre.name  %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+       <div class="a-top-announce-top">
+      <%= link_to '新たに資格を作る', new_admins_qualification_path %>
+    </div>
+  </div>
+
+  <div class="a-top-genre">
+    <div class="a-top-announce-top">
+      <p>登録ジャンルの一覧</p>
+    </div>
+    <div class="customer-index">
+      <table class="customer-index-table">
+        <thead>
+          <tr class="customer-index-table-title">
+            <th></th>
+            <th>ジャンル名</th>
+            <th>状態</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @genres.each do |genre| %>
+            <tr>
+              <td></td>
+              <td><%= genre.name %></td>
+              <td>
+                <% if genre.is_active == true %>
+                  有効
+                <% else %>
+                  無効
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+    <div class="a-top-genre-top">
+      <%= link_to '新たにジャンルを作る', admins_genres_path %>
+    </div>
+  </div>
+
   </div>
 
 
-<div>
-  <%= link_to '新たに資格を作る', new_admins_qualification_path %>
 </div>
-
-<div>
-  <%= link_to '新たにお知らせを作る', new_admins_announce_path %>
-</div>
-
-<div>
-  <%= link_to '新たにジャンルを作る', admins_genres_path %>
-</div>
-
-<table class=''>
-  <thead>
-    <tr>
-      <th>お知らせ</th>
-      <th>区分</th>
-      <th>概要</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @announces.each do |announce| %>
-      <tr>
-        <td>
-          <%= link_to announce.title, admins_announce_path(announce) %>
-        </td>
-        <td><%= announce.category %></td>
-        <td><%= announce.body %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>

@@ -6,8 +6,4 @@ class Story < ApplicationRecord
   belongs_to :customer
   belongs_to :qualification
 
-  def liked_by?(customer)
-    likes.where(customer_id: customer.id).exists?
-  end
-
 end

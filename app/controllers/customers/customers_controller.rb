@@ -8,6 +8,7 @@ class Customers::CustomersController < ApplicationController
   def show
     @customer = Customer.find(params[:id])
     @post_comment = PostComment.new
+    @stories = Story.where(customer_id: @customer).limit(5)
   end
 
   def index

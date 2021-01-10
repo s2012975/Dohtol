@@ -82,14 +82,13 @@
     </div>
     <div class="top-new-stories-box">
       <div class="customer-index">
-        <p class="customer-index-coution">（単位：時間）</p>
         <table class="customer-index-table">
           <thead class="">
             <tr class="customer-index-table-title">
               <th></th>
               <th width=100>ニックネーム</th>
+              <th>資格名</th>
               <th width=120>タイトル</th>
-              <th width=80>学習時間</th>
               <th>内容</th>
               <th>日付</th>
             </tr>
@@ -97,10 +96,10 @@
           <tbody>
             <% @new_stories.each do |story| %>
               <tr>
-                <td width=100><%= attachment_image_tag story.customer, :profile_image, format: 'png', fallback: "no_image_square.jpg", size: "50x50" %></td>
+                <td width=50><%= attachment_image_tag story.customer, :profile_image, format: 'png', fallback: "no_image_square.jpg", size: "50x50" %></td>
                 <td width=100><%= link_to  story.customer.nick_name,  customers_customer_path(story.customer.id) %></td>
+                <td><%= story.qualification.name %></td>
                 <td><%= link_to story.title, customers_qualification_story_path(story.qualification.id, story.id)  %></td>
-                <td><%= story.study_time %></td>
                 <td><%= story.body %></td>
                 <td><%= story.created_at.strftime("%m月%d日") %></td>
               </tr>
@@ -115,19 +114,18 @@
     <div class="title">
       <div class="top-icon">
         <%= image_tag 'gyouretsu.png', class: "top-icon-anime" %>
-        <h3>人気の資格<h3>
+        <h3>人気の体験談<h3>
       </div>
     </div>
     <div class="top-new-stories-box">
       <div class="customer-index">
-        <p class="customer-index-coution">（単位：時間）</p>
         <table class="customer-index-table">
           <thead class="">
             <tr class="customer-index-table-title">
               <th></th>
               <th width=100>ニックネーム</th>
+              <th>資格名</th>
               <th width=120>タイトル</th>
-              <th width=80>学習時間</th>
               <th>内容</th>
               <th>いいね</th>
             </tr>
@@ -135,10 +133,10 @@
           <tbody>
             <% @popular_stories.each do |story| %>
               <tr>
-                <td width=100><%= attachment_image_tag story.customer, :profile_image, format: 'png', fallback: "no_image_square.jpg", size: "50x50" %></td>
+                <td width=50><%= attachment_image_tag story.customer, :profile_image, format: 'png', fallback: "no_image_square.jpg", size: "50x50" %></td>
                 <td width=100><%= link_to  story.customer.nick_name,  customers_customer_path(story.customer.id) %></td>
+                <td><%= story.qualification.name %></td>
                 <td><%= link_to story.title, customers_qualification_story_path(story.qualification.id, story.id)  %></td>
-                <td><%= story.study_time %></td>
                 <td><%= story.body %></td>
                 <td><%= story.liked_customer.count %></td>
               </tr>

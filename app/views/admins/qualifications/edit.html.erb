@@ -4,7 +4,7 @@
 
 <%= form_with url: admins_qualification_path, model:@qualification, local: true do |f| %>
 
-	<%= render 'admins/announces/errors', qualification: @qualification %>
+	<%= render 'layouts/errors', model: f.object %>
 	<!-- エラーメッセージ表示-->
 
 	<div class="">

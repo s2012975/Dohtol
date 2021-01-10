@@ -52,4 +52,8 @@ class Customers::StoriesController < ApplicationController
     params.require(:story).permit(:customer_id, :qualification_id, :title, :study_time, :reason, :body, :books)
   end
 
+  def liked_by?(customer)
+    likes.where(customer_id: customer.id).exists?
+  end
+
 end

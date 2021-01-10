@@ -1,17 +1,51 @@
-<div>
-  <%= @qualification.name %>
+<h1 class="page-title"><%= @qualification.name %></h1>
+
+<div class="qualification-infomation">
+  <div class="qualification-classification">
+    <p>資格区分：<strong><%= @qualification.classification %></strong></p>
+  </div>
+
+  <div>
+    <p class="qualification-name">ジャンル：<strong><%= @qualification.genre.name %></strong></p>
+  </div>
+
+  <div class="qualification-content">
+    <p>資格内容</p>
+    <p><%= @qualification.body %></p>
+  </div>
 </div>
 
-<div>
-  <%= @qualification.classification %>
-</div>
-
-<div>
-  <%= @qualification.genre.name %>
-</div>
-
-<div>
-  <%= @qualification.body %>
+<div class="customer-index">
+  <p class="customer-index-coution">（単位：時間）</p>
+  <table class="customer-index-table">
+    <thead class="">
+      <tr class="customer-index-table-title">
+        <th></th>
+        <th width=100>ニックネーム</th>
+        <th width=120>タイトル</th>
+        <th width=80>学習時間</th>
+        <th>内容</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @qualification.stories.each do |story| %>
+        <tr>
+          <td width=100><%= attachment_image_tag story.customer, :profile_image, format: 'png', fallback: "no_image_square.jpg", size: "50x50" %></td>
+          <td width=100><%= link_to  story.customer.nick_name,  admins_customer_path(story.customer.id) %></td>
+          <td><%= link_to story.title, admins_qualification_story_path(@qualification, story.id)  %></td>
+          <td><%= story.study_time %></td>
+          <td><%= story.body %></td>
+	        <td>
+	          <% if story.customer == current_customer %>
+              </div class="">
+                <%= link_to "削除", customers_qualification_story_path(@qualification.id, story.id), method: :delete, class: "" %>
+              </div>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>
 
   <%= link_to '編集', edit_admins_qualification_path(params[:id]) %>

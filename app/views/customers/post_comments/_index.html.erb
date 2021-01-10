@@ -2,18 +2,18 @@
   <tr>
     <td>
       <div class="comment">
-        <div class="comment-body bb">
+        <span class="comment-body bb">
 		      <%= link_to customers_customer_path(given_message.send_customer) do %>
-			      <%= attachment_image_tag(given_message.send_customer, :profile_image, :fill, 100, 100, fallback: "no_image_square.jpg", size: "100x100") %><br>
+			      <%= attachment_image_tag(given_message.send_customer, :profile_image, fallback: "no_image_square.jpg", size: "50x50") %><br>
 		        <%= given_message.send_customer.nick_name %>
 		      <% end %>
-		    </div>
+		    </span>
 		  </div>
     </td>
     <td>
-      <div class="comment-text">
+      <span class="comment-text">
         <%= given_message.body %>
-      </div>
+      </span>
     </td>
     <td>
       <% if given_message.send_customer == current_customer %>
