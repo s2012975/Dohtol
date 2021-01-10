@@ -62,3 +62,12 @@
   color: white; }
 
 /*# sourceMappingURL=customers.css.map */
+
+.announce-index-table {
+  width: 100%;
+  text-align: left;
+  border-radius: 5px; }
+
+.announce-index-table-title > th:not(:first-child) {
+  background-color: #A9A9A9;
+  border-radius: 5px; }

@@ -14,9 +14,11 @@
     <p><%= @qualification.body %></p>
   </div>
 
-  <div class="story-create-btn">
-    <%= link_to '体験談を作成する', new_customers_qualification_story_path(@qualification), class: "btn" %>
-  </div>
+  <% if customer_signed_in? %>
+    <div class="story-create-btn">
+      <%= link_to '体験談を作成する', new_customers_qualification_story_path(@qualification), class: "btn" %>
+    </div>
+  <% end %>
 </div>
 
 <div class="customer-index">

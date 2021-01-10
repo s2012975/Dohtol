@@ -40,6 +40,7 @@ Rails.application.routes.draw do
   namespace :customers do
     get 'homes/top'
     get 'homes/about'
+    resources :announces, only:[:show, :index]
     resources :qualifications, only:[:index, :show] do
       resources :stories do
         resource :likes, only:[:create, :destroy]
@@ -47,6 +48,8 @@ Rails.application.routes.draw do
     end
     resources :customers, only:[:index, :show, :edit, :update] do
       resources :post_comments, only: [:create, :destroy]
+      resources :customer_have_qualifications, only: [:create, :destroy]
+      resources :customer_study_qualifications, only: [:create, :destroy]
       resource :relationships, only: [:create, :destroy]
       get 'followings' => 'relationships#followings', as: 'followings'
       get 'followedes' => 'relationships#followedes', as: 'followedes'

@@ -39,15 +39,6 @@ $(function() {
 
 
 
-$('.review-rating').raty({
-  readOnly: true,
-  score: function() {
-    return $(this).attr('data-score');
-  },
-  path: '/assets/'
-});
-
-
   // aboutページ
 console.log('top')
 $('#hoge').click(function() {

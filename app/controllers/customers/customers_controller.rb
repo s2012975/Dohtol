@@ -22,7 +22,7 @@ class Customers::CustomersController < ApplicationController
 
   def update
     if @customer.update(customer_params)
-      redirect_to customers_customer_path(@customer)
+      redirect_to edit_customers_customer_path(@customer)
     else
       render "edit"
     end

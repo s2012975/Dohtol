@@ -163,17 +163,82 @@
       <label class="tab_item" for="design"><i class="fas fa-microphone"></i> イベント</label>
       <div class="tab_content" id="all_content">
         <div class="tab_content_description">
-          <p class="c-txtsp">総合の内容がここに入ります</p>
+
+
+    <table class="announce-index-table">
+      <thead>
+        <tr class="announce-index-table-title">
+          <th></th>
+          <th>お知らせ</th>
+          <th width=80>区分</th>
+          <th>概要</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @announces.each do |announce| %>
+          <tr>
+            <td></td>
+            <td><%= link_to announce.title, customers_announce_path(announce) %></td>
+            <td><%= announce.category %></td>
+            <td><%= announce.body %></td>
+          </tr>
+        <% end %>
+      </tbody>
+  　</table>
+
+
         </div>
       </div>
       <div class="tab_content" id="programming_content">
         <div class="tab_content_description">
-          <p class="c-txtsp">プログラミングの内容がここに入ります</p>
+
+    <table class="announce-index-table">
+      <thead>
+        <tr class="announce-index-table-title">
+          <th></th>
+          <th>お知らせ</th>
+          <th>区分</th>
+          <th>概要</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @news_announces.each do |announce| %>
+          <tr>
+            <td></td>
+            <td><%= link_to announce.title, customers_announce_path(announce) %></td>
+            <td width=80><%= announce.category %></td>
+            <td><%= announce.body %></td>
+          </tr>
+        <% end %>
+      </tbody>
+  　</table>
+
         </div>
       </div>
       <div class="tab_content" id="design_content">
         <div class="tab_content_description">
-          <p class="c-txtsp">デザインの内容がここに入ります</p>
+
+    <table class="announce-index-table">
+      <thead>
+        <tr class="announce-index-table-title">
+          <th></th>
+          <th>お知らせ</th>
+          <th width=80>区分</th>
+          <th>概要</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @event_announces.each do |announce| %>
+          <tr>
+            <td></td>
+            <td><%= link_to announce.title, customers_announce_path(announce) %></td>
+            <td><%= announce.category %></td>
+            <td><%= announce.body %></td>
+          </tr>
+        <% end %>
+      </tbody>
+  　</table>
+
         </div>
       </div>
     </div>
