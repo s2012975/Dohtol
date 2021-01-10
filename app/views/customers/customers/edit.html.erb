@@ -1,59 +1,55 @@
 <h1 class="page-title">ユーザ編集</h1>
 
-  <%= form_with url: customers_customer_path, model:@customer, local: true do |f| %>
+<%= form_with url: customers_customer_path, model:@customer, local: true do |f| %>
 
-  	<%= render 'customers/customers/errors', customer: @customer %>
-  	<!-- エラーメッセージ表示-->
-<div class="c-show-all">
-  <div class="c-show-left">
-  	<div class="">
+  <%= render 'customers/customers/errors', customer: @customer %>
+	<!-- エラーメッセージ表示-->
+  <div class="c-show-all">
+    <div class="c-show-left">
+    	<div>
+        <div class="img_form">
+          <%= attachment_image_tag @customer, :profile_image, fallback: "no_image_square.jpg", id: "img_prev", style: "height: 200px; width:200px;" %><br>
+          <%= f.attachment_field :profile_image %>
+        </div>
+    	</div>
+
+    	<div class="field">
+    		<%= f.label :ニックネーム %>
+    		<%= f.text_field :nick_name, class: "nick_name", size: "30x1" %>
+    	</div>
+
+    	<div class="field">
+    		<%= f.label :自己紹介 %><br>
+    		<%= f.text_area :introduction, class: "introduction", size: "30x10" %>
+    	</div>
+    </div>
+
+    <div  class="c-show-right">
       <div>
-        <%= attachment_image_tag @customer, :profile_image, fallback: "no_image_square.jpg", id: "img_prev", style: "height: 200px; width:200px;" %><br>
-        <%= f.attachment_field :profile_image %>
+        勉強中の資格プルダウンで表示
       </div>
 
-      <script>
-        $(document).on("turbolinks:load", function(){
-          function readURL(input) {
-            if(input.files && input.files[0]){
-              var reader = new FileReader();
-              reader.onload = function (e) {
-                $('#img_prev').attr('src', e.target.result);
-              }
-              reader.readAsDataURL(input.files[0]);
-            }
-          }
-          $("#customer_profile_image").change(function(){
-            readURL(this);
-          });
-        });
-      </script>
-  	</div>
+      <div class="">
+          <th><%= f.label :資格, class: "" %></th>
+          <td><%= f.collection_select :genre_id, Qualification.all, :id, :name, include_blank: "--選択して下さい--" %></td>
+      </div>
 
-  	<div class="field">
-  		<%= f.label :ニックネーム %>
-  		<%= f.text_field :nick_name, class: "nick_name", size: "30x1" %>
-  	</div>
+      <div>
+        保有資格プルダウンで表示
+      </div>
 
-  	<div class="field">
-  		<%= f.label :自己紹介 %><br>
-  		<%= f.text_area :introduction, class: "introduction", size: "30x10" %>
-  	</div>
-  </div>
-  <div  class="c-show-right">
-    <div>
-      勉強中の資格プルダウンで表示
-    </div>
-    <div>
-      保有資格プルダウンで表示
-    </div>
-    <div class="add-btn customer-edit-qualification-btn">
-      保有の資格を追加する
+      <div class="">
+          <th><%= f.label :資格, class: "" %></th>
+          <td><%= f.collection_select :genre_id, Qualification.all, :id, :name, include_blank: "--選択して下さい--" %></td>
+      </div>
+
+      <div class="add-btn customer-edit-qualification-btn">
+        保有の資格を追加する
+      </div>
     </div>
   </div>
-</div>
-<div class="c-edit-btn btn">
-	<%= f.submit '変更を保存する'%>
-</div>
+  <div class="c-edit-btn btn">
+  	<%= f.submit '変更を保存する'%>
+  </div>
 <% end %>
 

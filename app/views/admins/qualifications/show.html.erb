@@ -30,7 +30,7 @@
     <tbody>
       <% @qualification.stories.each do |story| %>
         <tr>
-          <td width=100><%= attachment_image_tag story.customer, :profile_image, format: 'png', fallback: "no_image_square.jpg", size: "50x50" %></td>
+          <td width=50><%= attachment_image_tag story.customer, :profile_image, format: 'png', fallback: "no_image_square.jpg", size: "50x50" %></td>
           <td width=100><%= link_to  story.customer.nick_name,  admins_customer_path(story.customer.id) %></td>
           <td><%= link_to story.title, admins_qualification_story_path(@qualification, story.id)  %></td>
           <td><%= story.study_time %></td>

@@ -1,0 +1,24 @@
+<% customer.given_messages.each do |given_message| %>
+  <tr>
+    <td>
+      <div class="comment">
+        <span class="comment-body bb">
+		      <%= link_to customers_customer_path(given_message.send_customer) do %>
+			      <%= attachment_image_tag(given_message.send_customer, :profile_image, fallback: "no_image_square.jpg", size: "50x50") %><br>
+		        <%= given_message.send_customer.nick_name %>
+		      <% end %>
+		    </span>
+		  </div>
+    </td>
+    <td>
+      <span class="comment-text">
+        <%= given_message.body %>
+      </span>
+    </td>
+    <td>
+      <div class="">
+        <%= link_to "削除", admins_customer_post_comment_path(customer, given_message), method: :delete, remote: true, class: "" %>
+      </div>
+    </td>
+  </tr>
+<% end %>

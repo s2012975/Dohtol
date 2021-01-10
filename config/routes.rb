@@ -18,12 +18,16 @@ Rails.application.routes.draw do
 
   namespace :admins do
     get 'homes/top'
-    resources :customers, only:[:index, :show]
     resources :genres, only:[:index, :edit, :create, :update]
+    resources :announces
+    resources :customers, only:[:index, :show] do
+      resources :post_comments, only: [:destroy]
+      get 'followings' => 'relationships#followings', as: 'followings'
+      get 'followedes' => 'relationships#followedes', as: 'followedes'
+    end
     resources :qualifications do
       resources :stories, only:[:show, :index, :destroy]
     end
-    resources :announces
   end
 
   # controllers以下を記入しないとviewに変更が加えられない。→ルートがきちんと通らない

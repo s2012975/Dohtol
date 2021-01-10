@@ -14,7 +14,6 @@
 //= require activestorage
 //= require jquery
 //= require_tree .
-//= require jquery.raty.js
 
 $(function() {
   $('#back a').on('click',function(event){
@@ -23,10 +22,7 @@ $(function() {
     }, 800);
     event.preventDefault();
   });
-});
 
-
-$(document).ready(function () {
   $("#images").skippr({
     transition : 'fade',　// ("fade" or "slide")
     speed : 1000,
@@ -82,3 +78,19 @@ $(document).ready(function() {
 $('tr[data-link]').click(function() {
   window.location = $(this).data('link')
 })
+
+
+$(function(){
+  function readURL(input) {
+    if(input.files && input.files[0]){
+      var reader = new FileReader();
+      reader.onload = function (e) {
+        $('#img_prev').attr('src', e.target.result);
+      }
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
+  $("#customer_profile_image").change(function(){
+    readURL(this);
+  });
+});
