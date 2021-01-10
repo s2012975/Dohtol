@@ -13,6 +13,7 @@ class Customers::StoriesController < ApplicationController
   def show
     @story = Story.find(params[:id])
     @customer = @story.customer
+    @qualification = Qualification.find(params[:qualification_id])
   end
 
   def create
@@ -49,6 +50,10 @@ class Customers::StoriesController < ApplicationController
 
   def story_params
     params.require(:story).permit(:customer_id, :qualification_id, :title, :study_time, :reason, :body, :books)
+  end
+
+  def liked_by?(customer)
+    likes.where(customer_id: customer.id).exists?
   end
 
 end

@@ -12,10 +12,8 @@
 //
 //= require rails-ujs
 //= require activestorage
-//= require turbolinks
 //= require jquery
 //= require_tree .
-//= require jquery.raty.js
 
 $(function() {
   $('#back a').on('click',function(event){
@@ -24,10 +22,7 @@ $(function() {
     }, 800);
     event.preventDefault();
   });
-});
 
-
-$(document).ready(function () {
   $("#images").skippr({
     transition : 'fade',　// ("fade" or "slide")
     speed : 1000,
@@ -44,37 +39,29 @@ $(document).ready(function () {
 
 
 
-$('.review-rating').raty({
-  readOnly: true,
-  score: function() {
-    return $(this).attr('data-score');
-  },
-  path: '/assets/'
-});
-
-
   // aboutページ
+console.log('top')
+$('#hoge').click(function() {
+    console.log('hoge')
+})
 
-$('.about-list-item').click(function() {
-  var $answer = $(this).find('.answer');
-  if($answer.hasClass('open')) {
-    $answer.removeClass('open');
-    // slideUpメソッドを用いて、$answerを隠してください
-    $answer.slideUp();
+$(document).ready(function() {
+  $('.about-list-item').click(function() {
+    var $answer = $(this).find('.answer');
+    if($answer.hasClass('open')) {
+      $answer.removeClass('open');
+      // slideUpで$answerを隠す
+      $answer.slideUp();
+      $(this).find('span').text('open');
+    } else {
+      $answer.addClass('open');
+      $answer.slideDown();
+      $(this).find('span').text('close');
+    }
+  });
+})
 
-    // 子要素のspanタグの中身をtextメソッドを用いて書き換えてください
-    $(this).find('span').text('open');
 
-  } else {
-    $answer.addClass('open');
-    // slideDownメソッドを用いて、$answerを表示してください
-    $answer.slideDown();
-
-    // 子要素のspanタグの中身をtextメソッドを用いて書き換えてください
-    $(this).find('span').text('close');
-
-  }
-});
 
 
 // tableのtr要素にリンク
@@ -82,3 +69,19 @@ $('.about-list-item').click(function() {
 $('tr[data-link]').click(function() {
   window.location = $(this).data('link')
 })
+
+
+$(function(){
+  function readURL(input) {
+    if(input.files && input.files[0]){
+      var reader = new FileReader();
+      reader.onload = function (e) {
+        $('#img_prev').attr('src', e.target.result);
+      }
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
+  $("#customer_profile_image").change(function(){
+    readURL(this);
+  });
+});

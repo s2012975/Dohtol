@@ -8,6 +8,7 @@ class Customers::CustomersController < ApplicationController
   def show
     @customer = Customer.find(params[:id])
     @post_comment = PostComment.new
+    @stories = Story.where(customer_id: @customer).limit(5)
   end
 
   def index
@@ -21,7 +22,7 @@ class Customers::CustomersController < ApplicationController
 
   def update
     if @customer.update(customer_params)
-      redirect_to customers_customer_path(@customer)
+      redirect_to edit_customers_customer_path(@customer)
     else
       render "edit"
     end

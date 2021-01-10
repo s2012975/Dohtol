@@ -7,7 +7,7 @@ class Customers::QualificationsController < ApplicationController
     i = @qualifications.count
     n = params[:sort].to_i
     case n
-    when 1..i
+    when 1..8
       @genre_name = Genre.find(n).name
       @qualifications = Qualification.where(genre_id: n)
     else

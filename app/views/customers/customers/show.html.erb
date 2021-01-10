@@ -1,143 +1,135 @@
-<div clsss="customer-show">
-  <div class="customer-image">
-    <%= attachment_image_tag @customer, :profile_image, fallback: "no_image_square.jpg", size: "200x200" %>
-  </div>
+<h1 class="page-title">会員詳細</h1>
 
-  <div class="customer-name">
-    <%= @customer.nick_name %>
-  </div>
-
-  <div class="customer-introduction">
-    <p class="customer-introduction-title">
-      自己紹介
-    </p>
-    <div class="customer-introduction-text">
-      <%= @customer.introduction %>
-    </div>
-  </div>
-
-  <div class="customer-edit_btn">
-    <% if current_customer == @customer %>
-      <%= link_to "編集する", edit_customers_customer_path, class: "btn" %>
-    <% end %>
-  </div>
-
-  <div class="customer-followers">
-    <% if current_customer %>
-      <% if current_customer.following?(@customer) %>
-        <%= link_to "フォロー外す", customers_customer_relationships_path(@customer.id), method: :delete, remote: true, class: "btn" %>
-      <% else %>
-        <%= link_to "フォローする", customers_customer_relationships_path(@customer.id), method: :post, remote: true, class: "btn" %>
-      <% end %>
-    <% end %>
-
-    <div>
-      <p>フォロー数</p>
-      <%=link_to @customer.followings.count, customers_customer_followings_path(@customer) %>
+<div class="c-show-all">
+  <div class="c-show-left">
+    <div class="customer-image">
+      <%= attachment_image_tag @customer, :profile_image, fallback: "no_image_square.jpg", size: "200x200", class: "customer-image" %>
     </div>
 
-    <div>
-      <p>フォロワー数</p>
-      <%=link_to @customer.followedes.count, customers_customer_followedes_path(@customer) %>
+    <div class="c-show-name">
+      <p>ニックネーム</p>
+      <strong><%= @customer.nick_name %></strong>
     </div>
-  </div>
 
-  <div class="customer-study-qualifications">
-    <p>勉強中の資格</p>
-    <% @customer.customer_study_qualifications.each do |customer_study_qualification| %>
-      <div class="customer_study_qualification">
-        </div class="tag-name">
-          <%= customer_study_qualification.qualification.name %>
-        </div>
+    <div class="c-show-sex">
+      <span>性別：<%= @customer.sex %>　 年齢：<%= @customer.age %></span>
+    </div>
+
+    <div class="c-show-introduction">
+      <p class="customers-customer-introduction-title">
+        自己紹介
+      </p>
+      <div class="customer-introduction-text">
+        <strong><%= @customer.introduction %></strong>
       </div>
-    <% end %>
-  </div>
-
-  <div class="customer-have-qualifications">
-    <p>保有資格</p>
-    <% @customer.customer_have_qualifications.each do |customer_have_qualification| %>
-        <div class="customer_have_qualification">
-          </div class="tag-name">
-            <%= customer_have_qualification.qualification.name %>
-          </div>
-        </div>
-    <% end %>
-  </div>
-
-  <div class="customer-calendar">
-    <p>カレンダー</p>
-  </div>
-
-  <% if current_customer == @customer %>
-    <div class="customer-destroy">
-      <%= link_to "ユーザの削除", customer_registration_path(@customer), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, class: "btn destroy_customer_#{@customer.id}" %>
     </div>
-  <% end %>
 
-  <div class="customer-stories">
-    <p>投稿したコメント</p>
-  </div>
-
-  <div class="customer-stories">
-    <p>投稿した体験談</p>
-  </div>
-
-
-    <table>
-    	<% @customer.given_messages.each do |given_message| %>
-        <tr>
-          <div class="comment">
-            <div class="comment-body bb">
-    	        <td>
-    			      <%= link_to customers_customer_path(given_message.send_customer) do %>
-    				      <%= attachment_image_tag(given_message.send_customer, :profile_image, :fill, 100, 100, fallback: "no_image_square.jpg") %><br>
-    			        <%= given_message.send_customer.nick_name %>
-    			      <% end %>
-    	        </td>
-              <td>
-                </div class="comment-text">
-                  <%= given_message.body %>
-                </div>
-              </td>
-  		        <td>
-  		          <% if given_message.send_customer == current_customer %>
-                  </div class="">
-                    <%= link_to "削除", customers_customer_post_comment_path(@customer, given_message), method: :delete, class: "" %>
-                  </div>
-                <% end %>
-              </td>
-            </div>
-          </div>
-        </tr>
-    	<% end %>
-    </table>
-
-
-  <% if current_customer %>
-    <div id="">
-      <%= form_with url: customers_customer_post_comments_path(@customer), model: [@customer, @post_comment], local: true do |f| %>
-
-        <% if @post_comment.errors.any? %>
-          <div id="error_explanation">
-            <ul>
-              <% @post_comment.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-              <% end %>
-            </ul>
-          </div>
+    <div class="c-followers-box">
+      <% if current_customer %>
+        <% if current_customer.following?(@customer) %>
+          <%= link_to "フォロー外す", customers_customer_relationships_path(@customer.id), method: :delete, class: "c-followers-btn btn" %>
+        <% else %>
+          <%= link_to "フォローする", customers_customer_relationships_path(@customer.id), method: :post, class: "c-followers-btn btn" %>
         <% end %>
+      <% end %>
 
-        <div>
-          <%= f.text_area :body, id: "comment_body", class: "form-control", placeholder: "コメント" %>
-        </div>
-        <div>
-          <%= f.submit "送信" %>
+      <div class="c-follow-count">
+        <p>フォロー数   : <%=link_to @customer.followings.count, customers_customer_followings_path(@customer) %></p>
+      </div>
+
+      <div class="c-followers-count">
+        <p>フォロワー数 : <%=link_to @customer.followedes.count, customers_customer_followedes_path(@customer) %></p>
+      </div>
+    </div>
+
+    <div class="c-study-qualifications">
+      <p>勉強中の資格</p>
+      <% @customer.customer_study_qualifications.each do |customer_study_qualification| %>
+        <div class="customer_study_qualification">
+          <span class="tag-name">
+            <%= customer_study_qualification.qualification.name %>
+          </span>
         </div>
       <% end %>
     </div>
-  <% end %>
-</div>
 
+    <div class="c-have-qualifications">
+      <p>保有資格</p>
+      <% @customer.customer_have_qualifications.each do |customer_have_qualification| %>
+          <div class="customer_have_qualification">
+            <span class="tag-name">
+              <%= customer_have_qualification.qualification.name %>
+            </span>
+          </div>
+      <% end %>
+    </div>
+
+    <div class="c-edit_btn-box">
+      <% if current_customer == @customer %>
+        <%= link_to "編集する", edit_customers_customer_path, class: "c-edit_btn btn" %>
+      <% end %>
+    </div>
+
+    <% if current_customer == @customer %>
+      <span class="c-destroy-box btn">
+        <%= link_to "ユーザの削除", customer_registration_path(@customer), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, class: "btn destroy_customer_#{@customer.id}" %>
+      </span>
+    <% end %>
+
+  </div>
+  <div  class="c-show-right">
+    <div>
+      <p>投稿した体験談</p>
+        <table class="c-index-table">
+          <thead class="">
+            <tr class="c-index-table-title">
+              <th>資格</th>
+              <th>タイトル</th>
+              <th width=150>内容</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @stories.each do |story| %>
+              <tr>
+                <td><%= story.qualification.name %></td>
+                <td><%= link_to story.title, customers_qualification_story_path(story.qualification.id, story.id)  %></td>
+                <td><%= story.body %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+　　<div>
+      <p>コメント欄</p>
+
+      <table id="given_messages">
+        <%= render 'customers/post_comments/index', customer: @customer %>
+      </table>
+
+      <% if current_customer %>
+        <div id="">
+          <%= form_with url: customers_customer_post_comments_path(@customer), model: [@customer, @post_comment] do |f| %>
+            <% if @post_comment.errors.any? %>
+              <div id="error_explanation">
+                <ul>
+                  <% @post_comment.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+                  <% end %>
+                </ul>
+              </div>
+            <% end %>
+            <div>
+              <%= f.text_area :body, id: "comment_body", class: "form-control", placeholder: "コメント", size: "60x5" %>
+            </div>
+            <div>
+              <%= f.submit "送信" %>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
 
 
 

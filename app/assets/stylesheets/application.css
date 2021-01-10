@@ -47,8 +47,6 @@ header {
   height: 50px;
 }
 
-.header-nav-list {
-}
 
 .header-nav-list-item {
   display: inline-block;
@@ -139,3 +137,170 @@ main {
 .login-to-reset {
   margin-top: 20px;
 }
+
+/*custoemrの詳細ページ*/
+
+.c-show-all {
+  width: 800px;
+  margin: 0 auto;
+  background-color: #DEB887;
+  border-radius: 5px;
+  padding: 30px;
+  display: flex;
+}
+
+.c-show-left {
+  width: 300px;
+  text-align: center;
+  background-color: #F5DEB3;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.c-show-name {
+  margin: 10px 0;
+}
+
+.c-show-sex {
+  margin: 10px 0;
+}
+
+.c-show-introduction {
+  background-color: #FAEBD7;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+.c-edit_btn {
+  width: 200px;
+  margin: 10px auto;
+  background-color: #003333;
+  border-radius: 5px;
+}
+
+.btn:visited {
+  color: white;
+}
+
+.c-followers-btn {
+  width: 200px;
+  margin: 10px auto;
+  background-color: #003333;
+  border-radius: 5px;
+}
+
+.c-follow-count {
+  background-color: #FAEBD7;
+  margin: 10px 0;
+  border-radius: 5px;
+}
+
+.c-followers-count {
+  background-color: #FAEBD7;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+.c-study-qualifications {
+  background-color: #FAEBD7;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+.tag-name {
+  background-color: gray;
+  border-radius: 5px;
+  color :white;
+}
+
+.c-have-qualifications {
+  background-color: #FAEBD7;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+.c-destroy-box {
+  width: 200px;
+  margin: 10px auto;
+  background-color: #003333;
+  border-radius: 5px;
+}
+
+.c-show-right {
+  width: 100%;
+  margin-left: 20px;
+  background-color: #F5DEB3;
+  border-radius: 5px;
+  padding: 20px;
+}
+
+.c-index-table {
+  background-color: #FAEBD7;
+  border-radius: 5px;
+}
+
+.bb {
+  font-size: 12px;
+}
+
+.comment-text {
+  background-color: #FAEBD7;
+  border-radius: 5px;
+}
+
+.c-edit-btn {
+  margin-left: 10%;
+}
+
+/*管理者ログイン*/
+
+.login-form-action-box {
+  margin-left: 20%;
+}
+
+.login-form-action-forget {
+  margin-left: 10%;
+}
+
+/*管理者ページ*/
+
+.a-top-all {
+  width: 1000px;
+  margin: 0 auto;
+  background-color: #DEB887;
+  border-radius: 5px;
+  padding: 30px;
+}
+
+.a-top-title {
+  text-align: center;
+}
+
+.announce-index-table-title {
+  background-color: #A9A9A9;
+  border-radius: 5px;
+  }
+
+.a-top-announce-genre {
+  display: flex;
+}
+
+.a-top-announce {
+  width: 50%;
+  padding: 20px;
+  text-align: center;
+}
+
+.a-top-genre {
+  width: 50%;
+  padding: 20px;
+  text-align: center;
+}
+
+.a-top-genre {
+  width: 300px;
+  padding: 20px;
+  margin: 0 auto;
+  text-align: center;
+}
+

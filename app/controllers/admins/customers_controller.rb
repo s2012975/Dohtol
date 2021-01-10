@@ -5,5 +5,6 @@ class Admins::CustomersController < ApplicationController
 
   def show
     @customer = Customer.find(params[:id])
+    @stories = @customer.stories.all
   end
 end

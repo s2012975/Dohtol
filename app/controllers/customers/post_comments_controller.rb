@@ -1,16 +1,17 @@
 class Customers::PostCommentsController < ApplicationController
 
   def create
-    given_customer = Customer.find(params[:customer_id])
-    comment = current_customer.send_messages.new(post_comment_params)
-    comment.given_customer_id = given_customer.id
-    comment.save
-    redirect_to customers_customer_path(given_customer)
+    @customer = Customer.find(params[:customer_id])
+    @comment = PostComment.new(post_comment_params)
+    @comment.given_customer_id = @customer.id
+    @comment.send_customer_id = current_customer.id
+    @comment.save
   end
 
   def destroy
-    PostComment.find_by(id: params[:id], given_customer_id: params[:customer_id]).destroy
-    redirect_to customers_customer_path(params[:customer_id])
+    @customer = Customer.find(params[:customer_id])
+    post_comment = @customer.given_messages.find(params[:id])
+    post_comment.destroy
   end
 
   private

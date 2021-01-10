@@ -80,8 +80,33 @@
         <h3>新着の体験談<h3>
       </div>
     </div>
-    <div class="new-stories-box">
-
+    <div class="top-new-stories-box">
+      <div class="customer-index">
+        <table class="customer-index-table">
+          <thead class="">
+            <tr class="customer-index-table-title">
+              <th></th>
+              <th width=100>ニックネーム</th>
+              <th>資格名</th>
+              <th width=120>タイトル</th>
+              <th>内容</th>
+              <th>日付</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @new_stories.each do |story| %>
+              <tr>
+                <td width=50><%= attachment_image_tag story.customer, :profile_image, format: 'png', fallback: "no_image_square.jpg", size: "50x50" %></td>
+                <td width=100><%= link_to  story.customer.nick_name,  customers_customer_path(story.customer.id) %></td>
+                <td><%= story.qualification.name %></td>
+                <td><%= link_to story.title, customers_qualification_story_path(story.qualification.id, story.id)  %></td>
+                <td><%= story.body %></td>
+                <td><%= story.created_at.strftime("%m月%d日") %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
     </div>
   </section>
 
@@ -89,10 +114,36 @@
     <div class="title">
       <div class="top-icon">
         <%= image_tag 'gyouretsu.png', class: "top-icon-anime" %>
-        <h3>人気の資格<h3>
+        <h3>人気の体験談<h3>
       </div>
     </div>
-    <div class="ranking-box">
+    <div class="top-new-stories-box">
+      <div class="customer-index">
+        <table class="customer-index-table">
+          <thead class="">
+            <tr class="customer-index-table-title">
+              <th></th>
+              <th width=100>ニックネーム</th>
+              <th>資格名</th>
+              <th width=120>タイトル</th>
+              <th>内容</th>
+              <th>いいね</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @popular_stories.each do |story| %>
+              <tr>
+                <td width=50><%= attachment_image_tag story.customer, :profile_image, format: 'png', fallback: "no_image_square.jpg", size: "50x50" %></td>
+                <td width=100><%= link_to  story.customer.nick_name,  customers_customer_path(story.customer.id) %></td>
+                <td><%= story.qualification.name %></td>
+                <td><%= link_to story.title, customers_qualification_story_path(story.qualification.id, story.id)  %></td>
+                <td><%= story.body %></td>
+                <td><%= story.liked_customer.count %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
     </div>
   </section>
 
@@ -112,17 +163,82 @@
       <label class="tab_item" for="design"><i class="fas fa-microphone"></i> イベント</label>
       <div class="tab_content" id="all_content">
         <div class="tab_content_description">
-          <p class="c-txtsp">総合の内容がここに入ります</p>
+
+
+    <table class="announce-index-table">
+      <thead>
+        <tr class="announce-index-table-title">
+          <th></th>
+          <th>お知らせ</th>
+          <th width=80>区分</th>
+          <th>概要</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @announces.each do |announce| %>
+          <tr>
+            <td></td>
+            <td><%= link_to announce.title, customers_announce_path(announce) %></td>
+            <td><%= announce.category %></td>
+            <td><%= announce.body %></td>
+          </tr>
+        <% end %>
+      </tbody>
+  　</table>
+
+
         </div>
       </div>
       <div class="tab_content" id="programming_content">
         <div class="tab_content_description">
-          <p class="c-txtsp">プログラミングの内容がここに入ります</p>
+
+    <table class="announce-index-table">
+      <thead>
+        <tr class="announce-index-table-title">
+          <th></th>
+          <th>お知らせ</th>
+          <th>区分</th>
+          <th>概要</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @news_announces.each do |announce| %>
+          <tr>
+            <td></td>
+            <td><%= link_to announce.title, customers_announce_path(announce) %></td>
+            <td width=80><%= announce.category %></td>
+            <td><%= announce.body %></td>
+          </tr>
+        <% end %>
+      </tbody>
+  　</table>
+
         </div>
       </div>
       <div class="tab_content" id="design_content">
         <div class="tab_content_description">
-          <p class="c-txtsp">デザインの内容がここに入ります</p>
+
+    <table class="announce-index-table">
+      <thead>
+        <tr class="announce-index-table-title">
+          <th></th>
+          <th>お知らせ</th>
+          <th width=80>区分</th>
+          <th>概要</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @event_announces.each do |announce| %>
+          <tr>
+            <td></td>
+            <td><%= link_to announce.title, customers_announce_path(announce) %></td>
+            <td><%= announce.category %></td>
+            <td><%= announce.body %></td>
+          </tr>
+        <% end %>
+      </tbody>
+  　</table>
+
         </div>
       </div>
     </div>

@@ -90,6 +90,14 @@
   margin-bottom: 30px;
 }
 
+.top-new-stories-box {
+  width: 100%;
+  padding: 10px 10px;
+  background-color: #DEB887;
+  border-radius: 5px;
+  margin-bottom: 30px;
+}
+
 .ranking-box {
   height: 300px;
   width: 100%;
@@ -106,7 +114,7 @@
   padding-bottom: 40px;
   background-color: #FAEBD7;
   // box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  width: 500px;
+  width: 800px;
   margin: 0 auto;
   margin-bottom: 30px;
   border-radius: 5px;
@@ -139,7 +147,7 @@ input[name="tab_item"] {
 /*タブ切り替えの中身のスタイル*/
 .tab_content {
   display: none;
-  padding: 40px 40px 0;
+  padding: 0 40px;
   clear: both;
   overflow: hidden;
 }
