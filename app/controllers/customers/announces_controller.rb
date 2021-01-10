@@ -4,8 +4,8 @@ class Customers::AnnouncesController < ApplicationController
     @announces = Announce.all
   end
 
-  def new
-    @announce = Announce.new
+  def show
+    @announce = Announce.find(params[:id])
   end
 
 end

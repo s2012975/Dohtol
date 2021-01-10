@@ -1,3 +1,24 @@
 // Place all the styles related to the admins/announces controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.a-announce-infomation {
+  width: 700px;
+  margin: 0 auto;
+  text-align: center;
+  div {
+    margin-bottom: 10px;
+  }
+  .a-announce-content {
+  margin-bottom: 50px;
+  }
+}
+
+.a-announce-input-form {
+  width: 700px;
+  margin: 0 auto;
+  text-align: center;
+  div {
+    margin-bottom: 10px;
+  }
+}
