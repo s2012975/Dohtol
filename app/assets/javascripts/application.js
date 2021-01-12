@@ -85,3 +85,10 @@ $(function(){
     readURL(this);
   });
 });
+
+
+$(function(){
+  $('#sample-btn').click(function(){
+  $('#sample_text_form').val('test');
+  })
+});
