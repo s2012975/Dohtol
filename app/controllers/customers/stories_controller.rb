@@ -18,12 +18,15 @@ class Customers::StoriesController < ApplicationController
   end
 
   def create
+    binding.pry
     @story = Story.new(story_params)
     @story.qualification_id = Qualification.find(params[:qualification_id]).id
     @story.customer_id = current_customer.id
     if @story.save
+
       redirect_to customers_qualification_story_path(@story.qualification_id, @story), notice: "体験談が新しく登録されました。"
     else
+      @customer = current_customer
       render 'new'
     end
   end

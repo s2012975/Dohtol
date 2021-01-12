@@ -1,26 +1,26 @@
 <h1 class="page-title">体験談作成</h1>
 
+
 <%= form_with url: customers_qualification_stories_path, model:@story, local: true do |f| %>
   <%= render 'layouts/errors', model: f.object %>
-
 	<div class="story-all">
 	  <div class="story-top">
 	    <div class="customer-introduction">
 	      <div class="customer-introduction-detail">
 	        <div class="customer-image">
-	          <%= attachment_image_tag @customer, :profile_image, fallback: "no_image_square.jpg", size: "200x200", class: "customer-image" %>
+	          <%= attachment_image_tag current_customer, :profile_image, fallback: "no_image_square.jpg", size: "200x200", class: "customer-image" %>
 	        </div>
 	        <div class="customer-name">
-	          <p><strong><%= @customer.nick_name %></strong><p>
+	          <p><strong><%= current_customer.nick_name %></strong><p>
 	        </div>
 	      </div>
 	    </div>
 	    <div class="story-part-one">
 	      <div class="story-items">
-					<div class="field">
-						<%= f.label :タイトル %><br>
-						<%= f.text_field :title, class: "title", size: "60" %>
-					</div>
+			<div class="field">
+				<%= f.label :タイトル %><br>
+				<%= f.text_field :title, class: "title", size: "60" %>
+			</div>
 	      </div>
 
 	      <div class="story-items">
@@ -42,7 +42,8 @@
 	    <div class="story-content">
 	    	<div class="field">
 		      <p class="story-content-title"><%= f.label :内容 %></p>
-		      <%= f.text_area :body, class: "body", size: "140x10" %>
+		      <div id="sample-btn">サンプルテキストを表示する</div>
+		      <%= f.text_area :body, class: "body", size: "140x10", id: "sample_text_form", placeholder: "書き方に困った時は「サンプルテキストを表示する」をクリックしてみましょう" %>
 	      </div>
 	    </div>
 

@@ -74,7 +74,7 @@
 
     <% if current_customer == @customer %>
       <span class="c-destroy-box btn">
-        <%= link_to "ユーザの削除", customer_registration_path(@customer), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, class: "btn destroy_customer_#{@customer.id}" %>
+        <%= link_to "ユーザの削除", customer_registration_path(@customer, format: "html"), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, class: "btn destroy_customer_#{@customer.id}" %>
       </span>
     <% end %>
 

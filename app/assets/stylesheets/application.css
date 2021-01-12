@@ -303,3 +303,16 @@ main {
   margin: 0 auto;
   text-align: center;
 }
+
+#sample-btn {
+  cursor: pointer;
+  width: 210px;
+  margin: 5px;
+  padding: 5px 0;
+  text-align: center;
+  background-color: #B8860B;
+  /*box-shadow: 0px 4px #CD853F;*/
+  border-radius: 3px;
+  color: #fff;
+  font-size: 16px;
+}
