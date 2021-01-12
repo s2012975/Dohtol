@@ -16,7 +16,7 @@
 	          <%= attachment_image_tag @customer, :profile_image, fallback: "no_image_square.jpg", size: "200x200", class: "customer-image" %>
 	        </div>
 	        <div class="customer-name">
-	          <p><strong><%= @customer.nick_name %></strong><p>
+	          <p><strong><%#= @customer.nick_name %></strong><p>
 	        </div>
 	      </div>
 	    </div>
@@ -24,7 +24,7 @@
 	      <div class="story-items">
 					<div class="field">
 						<%= f.label :タイトル %><br>
-						<%= f.text_field :title, class: "title", width: "200" %>
+						<%= f.text_field :title, class: "title", width: "600" %>
 					</div>
 	      </div>
 

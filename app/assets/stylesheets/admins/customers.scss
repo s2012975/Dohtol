@@ -1,3 +1,94 @@
 // Place all the styles related to the admins/customers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.a-customer-index {
+  width: 100%;
+  background-color: #DEB887;
+  padding: 20px 20px;
+  border-radius: 5px;
+  .a-customer-index-table {
+    width: 100%;
+    background-color: #FAEBD7;
+    text-align: left;
+    border-radius: 5px;
+    .a-customer-index-table-title > th:not(:first-child) {
+      background-color: #A9A9A9;
+      border-radius: 5px;
+    }
+  }
+}
+
+.c-show-all {
+  width: 800px;
+  margin: 0 auto;
+  background-color: #DEB887;
+  border-radius: 5px;
+  padding: 30px;
+  display: flex;
+  .c-show-left {
+    width: 300px;
+    text-align: center;
+    background-color: #F5DEB3;
+    border-radius: 5px;
+    padding: 10px;
+    .c-show-name {
+      margin: 10px 0;
+    }
+    .c-show-sex {
+      margin: 10px 0;
+    }
+    .c-show-introduction {
+      background-color: #FAEBD7;
+      margin-bottom: 10px;
+      border-radius: 5px;
+    }
+    .c-follow-count {
+      background-color: #FAEBD7;
+      margin: 10px 0;
+      border-radius: 5px;
+    }
+    .c-followers-count {
+      background-color: #FAEBD7;
+      margin-bottom: 10px;
+      border-radius: 5px;
+    }
+    .c-study-qualifications {
+      background-color: #FAEBD7;
+      margin-bottom: 10px;
+      border-radius: 5px;
+    }
+    .c-have-qualifications {
+      background-color: #FAEBD7;
+      margin-bottom: 10px;
+      border-radius: 5px;
+    }
+    .c-destroy-box {
+      width: 200px;
+      margin: 10px auto;
+      background-color: #003333;
+      border-radius: 5px;
+    }
+  }
+  .c-show-right {
+    width: 100%;
+    margin-left: 20px;
+    background-color: #F5DEB3;
+    border-radius: 5px;
+    padding: 20px;
+    .c-index-table {
+      background-color: #FAEBD7;
+      border-radius: 5px;
+    }
+  }
+}
+
+
+
+
+
+
+
+
+

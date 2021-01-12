@@ -8,6 +8,7 @@ class Customers::StoriesController < ApplicationController
 
   def new
     @story = Story.new
+    @customer = current_customer
   end
 
   def show

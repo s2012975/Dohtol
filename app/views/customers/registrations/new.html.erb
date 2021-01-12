@@ -40,8 +40,8 @@
 
       <tr>
         <div class="field">
-          <th><%= f.label :年齢 %></th>
-          <td><%= f.number_field :age, min:1,class: "age" %></td>
+          <th><%= f.label :年齢（0～100） %></th>
+          <td><%= f.number_field :age, min:1,class: "age", placeholder: "ex) 20（半角英数字）" %></td>
         </div>
       </tr>
 

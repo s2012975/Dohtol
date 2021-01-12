@@ -6,4 +6,14 @@ class Story < ApplicationRecord
   belongs_to :customer
   belongs_to :qualification
 
+  validates :title, presence: true
+  validates :study_time, presence: true
+  validates :reason, presence: true
+  validates :body, presence: true
+  validates :books, presence: true
+
+  def liked_by?(customer)
+    likes.where(customer_id: customer.id).exists?
+  end
+
 end

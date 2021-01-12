@@ -8,10 +8,10 @@
 	    <div class="customer-introduction">
 	      <div class="customer-introduction-detail">
 	        <div class="customer-image">
-	          <%= image_tag "no_image_square.jpg", size: "200x200", class: "customer-image" %>
+	          <%= attachment_image_tag @customer, :profile_image, fallback: "no_image_square.jpg", size: "200x200", class: "customer-image" %>
 	        </div>
 	        <div class="customer-name">
-	          <p><strong>ここにカスタマーネームが入ります</strong><p>
+	          <p><strong><%= @customer.nick_name %></strong><p>
 	        </div>
 	      </div>
 	    </div>
@@ -19,7 +19,7 @@
 	      <div class="story-items">
 					<div class="field">
 						<%= f.label :タイトル %><br>
-						<%= f.text_field :title, class: "title", width: "200" %>
+						<%= f.text_field :title, class: "title", size: "60" %>
 					</div>
 	      </div>
 
@@ -33,7 +33,7 @@
 	      <div class="story-items">
 	      	<div class="field">
 		        <%= f.label :取得目的 %><br>
-		        <p><%= f.text_field :reason, class: "reason" %></p>
+		        <p><%= f.text_field :reason, class: "reason", size: "60" %></p>
 	        </div>
 	      </div>
 	    </div>
@@ -42,14 +42,14 @@
 	    <div class="story-content">
 	    	<div class="field">
 		      <p class="story-content-title"><%= f.label :内容 %></p>
-		      <%= f.text_field :body, class: "body" %>
+		      <%= f.text_area :body, class: "body", size: "140x10" %>
 	      </div>
 	    </div>
 
 	    <div class="story-content">
 	    	<div class="field">
 		      <p class="story-content-title"><%= f.label :使用した参考書 %></p>
-		      <%= f.text_field :books, class: "books" %>
+		      <%= f.text_area :books, class: "books", size: "140x3" %>
 	      </div>
 	    </div>
 	  </div>
