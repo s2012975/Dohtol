@@ -1,0 +1,34 @@
+<thead>
+  <tr class="a-customer-index-table-title">
+    <th></th>
+    <th>ニックネーム</th>
+    <th>勉強中の資格</th>
+    <th>保有資格</th>
+  </tr>
+</thead>
+<tbody>
+  <% customers.each do |customer| %>
+    <tr>
+      <td width=100><%= attachment_image_tag customer, :profile_image, format: 'png', fallback: "no_image_square.jpg", size: "50x50" %></td>
+      <td width=100><%= link_to  customer.nick_name,  admins_customer_path(customer.id) %></td>
+      <td>
+        <% customer.customer_study_qualifications.each do |customer_study_qualification| %>
+          <div class="customer_study_qualification">
+            <span class="tag-name">
+              <%= customer_study_qualification.qualification.name %>
+            </span>
+          </div>
+        <% end %>
+      </td>
+      <td>
+        <% customer.customer_have_qualifications.each do |customer_have_qualification| %>
+          <div class="customer_have_qualification">
+            <span class="tag-name">
+              <%= customer_have_qualification.qualification.name %>
+            </span>
+          </div>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+</tbody>

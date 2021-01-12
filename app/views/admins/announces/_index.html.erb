@@ -1,0 +1,18 @@
+<thead>
+  <tr class="a-announce-index-table-title">
+    <th></th>
+    <th>お知らせ</th>
+    <th>区分</th>
+    <th>概要</th>
+  </tr>
+</thead>
+<tbody>
+  <% announces.each do |announce| %>
+    <tr>
+      <td></td>
+      <td><%= link_to announce.title, admins_announce_path(announce) %></td>
+      <td><%= announce.category %></td>
+      <td><%= announce.body %></td>
+    </tr>
+  <% end %>
+</tbody>

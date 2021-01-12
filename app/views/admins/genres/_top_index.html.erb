@@ -1,0 +1,22 @@
+<thead>
+  <tr class="a-genre-topindex-table-title">
+    <th></th>
+    <th>ジャンル名</th>
+    <th>状態</th>
+  </tr>
+</thead>
+<tbody>
+  <% genres.each do |genre| %>
+    <tr>
+      <td></td>
+      <td><%= genre.name %></td>
+      <td>
+        <% if genre.is_active == true %>
+          有効
+        <% else %>
+          無効
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+</tbody>

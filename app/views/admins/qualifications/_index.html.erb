@@ -1,0 +1,16 @@
+<thead>
+  <tr class="a-qualification-index-table-title">
+    <th></th>
+    <th>資格名</th>
+    <th>ジャンル</th>
+  </tr>
+</thead>
+<tbody>
+  <% qualifications.each do |qualification| %>
+    <tr>
+      <td></td>
+      <td><%= qualification.name %></td>
+      <td><%= qualification.genre.name  %></td>
+    </tr>
+  <% end %>
+</tbody>

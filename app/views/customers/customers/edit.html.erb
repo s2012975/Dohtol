@@ -6,7 +6,7 @@
 	<!-- エラーメッセージ表示-->
   <div class="c-show-all">
 
-  
+
     <div class="c-show-left">
 　　　<%= form_with url: customers_customer_path, model:@customer, local: true do |f| %>
     	<div>
@@ -32,36 +32,61 @@
 
 
     <div  class="c-show-right">
-      <div>
-        勉強中の資格プルダウンで表示
+      <p>勉強中の資格</p>
+      <div class="c-study-qualifications">
+        <% @customer.customer_study_qualifications.each do |customer_study_qualification| %>
+          <div class="customer_study_qualification">
+            <span class="tag-name">
+              <%= customer_study_qualification.qualification.name %>
+            </span>
+            <span class="c-destroy-box btn">
+              <%= link_to "削除", customers_customer_customer_study_qualification_path(current_customer.id, customer_study_qualification.qualification.id), method: :delete, class: "btn" %>
+            </span>
+          </div>
+        <% end %>
       </div>
 
-      <%= form_with url: customers_customer_customer_study_qualifications_path(current_customer), model:@qualification, local: true do |f| %>
-
-        <div class="">
+      <div>
+        <div>
+          勉強中の資格を追加
+        </div>
+        <%= form_with url: customers_customer_customer_study_qualifications_path(current_customer), model:@qualification, local: true do |f| %>
+          <div class="">
             <th><%= f.label :資格, class: "" %></th>
             <td><%= f.collection_select :qualification_id, Qualification.all, :id, :name, include_blank: "--選択して下さい--" %></td>
-        </div>
-        <div class="btn">
-        	<%= f.submit '変更を保存する'%>
-        </div>
+          </div>
+          <div class="btn">
+          	<%= f.submit '変更を保存する'%>
+          </div>
+        <% end %>
+      </div>
 
-      <% end %>
-
-
-
-
-
+      <p>保有資格</p>
+      <div class="c-have-qualifications">
+        <% @customer.customer_have_qualifications.each do |customer_have_qualification| %>
+          <div>
+            <span class="tag-name">
+              <%= customer_have_qualification.qualification.name %>
+            </span>
+            <span class="c-destroy-box btn">
+              <%= link_to "削除", customers_customer_customer_have_qualification_path(current_customer.id, customer_have_qualification.qualification.id), method: :delete, class: "btn" %>
+            </span>
+          </div>
+        <% end %>
+      </div>
       <div>
-        保有資格プルダウンで表示
-      </div>
-
-      <div class="">
-
-      </div>
-
-      <div class="add-btn customer-edit-qualification-btn">
-        保有の資格を追加する
+        <div>
+          保有資格を保存
+        </div>
+        <%= form_with url: customers_customer_customer_have_qualifications_path(current_customer), model:@qualification, local: true do |f| %>
+          <div class="">
+            <th><%= f.label :資格, class: "" %></th>
+            <td><%= f.collection_select :qualification_id, Qualification.all, :id, :name, include_blank: "--選択して下さい--" %></td>
+          </div>
+          <div class="btn">
+          	<%= f.submit '変更を保存する'%>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>

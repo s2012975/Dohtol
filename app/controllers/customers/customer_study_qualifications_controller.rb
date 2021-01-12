@@ -1,19 +1,19 @@
 class Customers::CustomerStudyQualificationsController < ApplicationController
 
   def create
-    @customer_study_qualification.qualification = Qualification.find(qualification_params)
-    @customer_study_qualification.customer = current_customer
-    @customer_study_qualification.save
-
+    @study_qualification = CustomerStudyQualification.new
+    @qualification = Qualification.find(params[:qualification_id])
+    @study_qualification.qualification_id = @qualification.id
+    @study_qualification.customer_id = current_customer.id
+    @study_qualification.save
+    redirect_to edit_customers_customer_path(@study_qualification.customer)
   end
 
-  def destory
+  def destroy
+    qualification = Qualification.find(params[:id])
+    customer = current_customer
+    CustomerStudyQualification.find_by(customer_id: customer.id, qualification_id: qualification.id).destroy
+    redirect_to edit_customers_customer_path(customer)
   end
-
-  private
-
-    def qualification_params
-      params.require(:qualification).permit(:qualification_id)
-    end
 
 end
