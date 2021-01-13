@@ -86,9 +86,9 @@
           <thead class="">
             <tr class="customer-index-table-title">
               <th></th>
-              <th width=100>ニックネーム</th>
+              <th>ニックネーム</th>
               <th>資格名</th>
-              <th width=120>タイトル</th>
+              <th>タイトル</th>
               <th>内容</th>
               <th>日付</th>
             </tr>
@@ -98,10 +98,10 @@
               <tr>
                 <td width=50><%= attachment_image_tag story.customer, :profile_image, format: 'png', fallback: "no_image_square.jpg", size: "50x50" %></td>
                 <td width=100><%= link_to  story.customer.nick_name,  customers_customer_path(story.customer.id) %></td>
-                <td><%= story.qualification.name %></td>
-                <td><%= link_to story.title, customers_qualification_story_path(story.qualification.id, story.id)  %></td>
-                <td><%= story.body %></td>
-                <td><%= story.created_at.strftime("%m月%d日") %></td>
+                <td class="name-reduce"><%= story.qualification.name %></td>
+                <td class="title-reduce"><%= link_to story.title, customers_qualification_story_path(story.qualification.id, story.id)  %></td>
+                <td class="text-reduce"><%= story.body %></td>
+                <td width=70><%= story.created_at.strftime("%m月%d日") %></td>
               </tr>
             <% end %>
           </tbody>
@@ -123,9 +123,9 @@
           <thead class="">
             <tr class="customer-index-table-title">
               <th></th>
-              <th width=100>ニックネーム</th>
+              <th>ニックネーム</th>
               <th>資格名</th>
-              <th width=120>タイトル</th>
+              <th>タイトル</th>
               <th>内容</th>
               <th>いいね</th>
             </tr>
@@ -135,10 +135,10 @@
               <tr>
                 <td width=50><%= attachment_image_tag story.customer, :profile_image, format: 'png', fallback: "no_image_square.jpg", size: "50x50" %></td>
                 <td width=100><%= link_to  story.customer.nick_name,  customers_customer_path(story.customer.id) %></td>
-                <td><%= story.qualification.name %></td>
-                <td><%= link_to story.title, customers_qualification_story_path(story.qualification.id, story.id)  %></td>
-                <td><%= story.body %></td>
-                <td><%= story.liked_customer.count %></td>
+                <td class="name-reduce"><%= story.qualification.name %></td>
+                <td class="title-reduce"><%= link_to story.title, customers_qualification_story_path(story.qualification.id, story.id)  %></td>
+                <td class="text-reduce"><%= story.body %></td>
+                <td width=50><%= story.liked_customer.count %></td>
               </tr>
             <% end %>
           </tbody>

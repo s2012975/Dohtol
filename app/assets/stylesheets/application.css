@@ -20,9 +20,12 @@
   box-sizing: border-box;
   font-family: Yu Gothic Medium,游ゴシック Medium,YuGothic,游ゴシック体,ヒラギノ角ゴ Pro W3,メイリオ,sans-serif;
   text-decoration: none;
+  word-wrap: break-word;
 }
 
-
+ul > li{
+  list-style: none;
+}
 
 /*.wrapper{*/
 /*    min-height: 100vh;*/
@@ -316,3 +319,20 @@ main {
   color: #fff;
   font-size: 16px;
 }
+
+#sample-books-btn {
+  cursor: pointer;
+  width: 210px;
+  margin: 5px;
+  padding: 5px 0;
+  text-align: center;
+  background-color: #B8860B;
+  /*box-shadow: 0px 4px #CD853F;*/
+  border-radius: 3px;
+  color: #fff;
+  font-size: 16px;
+}
+
+
+
+

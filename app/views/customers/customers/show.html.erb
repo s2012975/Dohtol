@@ -87,15 +87,15 @@
             <tr class="c-index-table-title">
               <th>資格</th>
               <th>タイトル</th>
-              <th width=150>内容</th>
+              <th>内容</th>
             </tr>
           </thead>
           <tbody>
             <% @stories.each do |story| %>
               <tr>
-                <td><%= story.qualification.name %></td>
-                <td><%= link_to story.title, customers_qualification_story_path(story.qualification.id, story.id)  %></td>
-                <td><%= story.body %></td>
+                <td class="c-name-reduce"><%= story.qualification.name %></td>
+                <td class="c-title-reduce"><%= link_to story.title, customers_qualification_story_path(story.qualification.id, story.id)  %></td>
+                <td class="c-text-reduce"><%= story.body %></td>
               </tr>
             <% end %>
           </tbody>

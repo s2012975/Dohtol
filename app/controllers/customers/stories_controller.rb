@@ -18,7 +18,6 @@ class Customers::StoriesController < ApplicationController
   end
 
   def create
-    binding.pry
     @story = Story.new(story_params)
     @story.qualification_id = Qualification.find(params[:qualification_id]).id
     @story.customer_id = current_customer.id
@@ -41,6 +40,7 @@ class Customers::StoriesController < ApplicationController
     if @story.update(story_params)
       redirect_to customers_qualification_story_path(@story)
     else
+      @customer = current_customer
       render 'edit'
     end
   end

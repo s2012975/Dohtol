@@ -10,7 +10,7 @@ class Customer < ApplicationRecord
   validates :first_name, presence: true
   validates :last_name_kana, presence: true
   validates :first_name_kana, presence: true
-  validates :nick_name, presence: true
+  validates :nick_name, presence: true, length: { maximum:6 }
   validates :sex, presence: true
   validates :age, presence: true, numericality: { greater_than: 6 } && { less_than: 100 }
   validates :email, presence: true
