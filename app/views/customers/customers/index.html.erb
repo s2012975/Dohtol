@@ -2,7 +2,7 @@
 
 <div class="searh-window">
   <%= search_form_for(@q, url: customers_customers_path, method: :get) do |f| %>
-    <%= f.label :name, "ニックネーム、保有資格で検索" %>
+    <%= f.label :name, "『ニックネーム』『保有資格』で検索" %>
     <%= f.search_field :nick_name_or_qualifications_name_cont %>
     <%= f.submit "検索" %>
   <% end %>
@@ -26,9 +26,9 @@
           <td>
             <% customer.customer_study_qualifications.each do |customer_study_qualification| %>
               <div class="customer_study_qualification">
-                </div class="tag-name">
+                <span class="tag-name">
                   <%= customer_study_qualification.qualification.name %>
-                </div>
+                </span>
               </div>
             <% end %>
           </td>

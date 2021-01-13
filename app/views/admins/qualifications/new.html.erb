@@ -1,9 +1,9 @@
 <h1 class="page-title">資格作成</h1>
 
 <%= form_with url: admins_qualifications_path, model:@qualification, local: true do |f| %>
-
-	<%= render 'admins/qualifications/errors', qualification: @qualification %>
-	<!-- エラーメッセージ表示-->
+　<div class="a-error-box">
+	  <%= render 'admins/qualifications/errors', qualification: @qualification %>
+	</div>
 
   <div class="qualification-infomation">
 

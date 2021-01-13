@@ -8,7 +8,7 @@ class Story < ApplicationRecord
 
   validates :title, presence: true, length: { maximum:20 }
   validates :study_time, presence: true
-  validates :reason, presence: true
+  validates :reason, presence: true, length: { maximum:20 }
   validates :body, presence: true
   validates :books, presence: true
 

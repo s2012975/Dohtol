@@ -1,9 +1,8 @@
 <h1 class="page-title">ユーザ編集</h1>
 
-
-
-  <%= render 'customers/customers/errors', customer: @customer %>
-	<!-- エラーメッセージ表示-->
+  <div class="c-edit-error-text">
+    <%= render 'customers/customers/errors', customer: @customer %>
+  </div>
   <div class="c-show-all">
 
 
@@ -48,15 +47,15 @@
 
       <div>
         <div>
-          勉強中の資格を追加
+          勉強中の資格を追加（資格を選択してください）
         </div>
         <%= form_with url: customers_customer_customer_study_qualifications_path(current_customer), model:@qualification, local: true do |f| %>
           <div class="">
             <th><%= f.label :資格, class: "" %></th>
-            <td><%= f.collection_select :qualification_id, Qualification.all, :id, :name, include_blank: "--選択して下さい--" %></td>
+            <td><%= f.collection_select :qualification_id, Qualification.all, :id, :name %></td>
           </div>
           <div class="btn">
-          	<%= f.submit '変更を保存する'%>
+          	<%= f.submit '資格を追加する'%>
           </div>
         <% end %>
       </div>
@@ -76,15 +75,15 @@
       </div>
       <div>
         <div>
-          保有資格を保存
+          保有資格を保存（資格を選択してください）
         </div>
         <%= form_with url: customers_customer_customer_have_qualifications_path(current_customer), model:@qualification, local: true do |f| %>
           <div class="">
             <th><%= f.label :資格, class: "" %></th>
-            <td><%= f.collection_select :qualification_id, Qualification.all, :id, :name, include_blank: "--選択して下さい--" %></td>
+            <td><%= f.collection_select :qualification_id, Qualification.all, :id, :name %></td>
           </div>
           <div class="btn">
-          	<%= f.submit '変更を保存する'%>
+          	<%= f.submit '資格を追加する'%>
           </div>
         <% end %>
       </div>
