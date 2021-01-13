@@ -1,11 +1,11 @@
 <thead>
   <tr class="a-customer-index-table-title">
     <th></th>
-    <th width=100>ニックネーム</th>
-    <th width=50>性別</th>
-    <th width=50>年齢</th>
+    <th>ニックネーム</th>
+    <th>性別</th>
+    <th>年齢</th>
     <th>自己紹介</th>
-    <th width=70>日付</th>
+    <th>日付</th>
   </tr>
 </thead>
 <tbody>
@@ -13,10 +13,10 @@
     <tr>
       <td width=50><%= attachment_image_tag customer, :profile_image, format: 'png', fallback: "no_image_square.jpg", size: "50x50" %></td>
       <td width=100><%= link_to  customer.nick_name,  admins_customer_path(customer.id) %></td>
-      <td><%= customer.sex %></td>
-      <td><%= customer.age  %></td>
-      <td><%= customer.introduction %></td>
-      <td><%= customer.created_at.strftime("%m月%d日") %></td>
+      <td width=50><%= customer.sex %></td>
+      <td width=50><%= customer.age  %></td>
+      <td class="a-c-text-reduce"><%= customer.introduction %></td>
+      <td width=70><%= customer.created_at.strftime("%m月%d日") %></td>
     </tr>
   <% end %>
 </tbody>

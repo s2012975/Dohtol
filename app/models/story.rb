@@ -6,7 +6,7 @@ class Story < ApplicationRecord
   belongs_to :customer
   belongs_to :qualification
 
-  validates :title, presence: true
+  validates :title, presence: true, length: { maximum:20 }
   validates :study_time, presence: true
   validates :reason, presence: true
   validates :body, presence: true

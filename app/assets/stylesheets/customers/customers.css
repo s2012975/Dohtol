@@ -71,3 +71,30 @@
 .announce-index-table-title > th:not(:first-child) {
   background-color: #A9A9A9;
   border-radius: 5px; }
+
+
+
+.c-name-reduce {
+    max-width: 150px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.c-title-reduce {
+    max-width: 150px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.c-text-reduce {
+    max-width: 150px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.comment-text p {
+  width: 300px;
+}

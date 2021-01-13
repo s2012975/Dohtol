@@ -4,27 +4,23 @@
 
 	<%= render 'layouts/errors', model: f.object %>
 
-	<div>
-		<%= f.submit '保存', class: "story-create-btn" %>
-	</div>
-
 	<div class="story-all">
 	  <div class="story-top">
 	    <div class="customer-introduction">
 	      <div class="customer-introduction-detail">
 	        <div class="customer-image">
-	          <%= attachment_image_tag @customer, :profile_image, fallback: "no_image_square.jpg", size: "200x200", class: "customer-image" %>
+	          <%= attachment_image_tag current_customer, :profile_image, fallback: "no_image_square.jpg", size: "200x200", class: "customer-image" %>
 	        </div>
 	        <div class="customer-name">
-	          <p><strong><%#= @customer.nick_name %></strong><p>
+	          <p><strong><%= current_customer.nick_name %></strong><p>
 	        </div>
 	      </div>
 	    </div>
 	    <div class="story-part-one">
 	      <div class="story-items">
 					<div class="field">
-						<%= f.label :タイトル %><br>
-						<%= f.text_field :title, class: "title", width: "600" %>
+						<%= f.label :タイトル（最大20字） %><br>
+						<%= f.text_field :title, class: "title", size: "60" %>
 					</div>
 	      </div>
 
@@ -38,7 +34,7 @@
 	      <div class="story-items">
 	      	<div class="field">
 		        <%= f.label :取得目的 %><br>
-		        <p><%= f.text_field :reason, class: "reason" %></p>
+		        <p><%= f.text_field :reason, class: "reason", size: "60" %></p>
 	        </div>
 	      </div>
 	    </div>
@@ -47,16 +43,19 @@
 	    <div class="story-content">
 	    	<div class="field">
 		      <p class="story-content-title"><%= f.label :内容 %></p>
-		      <%= f.text_field :body, class: "body" %>
+		      <%= f.text_area :body, class: "body", size: "130x10", id: "sample_text_form", placeholder: "書き方に困った時は「サンプルテキストを表示する」をクリックしてみましょう" %>
 	      </div>
 	    </div>
 
 	    <div class="story-content">
 	    	<div class="field">
-		      <p class="story-content-title"><%= f.label :使用した参考書 %></p>
-		      <%= f.text_field :books, class: "books" %>
+		      <p class="story-content-title"><%= f.label :使用した参考書・使い方 %></p>
+		      <%= f.text_area :books, class: "books", size: "130x3", id: "sample_books_form", placeholder: "書き方に困った時は「サンプルテキストを表示する」をクリックしてみましょう" %>
 	      </div>
 	    </div>
 	  </div>
+	</div>
+	<div>
+		<%= f.submit '保存', class: "story-create-btn" %>
 	</div>
 <% end %>

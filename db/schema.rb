@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_09_042725) do
+ActiveRecord::Schema.define(version: 2021_01_13_105908) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 2021_01_09_042725) do
     t.integer "qualification_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["customer_id", "qualification_id"], name: "have_qualifications_on_customer_id_and_qualification_id", unique: true
   end
 
   create_table "customer_study_qualifications", force: :cascade do |t|
@@ -44,6 +45,7 @@ ActiveRecord::Schema.define(version: 2021_01_09_042725) do
     t.integer "qualification_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["customer_id", "qualification_id"], name: "study_qualifications_on_customer_id_and_qualification_id", unique: true
   end
 
   create_table "customers", force: :cascade do |t|
@@ -83,7 +85,7 @@ ActiveRecord::Schema.define(version: 2021_01_09_042725) do
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "is_active"
+    t.boolean "is_active", default: true
   end
 
   create_table "likes", force: :cascade do |t|

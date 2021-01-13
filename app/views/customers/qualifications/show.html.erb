@@ -27,7 +27,7 @@
     <thead class="">
       <tr class="customer-index-table-title">
         <th></th>
-        <th width=100>ニックネーム</th>
+        <th>ニックネーム</th>
         <th width=120>タイトル</th>
         <th width=80>学習時間</th>
         <th>内容</th>
@@ -37,10 +37,10 @@
       <% @qualification.stories.each do |story| %>
         <tr>
           <td width=100><%= attachment_image_tag story.customer, :profile_image, format: 'png', fallback: "no_image_square.jpg", size: "50x50" %></td>
-          <td width=100><%= link_to  story.customer.nick_name,  customers_customer_path(story.customer.id) %></td>
-          <td><%= link_to story.title, customers_qualification_story_path(@qualification, story.id)  %></td>
-          <td><%= story.study_time %></td>
-          <td><%= story.body %></td>
+          <td class="q-name-reduce"><%= link_to  story.customer.nick_name,  customers_customer_path(story.customer.id) %></td>
+          <td class="q-title-reduce"><%= link_to story.title, customers_qualification_story_path(@qualification, story.id)  %></td>
+          <td class="q-text-reduce"><%= story.study_time %></td>
+          <td class="q-text-reduce"><%= story.body %></td>
 	        <td>
 	          <% if story.customer == current_customer %>
               </div class="">

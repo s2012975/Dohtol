@@ -32,12 +32,12 @@
   <div class="story-bottom">
     <div class="story-content">
       <p class="story-content-title">内容</p>
-      <strong><%= @story.body %></strong>
+      <strong><%= simple_format(@story.body) %></strong>
     </div>
 
     <div class="story-content">
       <p class="story-content-title">利用した参考書</p>
-      <strong><%= @story.books %></strong>
+      <strong><%= simple_format(@story.books) %></strong>
     </div>
   </div>
 </div class="">

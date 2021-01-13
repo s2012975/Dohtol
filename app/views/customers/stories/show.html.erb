@@ -6,23 +6,7 @@
 <% end %>
 
 <div class="like-area">
-  <% if customer_signed_in? %>
-    <% if @story.liked_by?(current_customer) %>
-      <li>
-        <%= link_to customers_qualification_story_likes_path(@qualification, @story), method: :delete do %>
-          <i class="fa fa-heart" aria-hidden="true" style="color: red;"></i>
-          <%= @story.likes.count %> いいね
-        <% end %>
-      </li>
-    <% else %>
-      <li>
-        <%= link_to customers_qualification_story_likes_path(@qualification, @story), method: :post do %>
-          <i class="fa fa-heart-o" aria-hidden="true"></i>
-          <%= @story.likes.count %> いいね
-        <% end %>
-      </li>
-    <% end %>
-  <% end %>
+  <%= render 'customers/likes/show', story: @story %>
 </div>
 <!--raty入れたい-->
 
@@ -41,7 +25,7 @@
     <div class="story-part-one">
       <div class="story-items">
         <p>タイトル</p>
-        <p><strong><%= @story.title %></strong></p>
+        <p size="60"><strong><%= @story.title %></strong></p>
       </div>
 
       <div class="story-items">
@@ -58,12 +42,12 @@
   <div class="story-bottom">
     <div class="story-content">
       <p class="story-content-title">内容</p>
-      <strong><%= @story.body %></strong>
+      <strong><%= simple_format(@story.body) %></strong>
     </div>
 
     <div class="story-content">
-      <p class="story-content-title">利用した参考書</p>
-      <strong><%= @story.books %></strong>
+      <p class="story-content-title">利用した参考書・使い方</p>
+      <strong><%= simple_format(@story.books) %></strong>
     </div>
   </div>
 </div>

@@ -89,6 +89,16 @@ $(function(){
 
 $(function(){
   $('#sample-btn').click(function(){
-  $('#sample_text_form').val('test');
+  var test = "今回受けた●●合格までの受験回数は●●回でした。試験会場は●●です。\n試験前日までのタイムスケジュールは以下の通りです。\n●●。\n受験で気をつけたことや、学習のポイントは以下になります。\n●●"
+  // test.gsub(/(\\r\\n|\\r|\\n)/, "\n")
+  $('#sample_text_form').val(test);
+  })
+});
+
+$(function(){
+  $('#sample-books-btn').click(function(){
+  var test = "「●●2級合格テキスト」　●●著　\n1周目に通読、2週目に練習問題、3周目に練習問題と章末問題。"
+  // test.gsub(/(\\r\\n|\\r|\\n)/, "\n")
+  $('#sample_books_form').val(test);
   })
 });

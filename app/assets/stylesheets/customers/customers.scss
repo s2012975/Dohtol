@@ -6,8 +6,13 @@
 
 // customerの一覧ページ
 
+.customer-search{
+  width: 300px;
+}
+
 .searh-window {
-  margin-left: 80%;
+  width: 200px;
+  margin-left: 70%;
   margin-bottom: 20px;
 }
 
@@ -86,4 +91,25 @@
 
 .btn:visited {
   color: white;
+}
+
+.c-name-reduce {
+    max-width: 60px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.c-title-reduce {
+    max-width: 60px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.c-text-reduce {
+    max-width: 100px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }

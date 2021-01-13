@@ -12,8 +12,8 @@ class Customers::CustomersController < ApplicationController
   end
 
   def index
-    @q = Customer.ransack(params[:q])
-    @customers = @q.result(distinct: true)
+    @q = Customer.joins(:qualifications).ransack(params[:q])
+    @customers = @q.result
   end
 
   def edit
