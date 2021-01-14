@@ -10,7 +10,7 @@
   <% announces.each do |announce| %>
     <tr>
       <td></td>
-      <td class="announce-reduce-title"><%= link_to announce.title, admins_announce_path(announce) %></td>
+      <td width="350"><%= link_to announce.title, admins_announce_path(announce) %></td>
       <td width="100"><%= announce.category %></td>
       <td class="announce-reduce-text"><%= announce.body %></td>
     </tr>

@@ -15,8 +15,8 @@
           <td>
             <%= link_to qualification.name, admins_qualification_path(qualification) %>
           </td>
-          <td width=120><%= qualification.genre.name %></td>
-          <td><%= qualification.body %></td>
+          <td width=150><%= qualification.genre.name %></td>
+          <td class="q-index-text-reduce"><%= qualification.body %></td>
         </tr>
       <% end %>
     </tbody>
