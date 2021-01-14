@@ -9,15 +9,16 @@ class Customers::QualificationsController < ApplicationController
     case n
     when 1..8
       @genre_name = Genre.find(n).name
-      @qualifications = Qualification.where(genre_id: n)
+      @qualifications = Qualification.where(genre_id: n).page(params[:page]).per(10)
     else
       @genre_name = "資格"
-      @qualifications = Qualification.all
+      @qualifications = Qualification.all.page(params[:page]).per(10)
     end
   end
 
   def show
     @qualification = Qualification.find(params[:id])
+    @stories = @qualification.stories.page(params[:page]).per(10)
   end
 
   private

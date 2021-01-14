@@ -1,5 +1,7 @@
 class Customers::LikesController < ApplicationController
 
+  before_action :authenticate_customer!
+
   def create
     qualification = Qualification.find(params[:qualification_id])
     story = Story.find(params[:story_id])

@@ -1,7 +1,9 @@
 class Admins::QualificationsController < ApplicationController
+  
+  before_action :authenticate_admin!
 
   def index
-    @qualifications = Qualification.all   #.page(params[:page]).per(10)
+    @qualifications = Qualification.all.page(params[:page]).per(10)
   end
 
   def new
@@ -10,6 +12,7 @@ class Admins::QualificationsController < ApplicationController
 
   def show
     @qualification = Qualification.find(params[:id])
+    @stories = @qualification.stories.page(params[:page]).per(2)
   end
 
   def create

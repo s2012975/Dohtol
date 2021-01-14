@@ -10,7 +10,7 @@
   </div>
 
   <div class="qualification-content">
-    <p>資格内容</p>
+    <div>資格内容</div>
     <p class="qualification-detail-text"><%= simple_format(@qualification.body) %></p>
   </div>
 </div>
@@ -28,7 +28,7 @@
       </tr>
     </thead>
     <tbody>
-      <% @qualification.stories.each do |story| %>
+      <% @stories.each do |story| %>
         <tr>
           <td width=50><%= attachment_image_tag story.customer, :profile_image, format: 'png', fallback: "no_image_square.jpg", size: "50x50" %></td>
           <td width=100><%= link_to  story.customer.nick_name,  admins_customer_path(story.customer.id) %></td>
@@ -46,10 +46,18 @@
       <% end %>
     </tbody>
   </table>
+  <%= paginate @stories %>
 </div>
 
+<div>
   <%= link_to '編集', edit_admins_qualification_path(params[:id]) %>
+</div>
 
 <div class="customer-destroy">
-  <%= link_to "削除", admins_qualification_path(@qualification), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, class: "btn destroy" %>
+  <%= link_to "削除", admins_qualification_path(@qualification), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, class: " destroy" %>
 </div>
+<div>
+  <%= link_to "TOPページに戻る", admins_homes_top_path %>
+</div>
+
+

@@ -1,94 +1,97 @@
 <h1 class="page-title">ユーザ編集</h1>
 
-  <div class="c-edit-error-text">
-    <%= render 'customers/customers/errors', customer: @customer %>
-  </div>
-  <div class="c-show-all">
+<div class="c-edit-error-text">
+  <%= render 'customers/customers/errors', customer: @customer %>
+</div>
 
+<div class="story-back-btn">
+  <%= link_to 'ユーザ詳細に戻る', customers_customer_path(@customer), class: "btn" %>
+</div>
 
-    <div class="c-show-left">
+<div class="c-show-all">
+  <div class="c-show-left">
 　　　<%= form_with url: customers_customer_path, model:@customer, local: true do |f| %>
-    	<div>
-        <div class="img_form">
-          <%= attachment_image_tag @customer, :profile_image, fallback: "no_image_square.jpg", id: "img_prev", style: "height: 200px; width:200px;" %><br>
-          <%= f.attachment_field :profile_image %>
-        </div>
-    	</div>
-    	<div class="field">
-    		<%= f.label :ニックネーム（6文字まで） %>
-    		<%= f.text_field :nick_name, class: "nick_name", size: "30x1" %>
-    	</div>
-    	<div class="field">
-    		<%= f.label :自己紹介 %><br>
-    		<%= f.text_area :introduction, class: "introduction", size: "30x10" %>
-    	</div>
-      <div class="btn">
-      	<%= f.submit '変更を保存する'%>
+  	<div>
+      <div class="img_form">
+        <%= attachment_image_tag @customer, :profile_image, fallback: "no_image_square.jpg", id: "img_prev", style: "height: 200px; width:200px;" %><br>
+        <%= f.attachment_field :profile_image %>
       </div>
+  	</div>
+  	<div class="field">
+  		<%= f.label :ニックネーム（6文字まで） %>
+  		<%= f.text_field :nick_name, class: "nick_name", size: "30x1" %>
+  	</div>
+  	<div class="field">
+  		<%= f.label :自己紹介 %><br>
+  		<%= f.text_area :introduction, class: "introduction", size: "30x10" %>
+  	</div>
+    <div class="btn">
+    	<%= f.submit '変更を保存する'%>
+    </div>
+    <% end %>
+  </div>
+
+
+
+  <div  class="c-show-right">
+    <p>勉強中の資格</p>
+    <div class="c-study-qualifications">
+      <% @customer.customer_study_qualifications.each do |customer_study_qualification| %>
+        <div class="customer_study_qualification">
+          <span class="tag-name">
+            <%= customer_study_qualification.qualification.name %>
+          </span>
+          <span class="c-destroy-box btn">
+            <%= link_to "削除", customers_customer_customer_study_qualification_path(current_customer.id, customer_study_qualification.qualification.id), method: :delete, class: "btn" %>
+          </span>
+        </div>
       <% end %>
     </div>
 
-
-
-    <div  class="c-show-right">
-      <p>勉強中の資格</p>
-      <div class="c-study-qualifications">
-        <% @customer.customer_study_qualifications.each do |customer_study_qualification| %>
-          <div class="customer_study_qualification">
-            <span class="tag-name">
-              <%= customer_study_qualification.qualification.name %>
-            </span>
-            <span class="c-destroy-box btn">
-              <%= link_to "削除", customers_customer_customer_study_qualification_path(current_customer.id, customer_study_qualification.qualification.id), method: :delete, class: "btn" %>
-            </span>
-          </div>
-        <% end %>
-      </div>
-
+    <div>
       <div>
-        <div>
-          勉強中の資格を追加（資格を選択してください）
-        </div>
-        <%= form_with url: customers_customer_customer_study_qualifications_path(current_customer), model:@qualification, local: true do |f| %>
-          <div class="">
-            <th><%= f.label :資格, class: "" %></th>
-            <td><%= f.collection_select :qualification_id, Qualification.all, :id, :name %></td>
-          </div>
-          <div class="btn">
-          	<%= f.submit '資格を追加する'%>
-          </div>
-        <% end %>
+        勉強中の資格を追加（資格を選択してください）
       </div>
+      <%= form_with url: customers_customer_customer_study_qualifications_path(current_customer), model:@qualification, local: true do |f| %>
+        <div class="">
+          <th><%= f.label :資格, class: "" %></th>
+          <td><%= f.collection_select :qualification_id, Qualification.all, :id, :name %></td>
+        </div>
+        <div class="btn">
+        	<%= f.submit '資格を追加する'%>
+        </div>
+      <% end %>
+    </div>
 
-      <p>保有資格</p>
-      <div class="c-have-qualifications">
-        <% @customer.customer_have_qualifications.each do |customer_have_qualification| %>
-          <div>
-            <span class="tag-name">
-              <%= customer_have_qualification.qualification.name %>
-            </span>
-            <span class="c-destroy-box btn">
-              <%= link_to "削除", customers_customer_customer_have_qualification_path(current_customer.id, customer_have_qualification.qualification.id), method: :delete, class: "btn" %>
-            </span>
-          </div>
-        <% end %>
-      </div>
-      <div>
+    <p>保有資格</p>
+    <div class="c-have-qualifications">
+      <% @customer.customer_have_qualifications.each do |customer_have_qualification| %>
         <div>
-          保有資格を保存（資格を選択してください）
+          <span class="tag-name">
+            <%= customer_have_qualification.qualification.name %>
+          </span>
+          <span class="c-destroy-box btn">
+            <%= link_to "削除", customers_customer_customer_have_qualification_path(current_customer.id, customer_have_qualification.qualification.id), method: :delete, class: "btn" %>
+          </span>
         </div>
-        <%= form_with url: customers_customer_customer_have_qualifications_path(current_customer), model:@qualification, local: true do |f| %>
-          <div class="">
-            <th><%= f.label :資格, class: "" %></th>
-            <td><%= f.collection_select :qualification_id, Qualification.all, :id, :name %></td>
-          </div>
-          <div class="btn">
-          	<%= f.submit '資格を追加する'%>
-          </div>
-        <% end %>
+      <% end %>
+    </div>
+    <div>
+      <div>
+        保有資格を保存（資格を選択してください）
       </div>
+      <%= form_with url: customers_customer_customer_have_qualifications_path(current_customer), model:@qualification, local: true do |f| %>
+        <div class="">
+          <th><%= f.label :資格, class: "" %></th>
+          <td><%= f.collection_select :qualification_id, Qualification.all, :id, :name %></td>
+        </div>
+        <div class="btn">
+        	<%= f.submit '資格を追加する'%>
+        </div>
+      <% end %>
     </div>
   </div>
+</div>
 
 
 

@@ -5,6 +5,10 @@
   </div>
 <% end %>
 
+<div class="a-story-back-btn">
+  <%= link_to '資格詳細に戻る', customers_qualification_path(params[:qualification_id]), class: "btn" %>
+</div>
+
 <div class="like-area">
   <%= render 'customers/likes/show', story: @story %>
 </div>

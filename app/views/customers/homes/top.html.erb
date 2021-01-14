@@ -176,9 +176,9 @@
               <% @announces.each do |announce| %>
                 <tr>
                   <td></td>
-                  <td><%= link_to announce.title, customers_announce_path(announce) %></td>
-                  <td><%= announce.category %></td>
-                  <td><%= announce.body %></td>
+                  <td width=350><%= link_to announce.title, customers_announce_path(announce) %></td>
+                  <td width=80><%= announce.category %></td>
+                  <td class="announce-reduce-text"><%= announce.body %></td>
                 </tr>
               <% end %>
             </tbody>
@@ -200,9 +200,9 @@
               <% @news_announces.each do |announce| %>
                 <tr>
                   <td></td>
-                  <td><%= link_to announce.title, customers_announce_path(announce) %></td>
+                  <td width=350><%= link_to announce.title, customers_announce_path(announce) %></td>
                   <td width=80><%= announce.category %></td>
-                  <td><%= announce.body %></td>
+                  <td class="announce-reduce-text"><%= announce.body %></td>
                 </tr>
               <% end %>
             </tbody>
@@ -217,7 +217,7 @@
               <tr class="announce-index-table-title">
                 <th></th>
                 <th>お知らせ</th>
-                <th width=80>区分</th>
+                <th>区分</th>
                 <th>概要</th>
               </tr>
             </thead>
@@ -225,9 +225,9 @@
               <% @event_announces.each do |announce| %>
                 <tr>
                   <td></td>
-                  <td><%= link_to announce.title, customers_announce_path(announce) %></td>
-                  <td><%= announce.category %></td>
-                  <td><%= announce.body %></td>
+                  <td width=350><%= link_to announce.title, customers_announce_path(announce) %></td>
+                  <td width=80><%= announce.category %></td>
+                  <td class="announce-reduce-text"><%= announce.body %></td>
                 </tr>
               <% end %>
             </tbody>

@@ -59,18 +59,24 @@
   text-align: center;
 }
 
-.story-edit-btn {
+div.story-edit-btn {
   width: 130px;
-  margin-bottom: 30px;
-  background-color: #003333;
+  margin-bottom: 2px;
+  background-color: #FAEBD7;
+  border-radius: 5px;
+}
+
+.story-back-btn {
+  width: 120px;
+  margin-bottom: 2px;
+  background-color: #FAEBD7;
   border-radius: 5px;
 }
 
 .story-create-btn {
   width: 130px;
   margin-bottom: 30px;
-  background-color: #003333;
+  background-color: #FAEBD7;
   border-radius: 5px;
-  color: white;
 }
 

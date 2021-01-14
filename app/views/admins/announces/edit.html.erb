@@ -6,7 +6,7 @@
 		<%= render 'layouts/errors', model: f.object %>
 
 		<div class="field">
-			<%= f.label :タイトル %><br>
+			<%= f.label :タイトル（20字以内） %><br>
 			<%= f.text_field :title, class: "title" %>
 		</div>
 
@@ -16,7 +16,7 @@
 		</div>
 
 		<div class="field">
-			<%= f.label :概要 %><br>
+			<%= f.label :概要（500字以内） %><br>
 			<%= f.text_area :body, class: "body", size: "70x20" %>
 		</div>
 

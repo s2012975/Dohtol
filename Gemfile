@@ -75,6 +75,8 @@ gem 'ransack'
 
 gem 'rails-i18n'
 
+gem 'kaminari', '~> 0.17.0'
+
 
 # MySQLを利用するために必要なgemを追加
 gem 'dotenv-rails'
