@@ -1,16 +1,16 @@
 <thead>
   <tr class="c-index-table-title">
-    <th>資格</th>
-    <th>タイトル</th>
-    <th width=150>内容</th>
+    <th width=150>資格</th>
+    <th width=150>タイトル</th>
+    <th width=100>内容</th>
   </tr>
 </thead>
 <tbody>
   <% stories.each do |story| %>
     <tr>
-      <td><%= story.qualification.name %></td>
-      <td><%= link_to story.title, admins_qualification_story_path(story.qualification.id, story.id)  %></td>
-      <td><%= story.body %></td>
+      <td class="a-name-reduce"><%= story.qualification.name %></td>
+      <td class="a-title-reduce"><%= link_to story.title, admins_qualification_story_path(story.qualification.id, story.id)  %></td>
+      <td class="a-text-reduce"><%= story.body %></td>
     </tr>
   <% end %>
 </tbody>

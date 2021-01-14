@@ -1,7 +1,6 @@
 <% if qualification.errors.any? %>
 	<div id="error_explanation">
-		<h3><%= qualification.errors.count %>error prohibited this obj from being saved:</h3>
-		<ul>
+		<ul style="margin-left: 30%;">
 			<% qualification.errors.full_messages.each do |message| %>
 			<li><%= message %></li>
 			<% end %>

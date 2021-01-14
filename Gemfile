@@ -73,6 +73,8 @@ gem 'jquery-rails'
 # 検索機能で使用
 gem 'ransack'
 
+gem 'rails-i18n'
+
 
 # MySQLを利用するために必要なgemを追加
 gem 'dotenv-rails'

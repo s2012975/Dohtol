@@ -11,8 +11,7 @@
 }
 
 .searh-window {
-  width: 200px;
-  margin-left: 70%;
+  margin-left: 60%;
   margin-bottom: 20px;
 }
 
@@ -93,21 +92,21 @@
   color: white;
 }
 
-.c-name-reduce {
-    max-width: 60px;
+.a-name-reduce {
+    max-width: 150px;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
 }
 
-.c-title-reduce {
-    max-width: 60px;
+.a-title-reduce {
+    max-width: 150px;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
 }
 
-.c-text-reduce {
+.a-text-reduce {
     max-width: 100px;
     overflow: hidden;
     text-overflow: ellipsis;

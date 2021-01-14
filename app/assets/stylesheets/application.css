@@ -334,5 +334,17 @@ main {
 }
 
 
+.a-error-box {
+  margin-left: 20%;
+}
 
+.q-error-text {
+  margin-left: 30%;
+}
 
+.announce-reduce-title {
+  max-width: 150px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

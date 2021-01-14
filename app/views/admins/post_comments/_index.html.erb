@@ -12,11 +12,11 @@
     </td>
     <td>
       <span class="comment-text">
-        <%= given_message.body %>
+        <%= simple_format(given_message.body) %>
       </span>
     </td>
     <td>
-      <div class="">
+      <div>
         <%= link_to "削除", admins_customer_post_comment_path(customer, given_message), method: :delete, remote: true, class: "" %>
       </div>
     </td>

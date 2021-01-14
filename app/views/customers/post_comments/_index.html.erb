@@ -17,7 +17,7 @@
     </td>
     <td>
       <% if given_message.send_customer == current_customer %>
-        <div class="">
+        <div>
           <%= link_to "削除", customers_customer_post_comment_path(customer, given_message), method: :delete, remote: true, class: "" %>
         </div>
       <% end %>

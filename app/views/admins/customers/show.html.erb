@@ -35,10 +35,6 @@
     <div class="c-qualifications">
       <%= render 'admins/qualifications/side_index', customer: @customer %>
     </div>
-
-    <span class="c-destroy-box btn">
-      <%= link_to "ユーザの削除", customer_registration_path(@customer), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, class: "btn destroy_customer_#{@customer.id}" %>
-    </span>
   </div>
 
   <div class="c-show-right">

@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  root 'customers/homes#top'
+
   namespace :admins do
     get 'stories/index'
     get 'stories/show'
@@ -8,7 +10,6 @@ Rails.application.routes.draw do
     get 'customers/index'
     get 'customers/show'
   end
-  root 'customers/homes#top'
 
   devise_for :admins, controllers: {
     sessions:      'admins/sessions',

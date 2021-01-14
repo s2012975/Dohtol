@@ -6,7 +6,7 @@ class Qualification < ApplicationRecord
 
   has_many :stories, dependent: :destroy
 
-  validates :name, presence: true
+  validates :name, presence: true, length: { maximum:21 }
   validates :body, presence: true
   validates :classification, presence: true
 

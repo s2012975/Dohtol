@@ -1,7 +1,5 @@
 <h1 class="page-title">体験談作成</h1>
-
-
-<%= form_with url: customers_qualification_stories_path, model:@story, local: true do |f| %>
+　<%= form_with url: customers_qualification_stories_path, model:@story, local: true do |f| %>
   <%= render 'layouts/errors', model: f.object %>
 	<div class="story-all">
 	  <div class="story-top">
@@ -32,7 +30,7 @@
 
 	      <div class="story-items">
 	      	<div class="field">
-		        <%= f.label :取得目的 %><br>
+		        <%= f.label :取得目的（最大20字） %><br>
 		        <p><%= f.text_field :reason, class: "reason", size: "60" %></p>
 	        </div>
 	      </div>

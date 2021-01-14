@@ -33,7 +33,7 @@
 
 	      <div class="story-items">
 	      	<div class="field">
-		        <%= f.label :取得目的 %><br>
+		        <%= f.label :取得目的（最大20字） %><br>
 		        <p><%= f.text_field :reason, class: "reason", size: "60" %></p>
 	        </div>
 	      </div>
@@ -43,6 +43,7 @@
 	    <div class="story-content">
 	    	<div class="field">
 		      <p class="story-content-title"><%= f.label :内容 %></p>
+		      <div id="sample-btn">サンプルテキストを表示する</div>
 		      <%= f.text_area :body, class: "body", size: "130x10", id: "sample_text_form", placeholder: "書き方に困った時は「サンプルテキストを表示する」をクリックしてみましょう" %>
 	      </div>
 	    </div>
@@ -50,6 +51,7 @@
 	    <div class="story-content">
 	    	<div class="field">
 		      <p class="story-content-title"><%= f.label :使用した参考書・使い方 %></p>
+		      <div id="sample-books-btn">サンプルテキストを表示する</div>
 		      <%= f.text_area :books, class: "books", size: "130x3", id: "sample_books_form", placeholder: "書き方に困った時は「サンプルテキストを表示する」をクリックしてみましょう" %>
 	      </div>
 	    </div>

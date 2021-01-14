@@ -9,7 +9,7 @@
   <% qualifications.each do |qualification| %>
     <tr>
       <td></td>
-      <td class="announce-reduce-text"><%= qualification.name %></td>
+      <td class="announce-reduce-text"><%= link_to qualification.name, admins_qualification_path(qualification)  %></td>
       <td width=100, class="genre-reduce-name"><%= qualification.genre.name  %></td>
     </tr>
   <% end %>

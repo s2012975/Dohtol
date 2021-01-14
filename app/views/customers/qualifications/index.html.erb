@@ -13,10 +13,10 @@
       <% @qualifications.each do |qualification| %>
         <tr class="items">
           <td>
-            <%= link_to qualification.name, customers_qualification_path(qualification) %>
+            <%= link_to qualification.name, customers_qualification_path(qualification), class: "q-index-name-reduce" %>
           </td>
-          <td width=120><%= qualification.genre.name %></td>
-          <td><%= qualification.body %></td>
+          <td width=150><%= qualification.genre.name %></td>
+          <td class="q-index-text-reduce"><%= qualification.body %></td>
         </tr>
       <% end %>
     </tbody>
