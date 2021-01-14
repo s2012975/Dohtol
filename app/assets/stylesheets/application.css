@@ -27,6 +27,16 @@ ul > li{
   list-style: none;
 }
 
+body {
+  height: 100%;
+}
+
+#container {
+  position: relative;
+  min-height: 100vh;
+}
+
+
 /*.wrapper{*/
 /*    min-height: 100vh;*/
 /*    position: relative;*/
@@ -67,19 +77,19 @@ header {
 main {
   width: 1000px;
   margin: 0 auto;
+  padding-bottom: 40px;
 }
 
 
-/*footer*/
-
-/*footer {*/
-/*  width: 100%;*/
-/*  height: 25px;*/
-/*  background-color: gray;*/
-/*  text-align: center;*/
-/*  position: absolute;*/
-/*  bottom: 0;*/
-/*}*/
+footer {
+  width: 100%;
+  height: 25px;
+  background-color: #003333;
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  color: white;
+}
 
 
 /*スライドの設定*/
@@ -177,18 +187,12 @@ main {
 .c-edit_btn {
   width: 200px;
   margin: 10px auto;
-  background-color: #003333;
   border-radius: 5px;
-}
-
-.btn:visited {
-  color: white;
 }
 
 .c-followers-btn {
   width: 200px;
   margin: 10px auto;
-  background-color: #003333;
   border-radius: 5px;
 }
 
@@ -225,7 +229,6 @@ main {
 .c-destroy-box {
   width: 200px;
   margin: 10px auto;
-  background-color: #003333;
   border-radius: 5px;
 }
 
@@ -348,3 +351,39 @@ main {
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+
+/*資格詳細*/
+
+.qualification-content p {
+  text-align: left;
+}
+
+/*cお知らせ詳細*/
+
+.c-announce-content p {
+  text-align: left;
+}
+
+/*aお知らせ詳細*/
+.a-announce-content p {
+  text-align: left;
+}
+
+
+a.header-nav-list-item-text {
+  color: white;
+}
+
+.story-back-btn {
+  width: 130px;
+  margin-bottom: 2px;
+  margin-left: 100px;
+  background-color: #FAEBD7;
+  border-radius: 5px;
+}
+
+li.header-nav-list-item {
+  margin: 13px;
+}
+
+

@@ -10,8 +10,8 @@
   </div>
 
   <div class="qualification-content">
-    <p>資格内容</p>
-    <p><%= @qualification.body %></p>
+    <div>資格内容</div>
+    <p class="qualification-content-text"><%= simple_format(@qualification.body) %></p>
   </div>
 
   <% if customer_signed_in? %>
@@ -34,7 +34,7 @@
       </tr>
     </thead>
     <tbody>
-      <% @qualification.stories.each do |story| %>
+      <% @stories.each do |story| %>
         <tr>
           <td width=100><%= attachment_image_tag story.customer, :profile_image, format: 'png', fallback: "no_image_square.jpg", size: "50x50" %></td>
           <td class="q-name-reduce"><%= link_to  story.customer.nick_name,  customers_customer_path(story.customer.id) %></td>
@@ -52,4 +52,5 @@
       <% end %>
     </tbody>
   </table>
+  <%= paginate @stories %>
 </div>

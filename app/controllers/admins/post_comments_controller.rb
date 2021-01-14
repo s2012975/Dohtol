@@ -1,4 +1,6 @@
 class Admins::PostCommentsController < ApplicationController
+  
+  before_action :authenticate_admin!
 
   def destroy
     @customer = Customer.find(params[:customer_id])

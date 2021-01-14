@@ -1,6 +1,6 @@
 class Customers::CustomersController < ApplicationController
 
-    before_action :authenticate_customer!, only: [:edit, :update]
+    before_action :authenticate_customer!, only: [:edit, :update, :destroy]
 
     # comfirmとdestroyも含めたい
     before_action :ensure_correct_customer, only: [:update, :edit]
@@ -13,7 +13,7 @@ class Customers::CustomersController < ApplicationController
 
   def index
     @q = Customer.joins(:qualifications).ransack(params[:q])
-    @customers = @q.result
+    @customers = @q.result.page(params[:page]).per(10)
   end
 
   def edit
@@ -39,7 +39,6 @@ class Customers::CustomersController < ApplicationController
     params.require(:customer).permit(:profile_image, :nick_name, :introduction)
   end
 
-  # destroyも含めたい
   def ensure_correct_customer
     @customer = Customer.find(params[:id])
     unless @customer == current_customer

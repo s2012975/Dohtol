@@ -12,8 +12,8 @@
   </div>
 
   <div class="a-announce-content">
-    <p>内容</p>
-    <p class="a-announce-content-text"><strong><%= @announce.body %></strong></p>
+    <div>内容</div>
+    <p class="a-announce-content-text"><strong><%= simple_format(@announce.body) %></strong></p>
   </div>
 
   <%= link_to '編集', edit_admins_announce_path(params[:id]) %>

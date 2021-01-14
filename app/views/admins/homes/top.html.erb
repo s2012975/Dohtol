@@ -26,6 +26,7 @@
     <table class="a-announce-index-table">
       <%= render 'admins/announces/index', announces: @announces %>
   　</table>
+  　<%= paginate @announces %>
   </div>
 
   <div class="a-top-title">
@@ -35,7 +36,7 @@
   <div class="a-top-qualification-genre">
     <div class="a-top-qualification">
       <div>
-        <p>登録資格の一覧</p>
+        <p>最新の登録資格の一覧</p>
       </div>
       <div class="a-qualification-index">
         <table class="a-qualification-index-table">
@@ -49,7 +50,7 @@
 
     <div class="a-top-genre">
       <div>
-        <p>登録ジャンルの一覧</p>
+        <p>最新の登録ジャンルの一覧</p>
       </div>
       <div class="a-genre-topindex">
         <table class="a-genre-topindex-table">
