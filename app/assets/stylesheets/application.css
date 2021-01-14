@@ -98,16 +98,16 @@ footer {
   height: 600px;
 }
 .image1 {
-  background-image: url("meigen1.png");
+  background-image: image-url("meigen1.png");
 }
 .image2 {
-  background-image: url("meigen2.png");
+  background-image: image-url("meigen2.png");
 }
 .image3 {
-  background-image: url("meigen3.png");
+  background-image: image-url("meigen3.png");
 }
 .image4 {
-  background-image: url("meigen4.png");
+  background-image: image-url("meigen4.png");
 }
 
 /*共通*/
