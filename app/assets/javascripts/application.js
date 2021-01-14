@@ -63,14 +63,6 @@ $(document).ready(function() {
 
 
 
-
-// tableのtr要素にリンク
-
-$('tr[data-link]').click(function() {
-  window.location = $(this).data('link')
-})
-
-
 $(function(){
   function readURL(input) {
     if(input.files && input.files[0]){
