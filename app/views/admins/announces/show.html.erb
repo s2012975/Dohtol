@@ -1,0 +1,28 @@
+<h1 class="page-title">お知らせ</h1>
+
+<div class="a-announce-infomation">
+  <div class="a-announce-classificatio">
+    <p>タイトル</p>
+    <p><strong><%=  @announce.title %></strong></p>
+  </div>
+
+  <div>
+    <p class="a-announce-name">区分</p>
+    <p><strong><%= @announce.category %></strong></p>
+  </div>
+
+  <div class="a-announce-content">
+    <div>内容</div>
+    <p class="a-announce-content-text"><strong><%= simple_format(@announce.body) %></strong></p>
+  </div>
+
+  <%= link_to '編集', edit_admins_announce_path(params[:id]) %>
+
+  <div class="a-announce-destroy">
+    <%= link_to "削除", admins_announce_path(@announce), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, class: "destroy" %>
+  </div>
+
+  <div>
+    <%= link_to "TOPページに戻る", admins_homes_top_path %>
+  </div>
+</div>

@@ -1,2 +1,65 @@
-<h1>Admins::Homes#top</h1>
-<p>Find me in app/views/admins/homes/top.html.erb</p>
+<h1 class="page-title">管理者</h1>
+
+<div class="a-top-all">
+  <div class="a-top-title">
+    <p>最新の体験談</p>
+  </div>
+  <div class="a-stories-index">
+    <table class="a-stories-index-table">
+      <%= render 'admins/stories/top_index', stories: @stories %>
+    </table>
+  </div>
+
+  <div class="a-top-title">
+    <p>最近登録したユーザ</p>
+  </div>
+  <div class="a-customer-index">
+    <table class="a-customer-index-table">
+      <%= render 'admins/customers/top_index', customers: @customers %>
+    </table>
+  </div>
+
+  <div class="a-top-title">
+    <p>最新のお知らせ</p>
+  </div>
+　<div class="a-announce-index">
+    <table class="a-announce-index-table">
+      <%= render 'admins/announces/index', announces: @announces %>
+  　</table>
+  　<%= paginate @announces %>
+  </div>
+
+  <div class="a-top-title">
+    <%= link_to '新たにお知らせを作る', new_admins_announce_path %>
+  </div>
+
+  <div class="a-top-qualification-genre">
+    <div class="a-top-qualification">
+      <div>
+        <p>最新の登録資格の一覧</p>
+      </div>
+      <div class="a-qualification-index">
+        <table class="a-qualification-index-table">
+         <%= render 'admins/qualifications/index', qualifications: @qualifications %>
+        </table>
+      </div>
+         <div class="a-top-announce-top">
+        <%= link_to '新たに資格を作る', new_admins_qualification_path %>
+      </div>
+    </div>
+
+    <div class="a-top-genre">
+      <div>
+        <p>最新の登録ジャンルの一覧</p>
+      </div>
+      <div class="a-genre-topindex">
+        <table class="a-genre-topindex-table">
+          <%= render 'admins/genres/top_index', genres: @genres %>
+        </table>
+      </div>
+      <div class="a-top-genre-top">
+        <%= link_to '新たにジャンルを作る', admins_genres_path %>
+      </div>
+    </div>
+  </div>
+</div>

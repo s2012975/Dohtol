@@ -1,2 +1,61 @@
-<h1>Customers::Stories#new</h1>
-<p>Find me in app/views/customers/stories/new.html.erb</p>
+<h1 class="page-title">体験談作成</h1>
+　<%= form_with url: customers_qualification_stories_path, model:@story, local: true do |f| %>
+  <%= render 'layouts/errors', model: f.object %>
+	<div class="story-all">
+	  <div class="story-top">
+	    <div class="customer-introduction">
+	      <div class="customer-introduction-detail">
+	        <div class="customer-image">
+	          <%= attachment_image_tag current_customer, :profile_image, fallback: "no_image_square.jpg", size: "200x200", class: "customer-image" %>
+	        </div>
+	        <div class="customer-name">
+	          <p><strong><%= current_customer.nick_name %></strong><p>
+	        </div>
+	      </div>
+	    </div>
+	    <div class="story-part-one">
+	      <div class="story-items">
+			<div class="field">
+				<%= f.label :タイトル（最大20字） %><br>
+				<%= f.text_field :title, class: "title", size: "60" %>
+			</div>
+	      </div>
+
+	      <div class="story-items">
+	      	<div class="field">
+		        <%= f.label :資格学習時間%><br>
+		        <p>約<%= f.number_field :study_time, min:1,class: "study_time" %>時間</p>
+	        </div>
+	      </div>
+
+	      <div class="story-items">
+	      	<div class="field">
+		        <%= f.label :取得目的（最大20字） %><br>
+		        <p><%= f.text_field :reason, class: "reason", size: "60" %></p>
+	        </div>
+	      </div>
+	    </div>
+	  </div>
+	  <div class="story-bottom">
+	    <div class="story-content">
+	    	<div class="field">
+		      <p class="story-content-title"><%= f.label :内容 %></p>
+		      <div id="sample-btn">サンプルテキストを表示する</div>
+		      <%= f.text_area :body, class: "body", size: "130x10", id: "sample_text_form", placeholder: "書き方に困った時は「サンプルテキストを表示する」をクリックしてみましょう" %>
+	      </div>
+	    </div>
+
+	    <div class="story-content">
+	    	<div class="field">
+		      <p class="story-content-title"><%= f.label :使用した参考書・使い方 %></p>
+			      <div id="sample-books-btn">サンプルテキストを表示する</div>
+		      <%= f.text_area :books, class: "books", size: "130x3", id: "sample_books_form", placeholder: "書き方に困った時は「サンプルテキストを表示する」をクリックしてみましょう" %>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+	<div>
+		<%= f.submit '作成', class: "story-create-btn" %>
+	</div>
+
+<% end %>

@@ -1,2 +1,62 @@
-<h1>Admins::Customers#show</h1>
-<p>Find me in app/views/admins/customers/show.html.erb</p>
+<h1 class="page-title">会員詳細</h1>
+
+<div class="c-show-all">
+  <div class="c-show-left">
+    <div class="customer-image">
+      <%= attachment_image_tag @customer, :profile_image, fallback: "no_image_square.jpg", size: "200x200", class: "customer-image" %>
+    </div>
+
+    <div class="c-show-name">
+      <p>ニックネーム</p>
+      <strong><%= @customer.nick_name %></strong>
+    </div>
+
+    <div class="c-show-sex">
+      <span>性別：<%= @customer.sex %>　 年齢：<%= @customer.age %></span>
+    </div>
+
+    <div class="c-show-introduction">
+      <p class="customers-customer-introduction-title">
+        自己紹介
+      </p>
+      <div>
+        <strong><%= @customer.introduction %></strong>
+      </div>
+    </div>
+
+      <div class="c-follow-count">
+        <p>フォロー数   : <%=link_to @customer.followings.count, admins_customer_followings_path(@customer) %></p>
+      </div>
+
+      <div class="c-followers-count">
+        <p>フォロワー数 : <%=link_to @customer.followedes.count, admins_customer_followedes_path(@customer) %></p>
+      </div>
+
+    <div class="c-qualifications">
+      <%= render 'admins/qualifications/side_index', customer: @customer %>
+    </div>
+  </div>
+
+  <div class="c-show-right">
+    <div>
+      <p>投稿した体験談</p>
+        <table class="c-index-table">
+          <%= render 'admins/stories/side_index', stories: @stories %>
+        </table>
+      </div>
+　　<div>
+      <p>コメント欄</p>
+
+      <table id="given_messages">
+        <%= render 'admins/post_comments/index', customer: @customer %>
+      </table>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+

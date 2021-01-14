@@ -1,0 +1,31 @@
+ja:
+  activerecord:
+    attributes:
+      customer:
+        email: メールアドレス
+        last_name: 苗字(漢字)
+        first_name: 名前(漢字)
+        last_name_kana: 苗字(カナ)
+        first_name_kana: 名前(カナ)
+        nick_name: ニックネーム
+        sex: 性別
+        age: 年齢
+        encrypted_password: パスワード
+        Password: パスワード
+      story:
+        title: タイトル
+        study_time: 資格学習時間
+        reason: 取得目的
+        body: 内容
+        books: 使用した参考書・使い方
+      qualification:
+        name: 資格名
+        body: 内容
+        classification: 区分
+        genre: ジャンル
+      genre:
+        name: ジャンル名
+      announce:
+        title: タイトル
+        body: 概要
+        category: 区分

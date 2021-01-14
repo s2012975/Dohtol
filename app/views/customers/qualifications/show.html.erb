@@ -1,2 +1,56 @@
-<h1>Customers::Qualifications#show</h1>
-<p>Find me in app/views/customers/qualifications/show.html.erb</p>
+<h1 class="page-title"><%= @qualification.name %></h1>
+
+<div class="qualification-infomation">
+  <div class="qualification-classification">
+    <p>資格区分：<strong><%= @qualification.classification %></strong></p>
+  </div>
+
+  <div>
+    <p class="qualification-name">ジャンル：<strong><%= @qualification.genre.name %></strong></p>
+  </div>
+
+  <div class="qualification-content">
+    <div>資格内容</div>
+    <p class="qualification-content-text"><%= simple_format(@qualification.body) %></p>
+  </div>
+
+  <% if customer_signed_in? %>
+    <div class="story-create-btn">
+      <%= link_to '体験談を作成する', new_customers_qualification_story_path(@qualification), class: "btn" %>
+    </div>
+  <% end %>
+</div>
+
+<div class="customer-index">
+  <p class="customer-index-coution">（単位：時間）</p>
+  <table class="customer-index-table">
+    <thead class="">
+      <tr class="customer-index-table-title">
+        <th></th>
+        <th>ニックネーム</th>
+        <th width=120>タイトル</th>
+        <th width=80>学習時間</th>
+        <th>内容</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @stories.each do |story| %>
+        <tr>
+          <td width=100><%= attachment_image_tag story.customer, :profile_image, format: 'png', fallback: "no_image_square.jpg", size: "50x50" %></td>
+          <td class="q-name-reduce"><%= link_to  story.customer.nick_name,  customers_customer_path(story.customer.id) %></td>
+          <td class="q-title-reduce"><%= link_to story.title, customers_qualification_story_path(@qualification, story.id)  %></td>
+          <td class="q-text-reduce"><%= story.study_time %></td>
+          <td class="q-text-reduce"><%= story.body %></td>
+	        <td>
+	          <% if story.customer == current_customer %>
+              </div class="">
+                <%= link_to "削除", customers_qualification_story_path(@qualification.id, story.id), method: :delete, class: "" %>
+              </div>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= paginate @stories %>
+</div>

@@ -1,19 +1,39 @@
-<h1>About</h1>
+<h1 class="page-title about">About</h1>
 
-<div class="about-item">
-  <h3><strong>ドートル</strong>とは？？</h3>
-  <p>texttexttext</p>
-</div>
+<ul id="about-list">
+  <li class="about-list-item">
+    <h3 class="question">DOHTOL（ドートル）とは？？</h3>
+    <span>open</span>
+    <p class="answer">資格情報のコミュニティサイトです。<br>
+      ユーザ様の「<strong>資格取得の体験談</strong>」が投稿されていますので、学習の参考にしてみてください。<br>
+      また当サイトでは会員登録なしに、ほとんどのページが閲覧可能です。
+    </p>
+  </li>
 
-<div class="about-item">
-  <h3>コメントするには？？</h3>
-  <p>texttexttext</p>
-</div>
+  <li class="about-list-item">
+    <h3 class="question">資格取得の体験談はどこにありますか？？</h3>
+    <span>open</span>
+    <p class="answer">体験談はTOPページ、資格の詳細ページ、あるいはユーザ様の詳細ページにございます。</p>
+  </li>
 
-<div class="about-item">
-  <h3>新規登録するには？？</h3>
-  <p>texttexttext</p>
-</div>
+  <li class="about-list-item">
+    <h3 class="question">会員登録すメリットは？？</h3>
+    <span>open</span>
+    <p class="answer">会員登録することで、他の会員様への「フォロー」や「コメント」、体験談へ「いいね」ができます。</p>
+  </li>
+
+  <li class="about-list-item">
+    <h3 class="question">会員登録するには？？</h3>
+    <span>open</span>
+    <p class="answer">会員登録には「<strong><%= link_to 'ここ', new_customer_registration_path, class: '' %></strong>」から、またはページ上部の「新規登録」のリンクから登録を行えます。</p>
+  </li>
+
+  <li class="about-list-item">
+    <h3 class="question">見たい資格がないのですが…</h3>
+    <span>open</span>
+    <p class="answer">申し訳ございません。管理者が随時更新を行っておりますので、お待ちいただけると幸いです。</p>
+  </li>
+</ul>
 
 
-<p><%= link_to 'ここ', new_customer_registration_path, class: '' %>から新規登録ページに移動する</p>
+<%= link_to 'TOPページに戻る', root_path, class: "link-to-top" %>

@@ -1,6 +1,6 @@
 class Customers::CustomersController < ApplicationController
 
-    before_action :authenticate_customer!, only: [:edit, :update]
+    before_action :authenticate_customer!, only: [:edit, :update, :destroy]
 
     # comfirmとdestroyも含めたい
     before_action :ensure_correct_customer, only: [:update, :edit]
@@ -8,10 +8,12 @@ class Customers::CustomersController < ApplicationController
   def show
     @customer = Customer.find(params[:id])
     @post_comment = PostComment.new
+    @stories = Story.where(customer_id: @customer).limit(5)
   end
 
   def index
-    @customers = Customer.all
+    @q = Customer.joins(:qualifications).ransack(params[:q])
+    @customers = @q.result.page(params[:page]).per(10)
   end
 
   def edit
@@ -20,21 +22,16 @@ class Customers::CustomersController < ApplicationController
 
   def update
     if @customer.update(customer_params)
-      redirect_to customers_customer_path(@customer)
+      redirect_to edit_customers_customer_path(@customer)
     else
       render "edit"
     end
   end
 
-  def comfirm
-  end
-
   def destroy
-
     @customer.destroy
     redirect_to root_path
   end
-
 
   private
 
@@ -42,13 +39,15 @@ class Customers::CustomersController < ApplicationController
     params.require(:customer).permit(:profile_image, :nick_name, :introduction)
   end
 
-
-  # destroyも含めたい
   def ensure_correct_customer
     @customer = Customer.find(params[:id])
     unless @customer == current_customer
       redirect_to customers_customer_path(current_customer)
     end
+  end
+
+  def search_params
+    params.require(:q).permit!
   end
 
 end

@@ -1,0 +1,27 @@
+<h1 class="page-title">お知らせ編集</h1>
+
+<div class="a-announce-input-form">
+　<%= form_with url: admins_announce_path, model:@announce, local: true do |f| %>
+
+		<%= render 'layouts/errors', model: f.object %>
+
+		<div class="field">
+			<%= f.label :タイトル（20字以内） %><br>
+			<%= f.text_field :title, class: "title" %>
+		</div>
+
+		<div class="field">
+			<%= f.label :区分 %><br>
+			<%= f.select :category, [["最新情報", "最新情報"], ["イベント", "イベント"]], include_blank: "--選択して下さい--" %>
+		</div>
+
+		<div class="field">
+			<%= f.label :概要（500字以内） %><br>
+			<%= f.text_area :body, class: "body", size: "70x20" %>
+		</div>
+
+		<div class="actions">
+			<%= f.submit '保存'%>
+		</div>
+  <% end %>
+</div>

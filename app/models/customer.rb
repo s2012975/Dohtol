@@ -6,11 +6,26 @@ class Customer < ApplicationRecord
 
   attachment :profile_image
 
-  has_many :customer_have_qualifications, dependent: :destroy
-  has_many :customer_study_qualifications, dependent: :destroy
+  validates :last_name, presence: true
+  validates :first_name, presence: true
+  validates :last_name_kana, presence: true
+  validates :first_name_kana, presence: true
+  validates :nick_name, presence: true, length: { maximum:6 }
+  validates :sex, presence: true
+  validates :age, presence: true, numericality: { greater_than: 6 } && { less_than: 100 }
+  validates :email, presence: true
+  validates :encrypted_password, presence: true, length: { minimum:6 }
+
+  has_many :customer_study_qualifications
+  has_many :qualifications, through: :customer_study_qualifications, dependent: :destroy
+
+  has_many :customer_have_qualifications
+  has_many :qualifications, through: :customer_have_qualifications, dependent: :destroy
+
   has_many :events, dependent: :destroy
   has_many :stories, dependent: :destroy
-
+  has_many :likes, dependent: :destroy
+  has_many :liked_stories, through: :likes, source: :story, dependent: :destroy
 
   # 以下post_commentsの設定
 

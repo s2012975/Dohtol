@@ -1,3 +1,82 @@
 // Place all the styles related to the customers/stories controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.story-all {
+  background-color: #DEB887;
+  border-radius: 5px;
+  padding: 20px;
+}
+
+.story-top {
+  display: flex;
+}
+
+.customer-image {
+  border-radius: 50%;
+}
+
+.customer-introduction {
+  width: 500px;
+}
+
+.customer-introduction-detail {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.story-part-one {
+  width: 500px;
+  padding: 20px 20px;
+}
+
+.story-items:not(:last-child) {
+  margin-bottom: 20px;
+  background-color: #FAEBD7;
+  border-radius: 5px;
+  padding-left: 10px;
+}
+
+.story-items:last-child {
+  background-color: #FAEBD7;
+  border-radius: 5px;
+  padding-left: 10px;
+}
+
+.story-bottom {
+  width: 100%;
+}
+
+.story-content {
+  margin-bottom: 20px;
+  background-color: #FAEBD7;
+  border-radius: 5px;
+  padding-left: 10px;
+  padding: 0 20px;
+}
+
+.story-content-title {
+  text-align: center;
+}
+
+div.story-edit-btn {
+  width: 130px;
+  margin-bottom: 2px;
+  background-color: #FAEBD7;
+  border-radius: 5px;
+}
+
+.story-back-btn {
+  width: 120px;
+  margin-bottom: 2px;
+  background-color: #FAEBD7;
+  border-radius: 5px;
+}
+
+.story-create-btn {
+  width: 130px;
+  margin-bottom: 30px;
+  background-color: #FAEBD7;
+  border-radius: 5px;
+}
+

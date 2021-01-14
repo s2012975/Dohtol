@@ -1,6 +1,6 @@
 class Customers::RelationshipsController < ApplicationController
 
-  before_action :authenticate_customer!
+  before_action :authenticate_customer!, only: [:create, :destroy]
 
   def create
     current_customer.follow(params[:customer_id])

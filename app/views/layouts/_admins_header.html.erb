@@ -1,12 +1,16 @@
 
 <div class="header-title">
-  <span><%= link_to 'ドートル', admins_homes_top_path %></span>
+  <span>
+    <%= link_to admins_homes_top_path do %>
+      <%= image_tag 'dohtol_logo.png', size: '60x60' %>
+    <% end %>
+  </span>
 </div>
 <nav class="header-nav">
-  <ul>
-    <li class="header-nav-list-item"><%= link_to 'admin', admins_homes_top_path, class: '' %></li>
-    <li class="header-nav-list-item"><%= link_to 'qindex', admins_qualifications_path, class: '' %></li>
-    <li class="header-nav-list-item"><%= link_to 'cindex', admins_customers_path, class: '' %></li>
-    <li class="header-nav-list-item"><%= link_to 'logout',  destroy_admin_session_path, method: :delete, class: '' %></li>
+  <ul class="header-nav-list">
+    <li class="header-nav-list-item"><%= link_to '管理者ページ', admins_homes_top_path, class: 'header-nav-list-item-text' %></li>
+    <li class="header-nav-list-item"><%= link_to '資格一覧', admins_qualifications_path, class: 'header-nav-list-item-text' %></li>
+    <li class="header-nav-list-item"><%= link_to 'ユーザ一覧', admins_customers_path, class: 'header-nav-list-item-text' %></li>
+    <li class="header-nav-list-item"><%= link_to 'ログアウト',  destroy_admin_session_path, method: :delete, class: 'header-nav-list-item-text' %></li>
   </ul>
 </nav>

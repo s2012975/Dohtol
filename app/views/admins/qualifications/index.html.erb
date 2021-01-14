@@ -1,0 +1,25 @@
+<h1 class="page-title">資格一覧</h1>
+
+<div class="qualification-index">
+  <table class='qualification-index-table'>
+    <thead>
+      <tr class="qualification-index-table-title">
+        <th>資格名</th>
+        <th>ジャンル</th>
+        <th>概要</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @qualifications.each do |qualification| %>
+        <tr class="items">
+          <td>
+            <%= link_to qualification.name, admins_qualification_path(qualification) %>
+          </td>
+          <td width=150><%= qualification.genre.name %></td>
+          <td class="q-index-text-reduce"><%= qualification.body %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= paginate @qualifications %>
+</div>

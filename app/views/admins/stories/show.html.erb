@@ -1,0 +1,52 @@
+<h1 class="page-title">資格体験談</h1>
+
+<div class="a-story-back-btn">
+  <%= link_to '資格詳細に戻る', admins_qualification_path(params[:qualification_id]), class: "btn" %>
+</div>
+
+
+<div class="story-all">
+  <div class="story-top">
+    <div class="customer-introduction">
+      <div class="customer-introduction-detail">
+        <div class="customer-image">
+          <%= attachment_image_tag @customer, :profile_image, fallback: "no_image_square.jpg", size: "200x200", class: "customer-image" %>
+        </div>
+        <div class="customer-name">
+          <p><strong><%= @customer.nick_name %></strong><p>
+        </div>
+      </div>
+    </div>
+    <div class="story-part-one">
+      <div class="story-items">
+        <p>タイトル</p>
+        <p><strong><%= @story.title %></strong></p>
+      </div>
+
+      <div class="story-items">
+        <p>資格勉強時間</p>
+        <p>約<strong> <%= @story.study_time %> </strong>時間</p>
+      </div>
+
+      <div class="story-items">
+        <p>理由</p>
+        <p><strong><%= @story.reason %></strong></p>
+      </div>
+    </div>
+  </div>
+  <div class="story-bottom">
+    <div class="story-content">
+      <p class="story-content-title">内容</p>
+      <strong><%= simple_format(@story.body) %></strong>
+    </div>
+
+    <div class="story-content">
+      <p class="story-content-title">利用した参考書</p>
+      <strong><%= simple_format(@story.books) %></strong>
+    </div>
+  </div>
+</div class="">
+  <%= link_to "削除", admins_qualification_story_path(@qualification.id, @story.id), method: :delete, class: "" %>
+</div>
+</div>
+

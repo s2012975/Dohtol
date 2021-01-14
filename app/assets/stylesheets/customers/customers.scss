@@ -1,3 +1,111 @@
 // Place all the styles related to the customers/Customers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+// customerの一覧ページ
+
+.customer-search{
+  width: 300px;
+}
+
+.searh-window {
+  margin-left: 60%;
+  margin-bottom: 20px;
+}
+
+.customer-index {
+  width: 100%;
+  background-color: #DEB887;
+  padding: 20px 20px;
+  border-radius: 5px;
+}
+
+.customer-index-table {
+  width: 100%;
+  background-color: #FAEBD7;
+  text-align: left;
+  border-radius: 5px;
+}
+
+.customer-index-table-title > th:not(:first-child) {
+  background-color: #A9A9A9;
+  border-radius: 5px;
+}
+
+// 資格一覧ページ
+
+.qualification-index {
+  width: 100%;
+  background-color: #DEB887;
+  padding: 20px 20px;
+  border-radius: 5px;
+}
+
+.qualification-index-table {
+  width: 100%;
+  background-color: #FAEBD7;
+  text-align: left;
+  border-radius: 5px;
+}
+
+.qualification-index-table-title > th {
+  background-color: #A9A9A9;
+  border-radius: 5px;
+}
+
+.items {
+  border-bottom: 1px solid #f7f7f7;
+}
+
+// 資格詳細ページ
+
+.qualification-infomation {
+  text-align: center;
+}
+
+.qualification-classification {
+  margin-bottom: 10px;
+}
+
+.qualification-name {
+  margin-bottom: 10px;
+}
+
+.qualification-content {
+  margin-bottom: 50px;
+}
+
+.customer-index-coution {
+  text-align: right;
+}
+
+.story-create-btn {
+  width: 150px;
+  margin-bottom: 30px;
+  background-color: #FAEBD7;
+  border-radius: 5px;
+}
+
+
+.a-name-reduce {
+    max-width: 150px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.a-title-reduce {
+    max-width: 150px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.a-text-reduce {
+    max-width: 100px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}

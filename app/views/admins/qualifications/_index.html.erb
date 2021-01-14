@@ -1,0 +1,16 @@
+<thead>
+  <tr class="a-qualification-index-table-title">
+    <th></th>
+    <th>資格名</th>
+    <th>ジャンル</th>
+  </tr>
+</thead>
+<tbody>
+  <% qualifications.each do |qualification| %>
+    <tr>
+      <td></td>
+      <td class="announce-reduce-text"><%= link_to qualification.name, admins_qualification_path(qualification)  %></td>
+      <td width=100, class="genre-reduce-name"><%= qualification.genre.name  %></td>
+    </tr>
+  <% end %>
+</tbody>

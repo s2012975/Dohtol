@@ -1,3 +1,45 @@
 // Place all the styles related to the admins/Qualifications controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.qualification-infomation {
+  text-align: center;
+  .qualification-classification {
+  margin-bottom: 10px;
+  }
+  .qualification-name {
+  margin-bottom: 10px;
+  }
+  .qualification-content {
+    margin-bottom: 50px;
+  }
+}
+
+.customer-index {
+  width: 100%;
+  background-color: #DEB887;
+  padding: 20px 20px;
+  border-radius: 5px;
+  .customer-index-coution {
+    text-align: right;
+  }
+  .customer-index-table {
+    width: 100%;
+    background-color: #FAEBD7;
+    text-align: left;
+    border-radius: 5px;
+    .customer-index-table-title > th:not(:first-child) {
+      background-color: #A9A9A9;
+      border-radius: 5px;
+    }
+  }
+}
+
+.qualification-detail-text p {
+  text-align: left;
+}
+
+
+
+
+

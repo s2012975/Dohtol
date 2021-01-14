@@ -1,3 +1,253 @@
 // Place all the styles related to the customers/Homes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.main-visual {
+  width: 100%;
+  height: 300px;
+  display: flex;
+  margin-bottom: 30px;
+  border-radius: 5px;
+}
+
+.main-visual-right {
+  width: 50%;
+  height: 300px;
+  background-color: black;
+  padding: 20px;
+}
+
+.main-visual-left {
+  width: 50%;
+  height: 300px;
+  background-image: image-url("dohtol.png");
+  background-size: cover;
+}
+
+.main-contents {
+  width: 800px;
+  margin: 0 auto;
+}
+
+.qualification {
+  width: 100%;
+  padding: 20px 10px;
+  border-radius: 5px;
+  margin-bottom: 30px;
+}
+
+.top-icon {
+  margin: 0 auto;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.top-icon-anime {
+  width: 100px;
+  height: 100px;
+}
+
+.qualification-genre {
+  width: 100%;
+  padding: 20px 20px;
+  background-color: #DEB887;
+  border-radius: 5px;
+}
+
+.qualification-contents {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.qualification-box {
+  margin-bottom: 20px;
+  margin-right: 20px;
+  border-radius: 5px;
+}
+
+.qualification-box-item {
+  border-radius: 5px;
+}
+
+.qualification-box:nth-child(1) {
+  margin-left: 20px;
+}
+
+.qualification-box:nth-child(5) {
+  margin-left: 20px;
+}
+
+.qualification-box-img-1 {
+  background-image: url("study_gariben_boy.png");
+}
+
+.new-stories-box {
+  height: 300px;
+  width: 100%;
+  padding: 20px 20px;
+  background-color: #DEB887;
+  border-radius: 5px;
+  margin-bottom: 30px;
+}
+
+.top-new-stories-box {
+  width: 100%;
+  padding: 10px 10px;
+  background-color: #DEB887;
+  border-radius: 5px;
+  margin-bottom: 30px;
+}
+
+.ranking-box {
+  height: 300px;
+  width: 100%;
+  padding: 20px 20px;
+  background-color: #DEB887;
+  border-radius: 5px;
+  margin-bottom: 30px;
+}
+
+
+/*タブ切り替え全体のスタイル*/
+.tabs {
+  margin-top: 50px;
+  padding-bottom: 40px;
+  background-color: #FAEBD7;
+  // box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  width: 800px;
+  margin: 0 auto;
+  margin-bottom: 30px;
+  border-radius: 5px;
+}
+
+/*タブのスタイル*/
+.tab_item {
+  width: calc(100%/3);
+  height: 30px;
+  background-color: #d9d9d9;
+  line-height: 30px;
+  font-size: 13px;
+  text-align: center;
+  display: block;
+  float: left;
+  text-align: center;
+  font-weight: bold;
+  transition: all 0.2s ease;
+}
+
+.tab_item:hover {
+  opacity: 0.75;
+}
+
+/*ラジオボタンを全て消す*/
+input[name="tab_item"] {
+  display: none;
+}
+
+/*タブ切り替えの中身のスタイル*/
+.tab_content {
+  display: none;
+  padding: 0 40px;
+  clear: both;
+  overflow: hidden;
+}
+
+
+/*選択されているタブのコンテンツのみを表示*/
+#all:checked ~ #all_content,
+#programming:checked ~ #programming_content,
+#design:checked ~ #design_content {
+  display: block;
+}
+
+/*選択されているタブのスタイルを変える*/
+.tabs input:checked + .tab_item {
+  background-color: #FAEBD7;
+}
+
+
+// topへ戻るボタン
+#back {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  text-align: center;
+}
+
+#back img {
+  width: 50px;
+  height: 50px;
+}
+
+.back-text {
+  font-size: 11px;
+}
+
+
+// 以下aboutページ
+
+.about {
+  margin-bottom: 110px;
+}
+
+#about-list {
+  width: 800px;
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
+}
+
+.about-list-item {
+  margin:10px;
+  border-bottom:1px solid #ccc;
+  position:relative;
+  cursor:pointer;
+  text-align: left;
+  margin-bottom: 30px;
+}
+
+.faq-list-item span {
+  position:absolute;
+  top:0;
+  right:5px;
+  color:#ccc;
+  font-size:13px;
+}
+
+.answer {
+  padding: 5px 0px;
+  margin-bottom: 15px;
+  display: none;
+  background-color: #FAEBD7;
+}
+
+.about-list-item span {
+  position:absolute;
+  top:0;
+  right:5px;
+}
+
+.link-to-top {
+  padding-left: 43%;
+}
+
+.name-reduce {
+    max-width: 60px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.title-reduce {
+    max-width: 60px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.text-reduce {
+    max-width: 100px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
