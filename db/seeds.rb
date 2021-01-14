@@ -13,3 +13,35 @@ Admin.create!(
     email:    'test@test',
     password: 'testtest'
     )
+
+Genre.create!(
+    name:  '語学',
+    )
+
+Genre.create!(
+    name:  '医療・福祉',
+    )
+
+Genre.create!(
+    name:  '会計・経理',
+    )
+
+Genre.create!(
+    name:  '司法・労務',
+    )
+
+Genre.create!(
+    name:  'IT',
+    )
+
+Genre.create!(
+    name:  'ビジネス',
+    )
+
+Genre.create!(
+    name:  '公務員',
+    )
+
+Genre.create!(
+    name:  'スポーツ',
+    )
