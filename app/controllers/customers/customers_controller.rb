@@ -12,7 +12,7 @@ class Customers::CustomersController < ApplicationController
   end
 
   def index
-    @q = Customer.joins(:qualifications).ransack(params[:q])
+    @q = Customer.includes(:qualifications).ransack(params[:q])
     @customers = @q.result.page(params[:page]).per(10)
   end
 
